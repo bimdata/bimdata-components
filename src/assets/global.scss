@@ -1,0 +1,16 @@
+@import "@bimdata/design-system/dist/css/design-system.css";
+@import "@bimdata/design-system/dist/css/fonts.css";
+@import "@bimdata/design-system/dist/scss/elements/_BIMDataScrollbar.scss";
+@import "@bimdata/design-system/dist/scss/_BIMDataTransitions.scss";
+@import "@bimdata/design-system/dist/scss/_BIMDataUtilities.scss";
+
+html {
+  font-family: var(--primary-font);
+  font-size: var(--font-size);
+  color: var(--color-primary);
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

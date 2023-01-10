@@ -1,0 +1,25 @@
+{
+  "name": "bimdata-components",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest --environment jsdom --root src/",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
+  "peerDependencies": {
+    "@bimdata/design-system": "^1.4.0-rc.80",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "@bimdata/typescript-fetch-api-client": "^9.4.1"
+  }
+}
