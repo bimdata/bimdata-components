@@ -62,19 +62,8 @@
       />
     </div>
     <div class="bimdata-file-manager__navigation">
-      <div
-        v-if="navigationShown"
-        class="bimdata-file-manager__navigation__content"
-      >
-        <BIMDataButton
-          color="default"
-          icon
-          radius
-          ghost
-          width="33px"
-          height="31px"
-          @click="back"
-        >
+      <div v-if="navigationShown" class="bimdata-file-manager__navigation__content">
+        <BIMDataButton color="default" icon radius ghost width="33px" height="31px" @click="back">
           <BIMDataIcon name="arrow" />
         </BIMDataButton>
         <BIMDataTextbox
@@ -91,11 +80,7 @@
     </div>
     <template v-if="fileStructure">
       <div class="bimdata-file-manager__container" v-if="files.length > 0">
-        <BIMDataResponsiveGrid
-          :itemWidth="itemWidth"
-          rowGap="4px"
-          columnGap="6px"
-        >
+        <BIMDataResponsiveGrid :itemWidth="itemWidth" rowGap="4px" columnGap="6px">
           <FileCard
             :width="itemWidth"
             v-for="file of files"
@@ -285,19 +270,18 @@ export default {
     files() {
       let files = null;
       if (this.searchText) {
-        files = (
-          (this.currentFolder && this.currentFolder.children) ||
-          []
-        ).filter(file => file.name.toLowerCase().includes(this.searchText));
+        files = ((this.currentFolder && this.currentFolder.children) || []).filter((file) =>
+          file.name.toLowerCase().includes(this.searchText)
+        );
       } else {
         files = (this.currentFolder && this.currentFolder.children) || [];
       }
 
       files.push(
         ...this.loadingFiles.filter(
-          loadingFile =>
+          (loadingFile) =>
             loadingFile.folder.id === this.currentFolder.id &&
-            !files.find(file => file.id === loadingFile.id) // for multi file loading
+            !files.find((file) => file.id === loadingFile.id) // for multi file loading
         )
       );
 
@@ -346,11 +330,10 @@ export default {
         apiUrl: this.apiUrl,
         accessToken: this.accessToken,
       });
-      this.fileStructure =
-        await this.apiClient.collaborationApi.getProjectDMSTree(
-          this.spaceId,
-          this.projectId
-        );
+      this.fileStructure = await this.apiClient.collaborationApi.getProjectDMSTree(
+        this.spaceId,
+        this.projectId
+      );
     } catch (error) {
       this.$emit("error", error);
     }
@@ -373,10 +356,7 @@ export default {
       if (e.key === "Escape") {
         this.entityRenown = null;
         this.entityDeletable = null;
-        if (
-          this.$refs.search &&
-          this.$refs.search.$refs.input === document.activeElement
-        ) {
+        if (this.$refs.search && this.$refs.search.$refs.input === document.activeElement) {
           this.searchText = "";
           this.$refs.search.blur();
         }
@@ -388,9 +368,7 @@ export default {
     isFileSucess(id) {
       return (
         this.successFileIds.includes(id) ||
-        (this.select &&
-          this.alreadySelectedIds &&
-          this.alreadySelectedIds.includes(id))
+        (this.select && this.alreadySelectedIds && this.alreadySelectedIds.includes(id))
       );
     },
     onFileLoaded(loadingFile, loadedFile) {
@@ -398,12 +376,10 @@ export default {
         this.$set(loadingFile.folder, "children", []);
       }
       loadingFile.folder.children = loadingFile.folder.children.filter(
-        child => child.id !== loadingFile.id
+        (child) => child.id !== loadingFile.id
       );
       loadingFile.folder.children.push(loadedFile);
-      this.loadingFiles = this.loadingFiles.filter(
-        child => child.id !== loadingFile.id
-      );
+      this.loadingFiles = this.loadingFiles.filter((child) => child.id !== loadingFile.id);
 
       this.$emit("success", {
         type: "fileCreated",
@@ -414,9 +390,7 @@ export default {
       this.successFileIds.push(loadedFile.id);
       this.timeoutId = setTimeout(() => {
         if (this.successFileIds) {
-          this.successFileIds = this.successFileIds.filter(
-            fileId => fileId !== loadedFile.id
-          );
+          this.successFileIds = this.successFileIds.filter((fileId) => fileId !== loadedFile.id);
         }
       }, SUCCESS_TIME);
     },
@@ -438,9 +412,7 @@ export default {
     onDeleteSuccess() {
       const parent = this.getParent(this.fileStructure, this.entityDeletable);
       if (parent) {
-        parent.children = parent.children.filter(
-          child => child.id !== this.entityDeletable.id
-        );
+        parent.children = parent.children.filter((child) => child.id !== this.entityDeletable.id);
       }
 
       const isFolder = this.entityDeletable.nature === "Folder";
@@ -474,7 +446,7 @@ export default {
       this.pdfToView = file;
     },
     onResize(entries) {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         this.width = entry.target.clientWidth;
       });
     },
@@ -488,7 +460,7 @@ export default {
      * @param { File[] } files
      */
     formatFiles(files) {
-      return files.map(file => ({
+      return files.map((file) => ({
         name: file.name,
         updated_at: new Date(file.lastModified),
         nature: "Document",
@@ -510,9 +482,7 @@ export default {
     },
     onToggleFileSelect(file) {
       if (this.isFileSelected(file)) {
-        this.selectedFiles = this.selectedFiles.filter(
-          selectedFile => selectedFile !== file
-        );
+        this.selectedFiles = this.selectedFiles.filter((selectedFile) => selectedFile !== file);
       } else {
         if (!this.multi) {
           this.selectedFiles = [];

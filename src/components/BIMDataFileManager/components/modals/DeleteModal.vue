@@ -17,13 +17,9 @@
       <div class="delete-modal__content__title">
         {{ $translate("deleteTitle") }}
       </div>
-      <div class="delete-modal__content__detail">
-        {{ $translate("deleteDetail") }} :
-      </div>
+      <div class="delete-modal__content__detail">{{ $translate("deleteDetail") }} :</div>
       <ul>
-        <li v-for="element of flattenTree" :key="element.id">
-          - "{{ element.name }}"
-        </li>
+        <li v-for="element of flattenTree" :key="element.id">- "{{ element.name }}"</li>
       </ul>
       <div class="delete-modal__content__btn">
         <BIMDataButton
