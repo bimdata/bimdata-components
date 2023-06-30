@@ -1,2 +1,3 @@
-# bimdata-components
+# BIMData Components
+
 BIMData components library.

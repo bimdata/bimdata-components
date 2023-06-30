@@ -1,25 +1,29 @@
 {
-  "name": "bimdata-components",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@bimdata/components",
+  "version": "0.1.0",
+  "files": [
+    "src",
+    "vue3-plugin.js"
+  ],
+  "module": "./index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test:unit": "vitest --environment jsdom --root src/",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
-  },
-  "peerDependencies": {
-    "@bimdata/design-system": "^1.4.0-rc.80",
-    "vue": "^3.2.45"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "sass": "^1.57.1",
-    "sass-loader": "^13.2.0",
-    "vite": "^4.0.0"
+    "release": "semantic-release"
   },
   "dependencies": {
-    "@bimdata/typescript-fetch-api-client": "^9.4.1"
+    "@bimdata/typescript-fetch-api-client": "^9.11.0"
+  },
+  "peerDependencies": {
+    "@bimdata/design-system": "*",
+    "vue": "^3.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^10.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.0.3",
+    "@semantic-release/npm": "^10.0.4",
+    "@semantic-release/release-notes-generator": "^11.0.3",
+    "conventional-changelog-eslint": "^4.0.0",
+    "semantic-release": "^21.0.6"
   }
 }

@@ -80,7 +80,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@bimdata/design-system/dist/scss/BIMDataVariables.scss";
 .preview-2d {
   position: relative;
   height: 100%;

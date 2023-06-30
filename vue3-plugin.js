@@ -1,9 +1,14 @@
-import * as Components from "./src/components/index.js";
+import * as Components from "./index.js";
 
 /**
- * Instal components and directives from the design system.
- * WARNING: The css needs to be added manually.
- * @param { { includedComponents?: string[], excludedComponents?: string[] } } [cfg]
+ * Register BIMData components globally.
+ *
+ * @param {
+*   {
+*     includedComponents?: string[],
+*     excludedComponents?: string[]
+*   } 
+*  } [cfg]
  */
 const pluginFactory = (cfg) => {
   return {

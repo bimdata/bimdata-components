@@ -30,13 +30,13 @@
 
 <script>
 import { ref, watch } from "vue";
-// import BIMDataLoading from "../BIMDataLoading/BIMDataLoading.vue";
-// import BIMDataTextbox from "../BIMDataTextbox/BIMDataTextbox.vue";
+import BIMDataLoading from "../BIMDataLoading/BIMDataLoading.vue";
+import BIMDataTextbox from "../BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
   components: {
-    // BIMDataLoading,
-    // BIMDataTextbox,
+    BIMDataLoading,
+    BIMDataTextbox,
   },
   props: {
     header: {
@@ -82,9 +82,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// import BIMDATA VARIABLES
-@import "@bimdata/design-system/dist/scss/BIMDataVariables.scss";
-
 .pdf-viewer {
   width: 100%;
   height: 100%;
