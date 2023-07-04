@@ -30,14 +30,8 @@
 
 <script>
 import { ref, watch } from "vue";
-import BIMDataLoading from "../BIMDataLoading/BIMDataLoading.vue";
-import BIMDataTextbox from "../BIMDataTextbox/BIMDataTextbox.vue";
 
 export default {
-  components: {
-    BIMDataLoading,
-    BIMDataTextbox,
-  },
   props: {
     header: {
       type: Boolean,

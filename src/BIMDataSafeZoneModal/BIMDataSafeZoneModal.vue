@@ -15,12 +15,7 @@
 </template>
 
 <script>
-import BIMDataIcon from "../BIMDataIcon/BIMDataIcon.vue";
-
 export default {
-  components: {
-    BIMDataIcon,
-  },
   props: {
     iconName: {
       type: String,
