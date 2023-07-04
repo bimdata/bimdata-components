@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/bimdata/bimdata-components/compare/v1.0.4...v1.0.5) (2023-07-04)
+
+
+### PATCH
+
+* fix: apply migration changes ([25492cf](https://github.com/bimdata/bimdata-components/commit/25492cf6b55c17428348a4d728a0d9ebbf18469f))
+
 ## [1.0.4](https://github.com/bimdata/bimdata-components/compare/v1.0.3...v1.0.4) (2023-07-04)
 
 
