@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/bimdata/bimdata-components/compare/v1.0.5...v1.0.6) (2023-07-04)
+
+
+### PATCH
+
+* fix: remove explicit DS import in components ([d269fb3](https://github.com/bimdata/bimdata-components/commit/d269fb3651bdd62dad88e5553cccda170c14bebf))
+
 ## [1.0.5](https://github.com/bimdata/bimdata-components/compare/v1.0.4...v1.0.5) (2023-07-04)
 
 
