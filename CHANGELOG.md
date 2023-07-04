@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/bimdata/bimdata-components/compare/v1.0.0...v1.0.1) (2023-07-04)
+
+
+### PATCH
+
+* chore(pkg): add main field to package.json ([22cd77b](https://github.com/bimdata/bimdata-components/commit/22cd77baad8e285bc2cd6556eb50aaafe7f66fd4))
+
 # 1.0.0 (2023-06-30)
 
 
