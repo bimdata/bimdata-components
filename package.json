@@ -5,6 +5,7 @@
     "src",
     "vue3-plugin.js"
   ],
+  "main": "./index.js",
   "module": "./index.js",
   "scripts": {
     "release": "semantic-release"
