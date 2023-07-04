@@ -1,5 +1,3 @@
-@import "@bimdata/design-system/dist/scss/BIMDataVariables.scss";
-
 .bimdata-file-manager {
   width: 100%;
 
@@ -68,6 +66,14 @@
     }
   }
 
+  &__pdf-page-selector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   &__modal {
     position: absolute;
     top: 0px;
@@ -107,9 +113,9 @@
         align-items: center;
         justify-content: center;
         font-size: small;
-        color: $color-granite;
+        color: var(--color-granite);
         span {
-          margin-top: calc($spacing-unit * 2);
+          margin-top: calc(var(--spacing-unit) * 2);
         }
       }
     }

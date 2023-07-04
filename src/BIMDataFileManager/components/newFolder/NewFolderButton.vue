@@ -34,6 +34,7 @@
 
 <script>
 import NewFolderForm from "./NewFolderForm.vue";
+
 export default {
   components: {
     NewFolderForm,
@@ -92,9 +93,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// import BIMDATA VARIABLES
-@import "@bimdata/design-system/dist/scss/BIMDataVariables.scss";
-
 .folder-creation-button {
   position: relative;
   min-width: 25%;

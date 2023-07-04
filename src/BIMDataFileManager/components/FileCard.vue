@@ -36,19 +36,24 @@
             <BIMDataIcon name="ellipsis" size="l" fill color="granite-light" />
           </BIMDataButton>
           <div v-else-if="!isFolder">
-            <BIMDataCheckbox
-              :disabled="disabled"
-              v-if="multiSelect"
-              :modelValue="selected"
-              class="file-card__content__header__btn-menu__checkbox"
-            />
-            <BIMDataRadio
-              :disabled="disabled"
-              v-else
-              big
-              :modelValue="selected"
-              name="BIMDataFileCardRadio"
-            />
+            <template v-if="pdfModelLoading">
+              <BIMDataSpinner style="margin: 10px" />
+            </template>
+            <template v-else>
+              <BIMDataCheckbox
+                :disabled="disabled"
+                v-if="multiSelect"
+                :modelValue="selected"
+                class="file-card__content__header__btn-menu__checkbox"
+              />
+              <BIMDataRadio
+                :disabled="disabled"
+                v-else
+                big
+                :modelValue="selected"
+                name="BIMDataFileCardRadio"
+              />
+            </template>
           </div>
         </div>
         <template v-if="file.nature === 'Folder'">
@@ -183,6 +188,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    pdfModelLoading: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: [
     "rename",
@@ -301,8 +310,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@bimdata/design-system/dist/scss/BIMDataVariables.scss";
-
 .file-card {
   height: 192px;
   display: flex;

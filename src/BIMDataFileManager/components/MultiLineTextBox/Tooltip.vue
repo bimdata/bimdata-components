@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .multi-line-textbox-tooltip {
   width: 100%;
   &__content {
@@ -35,6 +35,7 @@ export default {
   }
   &::before {
     content: "";
+    display: block;
     position: absolute;
     top: -8px;
     border: var(--color-primary) solid 8px;
