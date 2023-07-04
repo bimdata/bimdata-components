@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "files": [
     "src",
+    "index.js",
     "vue3-plugin.js"
   ],
   "main": "./index.js",
