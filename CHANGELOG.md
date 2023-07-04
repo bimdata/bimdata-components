@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/bimdata/bimdata-components/compare/v1.0.1...v1.0.2) (2023-07-04)
+
+
+### PATCH
+
+* chore(pkg): set private to false in package.json ([55b74af](https://github.com/bimdata/bimdata-components/commit/55b74af9f398848a243b53b4a6ae8788b4f67db7))
+
 ## [1.0.1](https://github.com/bimdata/bimdata-components/compare/v1.0.0...v1.0.1) (2023-07-04)
 
 
