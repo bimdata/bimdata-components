@@ -1,6 +1,7 @@
 {
   "name": "@bimdata/components",
   "version": "1.0.1",
+  "private": false,
   "files": [
     "src",
     "vue3-plugin.js"
