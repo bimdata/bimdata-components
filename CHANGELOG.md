@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/bimdata/bimdata-components/compare/v1.0.2...v1.0.3) (2023-07-04)
+
+
+### PATCH
+
+* chore(pkg): remove private field in pakcage.json ([aeddac8](https://github.com/bimdata/bimdata-components/commit/aeddac8d136743b94028033394f1ba028d3258ba))
+
 ## [1.0.2](https://github.com/bimdata/bimdata-components/compare/v1.0.1...v1.0.2) (2023-07-04)
 
 
