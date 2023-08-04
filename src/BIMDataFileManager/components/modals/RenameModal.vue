@@ -10,7 +10,7 @@
       height="21px"
       @click="close"
     >
-      <BIMDataIcon name="close" />
+      <BIMDataIconClose />
     </BIMDataButton>
     <div class="rename-modal__content">
       <div class="rename-modal__content__title">

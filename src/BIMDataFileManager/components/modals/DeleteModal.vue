@@ -11,7 +11,7 @@
       @click="close"
       :disabled="loading"
     >
-      <BIMDataIcon name="close" />
+      <BIMDataIconClose />
     </BIMDataButton>
     <div class="delete-modal__content">
       <div class="delete-modal__content__title">
