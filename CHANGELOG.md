@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/bimdata/bimdata-components/compare/v1.0.6...v1.1.0) (2023-08-09)
+
+
+### MINOR
+
+* use projectsBySpace as peer dependency ([182e64c](https://github.com/bimdata/bimdata-components/commit/182e64c5e17852eaedd8e37a91e96749aae0f87f))
+
 ## [1.0.6](https://github.com/bimdata/bimdata-components/compare/v1.0.5...v1.0.6) (2023-07-04)
 
 
