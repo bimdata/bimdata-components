@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/bimdata/bimdata-components/compare/v1.1.0...v1.1.1) (2023-08-11)
+
+
+### PATCH
+
+* Merge pull request #1 from bimdata/fix/use-standalone-icons ([e217667](https://github.com/bimdata/bimdata-components/commit/e21766773e4fa44dff85e7bf72014253efe1f870)), closes [#1](https://github.com/bimdata/bimdata-components/issues/1)
+
 # [1.1.0](https://github.com/bimdata/bimdata-components/compare/v1.0.6...v1.1.0) (2023-08-09)
 
 
