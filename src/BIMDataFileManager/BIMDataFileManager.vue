@@ -17,7 +17,7 @@
           icon
           @click="pdfToView = null"
         >
-          <BIMDataIcon name="arrow" size="xxs" />
+          <BIMDataIconArrow size="xxs" />
         </BIMDataButton>
       </template>
     </BIMDataPDFViewer>
@@ -75,7 +75,7 @@
           height="31px"
           @click="back"
         >
-          <BIMDataIcon name="arrow" />
+          <BIMDataIconArrow />
         </BIMDataButton>
         <BIMDataTextbox
           :text="currentFolder.name"
@@ -125,7 +125,7 @@
       </div>
       <div v-else class="bimdata-file-manager__container--empty">
         <div>
-          <BIMDataIcon name="folderOpen" size="xxxl" fill color="silver" />
+          <BIMDataIconFolderOpen size="xxxl" fill color="silver" />
           <span>{{ translate("emptyFolder") }}</span>
         </div>
       </div>

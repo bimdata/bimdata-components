@@ -2,17 +2,17 @@
   <div class="pdf-page-selector">
     <div class="head">
       <BIMDataButton ghost radius @click="$emit('close')">
-        <BIMDataIcon name="arrow" size="xxs" />
+        <BIMDataIconArrow size="xxs" />
         <span style="margin-left: 6px">
           {{ $translate("back") }}
         </span>
       </BIMDataButton>
       <span class="title">
-        <BIMDataIcon name="filePdfPolychrome" size="m" margin="0 6px 0 0" />
+        <BIMDataIconFilePdfPolychrome size="m" margin="0 6px 0 0" />
         <BIMDataTextbox :text="model.name" />
       </span>
       <BIMDataButton ghost rounded icon @click="$emit('close')">
-        <BIMDataIcon name="close" size="xxs" />
+        <BIMDataIconClose size="xxs" />
       </BIMDataButton>
     </div>
     <div class="body">
@@ -37,7 +37,7 @@
               <img :src="page.map_file" :alt="`page ${page.page_number}`" />
             </template>
             <template v-else>
-              <BIMDataIcon name="filePdfPolychrome" size="l" />
+              <BIMDataIconFilePdfPolychrome size="l" />
             </template>
           </div>
           <div class="pdf-page__num">

@@ -9,7 +9,7 @@
       :disabled="disabled"
       @click="toggle"
     >
-      <BIMDataIcon name="addFolder" size="xs" margin="0 6px 0 0" />
+      <BIMDataIconAddFolder size="xs" margin="0 6px 0 0" />
       <span>{{ $translate("buttonText") }}</span>
     </BIMDataButton>
     <transition name="fade">

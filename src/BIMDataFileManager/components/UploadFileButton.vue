@@ -10,7 +10,7 @@
     @click="selectFile"
   >
     <slot>
-      <BIMDataIcon name="addFile" size="xs" margin="0 6px 0 0" />
+      <BIMDataIconAddFile size="xs" margin="0 6px 0 0" />
       <span>{{ $translate("addFileButtonText") }}</span>
     </slot>
     <input

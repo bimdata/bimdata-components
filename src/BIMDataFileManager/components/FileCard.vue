@@ -11,9 +11,8 @@
     >
       <div class="file-card__content__header">
         <div class="file-card__content__header__btn-menu">
-          <BIMDataIcon
+          <BIMDataIconSuccess
             v-if="success"
-            name="success"
             size="s"
             fill
             color="success"
@@ -33,7 +32,7 @@
             class="file-card__content__header__btn-menu__edit"
             :disabled="success"
           >
-            <BIMDataIcon name="ellipsis" size="l" fill color="granite-light" />
+            <BIMDataIconEllipsis size="l" fill color="granite-light" />
           </BIMDataButton>
           <div v-else-if="!isFolder">
             <template v-if="pdfModelLoading">
@@ -57,7 +56,7 @@
           </div>
         </div>
         <template v-if="file.nature === 'Folder'">
-          <BIMDataIcon name="folder" size="xl" fill color="primary" />
+          <BIMDataIconFolder size="xl" fill color="primary" />
         </template>
         <template v-else>
           <BIMDataFileIcon :fileName="file.file_name" :size="25" />
