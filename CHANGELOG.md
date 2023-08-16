@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/bimdata/bimdata-components/compare/v1.1.1...v1.2.0) (2023-08-16)
+
+
+### MINOR
+
+* feat: display pdf page selection in file manager ([33a5aa1](https://github.com/bimdata/bimdata-components/commit/33a5aa1a5067cd649dd2e533e001bc4ca40500aa))
+
 ## [1.1.1](https://github.com/bimdata/bimdata-components/compare/v1.1.0...v1.1.1) (2023-08-11)
 
 
