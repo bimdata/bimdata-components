@@ -34,9 +34,9 @@
           >
             <BIMDataIconEllipsis size="l" fill color="granite-light" />
           </BIMDataButton>
-          <div v-else-if="!isFolder">
+          <div v-else-if="!isFolder" class="selection-box">
             <template v-if="pdfModelLoading">
-              <BIMDataSpinner style="margin: 10px" />
+              <BIMDataSpinner style="margin: 6px" />
             </template>
             <template v-else>
               <BIMDataCheckbox
@@ -53,6 +53,9 @@
                 name="BIMDataFileCardRadio"
               />
             </template>
+            <div v-if="pdfPage" class="selection-text">
+              {{ `page ${pdfPage.page_number}` }}
+            </div>
           </div>
         </div>
         <template v-if="file.nature === 'Folder'">
@@ -191,6 +194,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    pdfPage: {
+      type: Object,
+      default: null
+    },
   },
   emits: [
     "rename",
@@ -279,7 +286,7 @@ export default {
     },
     onDownloadClick() {
       this.menuDisplayed = false;
-      this.$emit("dowload");
+      this.$emit("download");
     },
     onDeleteClick() {
       this.menuDisplayed = false;
@@ -372,6 +379,18 @@ export default {
         &__checkbox {
           top: 6px;
           right: 6px;
+        }
+
+        .selection-box {
+          position: relative;
+          .selection-text {
+            position: absolute;
+            right: 0;
+            margin-top: 12px;
+            margin-right: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+          }
         }
       }
     }

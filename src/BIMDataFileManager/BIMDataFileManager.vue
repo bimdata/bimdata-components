@@ -66,16 +66,8 @@
         v-if="navigationShown"
         class="bimdata-file-manager__navigation__content"
       >
-        <BIMDataButton
-          color="default"
-          icon
-          radius
-          ghost
-          width="33px"
-          height="31px"
-          @click="back"
-        >
-          <BIMDataIconArrow />
+        <BIMDataButton ghost radius icon @click="back">
+          <BIMDataIconArrow size="xxs" />
         </BIMDataButton>
         <BIMDataTextbox
           :text="currentFolder.name"
@@ -115,11 +107,12 @@
             @rename="onRename(file)"
             @delete="onDelete(file)"
             @view="onView(file)"
-            @dowload="onDowload(file)"
+            @download="onDownload(file)"
             @loaded="onFileLoaded(file, $event)"
             :writeAccess="currentFolder.user_permission >= 100"
             :viewPdf="viewPdf"
             :pdfModelLoading="pdfModelLoading === file.id"
+            :pdfPage="selectedPdfPage(file)"
           />
         </BIMDataResponsiveGrid>
       </div>
@@ -443,7 +436,7 @@ export default {
         }
       }, SUCCESS_TIME);
     },
-    onDowload(entity) {
+    onDownload(entity) {
       try {
         downloadFiles(getFlattenTree(entity), {
           projectId: this.projectId,
@@ -569,6 +562,9 @@ export default {
     },
     isFileSelected(file) {
       return this.selectedFiles.some(({ document }) => file === document);
+    },
+    selectedPdfPage(file) {
+      return this.selectedFiles.find(({ document }) => file === document)?.pdfPage;
     },
     onBreadcrumClick(step) {
       this.currentFolder = step;
