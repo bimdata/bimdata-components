@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/bimdata/bimdata-components/compare/v1.2.1...v1.3.0) (2023-08-16)
+
+
+### MINOR
+
+* feat: add BIMDataGuidedTour component ([6f597c6](https://github.com/bimdata/bimdata-components/commit/6f597c605baa06772e2cf41c17a56e2eafd1df8e))
+
 ## [1.2.1](https://github.com/bimdata/bimdata-components/compare/v1.2.0...v1.2.1) (2023-08-16)
 
 
