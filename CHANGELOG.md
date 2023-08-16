@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/bimdata/bimdata-components/compare/v1.2.0...v1.2.1) (2023-08-16)
+
+
+### PATCH
+
+* fix: pdf page selection modification ([ac2c7be](https://github.com/bimdata/bimdata-components/commit/ac2c7be51a4c60229a5fd9853887271136525ffe))
+
 # [1.2.0](https://github.com/bimdata/bimdata-components/compare/v1.1.1...v1.2.0) (2023-08-16)
 
 
