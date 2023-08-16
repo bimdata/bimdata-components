@@ -1,0 +1,187 @@
+.guided-tour-portal {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  .tooltip {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__box {
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      &__progress-bar {
+        display: flex;
+        width: 100%;
+        height: calc(var(--spacing-unit) / 3);
+        background-color: var(--color-silver-light);
+
+        &__step {
+          height: 100%
+        }
+      }
+
+      &__top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        height: 155px;
+        padding: var(--spacing-unit);
+        background-color: var(--color-silver-light);
+
+
+        &__image {
+          border-radius: 50%;
+          height: 132px;
+          width: 132px;
+        }
+      }
+
+      &__bottom {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+        padding: 0 var(--spacing-unit);
+        background-color: var(--color-white);
+
+        &__title {
+          font-size: calc(var(--spacing-unit) * 1.4);
+          font-weight: bold;
+        }
+
+        &__text {
+          text-align: center;
+          font-size: calc(var(--spacing-unit) * 1.4);
+          color: var(--color-granite);
+          width: 90%
+        }
+      }
+
+      &__footer {
+        display: flex;
+        margin-top: var(--spacing-unit);
+        padding: 0 var(--spacing-unit) var(--spacing-unit) var(--spacing-unit);
+        background-color: var(--color-white);
+        border-radius: 8px;
+
+        &__ghost-element {
+          flex: 1
+        }
+
+        &__step-counter {
+          span:first-of-type {
+            color: var(--color-secondary);
+            font-size: calc(var(--spacing-unit) * 1.6);
+          }
+          span:last-of-type {
+            color: var(--color-granite);
+          }
+        }
+
+        &__btn-skip, &__btn-start {
+          margin: auto;
+
+          button {
+            padding: 0px;
+            font-weight: bold;
+          }
+        }
+
+        &__btn-skip > button {
+          color: var(--color-granite-light);
+        }
+
+        &__btn-start > button {
+          margin-left: auto;
+        }
+
+        &__btn-next {
+          button {
+            padding: 6px 5px 6px 8px;
+            margin-left: auto;
+            span {
+              line-height: 1px;
+              margin-right: calc(var(--spacing-unit) / 4)
+            }
+          }
+        }
+      }
+    }
+
+    .arrow {
+      display: block;
+      margin: auto;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      transform: rotate(45deg);
+      box-shadow: var(--box-shadow);
+
+      &[data-position=bottom] {
+        left: 0;
+        right: 0;
+        top: 328px;
+        background-color: var(--color-white);
+      }
+
+      &[data-position=top] {
+        left: 0;
+        right: 0;
+        top: calc(var(--spacing-unit) * -1);
+        background-color: var(--color-silver-light);
+      }
+
+      &[data-position=up-left] {
+        left: unset;
+        right: calc(var(--spacing-unit) * -1);
+        top: 65px;
+        background-color: var(--color-silver-light);
+      }
+
+      &[data-position=up-right] {
+        left: calc(var(--spacing-unit) * -1);
+        right: unset;
+        top: 65px;
+        background-color: var(--color-silver-light);
+      }
+
+      &[data-position=down-left] {
+        left: unset;
+        right: calc(var(--spacing-unit) * -1);
+        top: 237px;
+        background-color: var(--color-white);
+      }
+
+      &[data-position=down-right] {
+        left: calc(var(--spacing-unit) * -1);
+        right: unset;
+        top: 237px;
+        background-color: var(--color-white);
+      }
+
+      &[data-position=hidden] {
+        display: none;
+      }
+    }
+  }
+
+}
+.centeredTooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
