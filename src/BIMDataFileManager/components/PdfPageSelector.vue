@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import { computed, ref, watch } from 'vue';
+
 export default {
   inject: ["$translate"],
   props: {
@@ -68,17 +70,25 @@ export default {
       type: Object,
       required: true,
     },
+    modelSelectedPage: {
+      type: Object,
+      default: null,
+    },
   },
   emits: ["select", "close"],
-  data() {
-    return {
-      selectedPage: null,
-    };
-  },
-  computed: {
-    pages() {
-      return [this.model].concat(this.model.children ?? []);
-    },
+  setup(props, emit) {
+    const pages = computed(() => [props.model].concat(props.model.children ?? []))
+    const selectedPage = ref(null);
+
+    watch(
+      () => props.modelSelectedPage,
+      page => {
+        if (page) selectedPage.value = page;
+      },
+      { immediate: true }
+    );
+
+    return { pages, selectedPage };
   },
 };
 </script>

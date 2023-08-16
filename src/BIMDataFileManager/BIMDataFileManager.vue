@@ -130,6 +130,7 @@
     >
       <PdfPageSelector
         :model="pdfModel"
+        :modelSelectedPage="pdfModelSelectedPage"
         @select="selectPdfPage"
         @close="selectPdfPage"
       />
@@ -268,6 +269,7 @@ export default {
       successFileIds: [],
       pdfToView: null,
       pdfModel: null,
+      pdfModelSelectedPage: null,
       pdfModelLoading: null,
       pdfPageSelectorDisplayed: false,
     };
@@ -525,16 +527,36 @@ export default {
       });
     },
     async onToggleFileSelect(file) {
+      let pdfPage = null;
+
       if (this.isFileSelected(file)) {
-        this.selectedFiles = this.selectedFiles.filter(
-          ({ document }) => document !== file
-        );
+        const selectedPdfPage = this.selectedPdfPage(file);
+        if (this.pdfPageSelect && file.model_type === "PDF" && selectedPdfPage) {
+          this.selectedFiles = this.selectedFiles.filter(
+            ({ document }) => document !== file
+          );
+          this.pdfModelLoading = file.id;
+          const model = await this.apiClient.modelApi.getModel(
+            this.spaceId,
+            file.model_id,
+            this.projectId
+          );
+          this.pdfModelLoading = null;
+          if (model.children?.length > 0) {
+            pdfPage = await this.openPdfPageSelector(model, selectedPdfPage);
+            if (!pdfPage) return;
+          }
+          this.selectedFiles.push({ document: file, pdfPage });
+        } else {
+          this.selectedFiles = this.selectedFiles.filter(
+            ({ document }) => document !== file
+          );
+        }
       } else {
         if (!this.multi) {
           this.selectedFiles = [];
         }
 
-        let pdfPage = null;
         if (this.pdfPageSelect && file.model_type === "PDF") {
           // If 'pdfPageSelect' mode is on and the selected file is a PDF model
           // fetch the corresponding model to check its children (pages)
@@ -547,11 +569,7 @@ export default {
           this.pdfModelLoading = null;
           if (model.children?.length > 0) {
             // If this is a multipage PDF open the page selector
-            this.pdfModel = model;
-            this.pdfPageSelectorDisplayed = true;
-            pdfPage = await new Promise(res => (this.selectPdfPage = res));
-            this.pdfPageSelectorDisplayed = false;
-            this.pdfModel = null;
+            pdfPage = await this.openPdfPageSelector(model);
             if (!pdfPage) return; // If no page has been selected then the file is not selected
           }
         }
@@ -562,6 +580,16 @@ export default {
     },
     isFileSelected(file) {
       return this.selectedFiles.some(({ document }) => file === document);
+    },
+    async openPdfPageSelector(model, page) {
+      this.pdfModel = model;
+      this.pdfModelSelectedPage = page;
+      this.pdfPageSelectorDisplayed = true;
+      const pdfPage = await new Promise(res => (this.selectPdfPage = res));
+      this.pdfPageSelectorDisplayed = false;
+      this.pdfModelSelectedPage = null;
+      this.pdfModel = null;
+      return pdfPage;
     },
     selectedPdfPage(file) {
       return this.selectedFiles.find(({ document }) => file === document)?.pdfPage;
