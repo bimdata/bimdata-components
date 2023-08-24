@@ -17,7 +17,7 @@
     </div>
     <div class="body">
       <BIMDataResponsiveGrid
-        style="width: 100%"
+        style="width: 100%; justify-items: center;"
         itemWidth="157px"
         rowGap="6px"
         columnGap="6px"
