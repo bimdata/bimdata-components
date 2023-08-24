@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/bimdata/bimdata-components/compare/v1.3.0...v1.3.1) (2023-08-24)
+
+
+### PATCH
+
+* fix: BIMDataFilesManager pdf page selector styles ([e5b7ca0](https://github.com/bimdata/bimdata-components/commit/e5b7ca0d3d1e731ff025b8940210746e383426ba))
+
 # [1.3.0](https://github.com/bimdata/bimdata-components/compare/v1.2.1...v1.3.0) (2023-08-16)
 
 
