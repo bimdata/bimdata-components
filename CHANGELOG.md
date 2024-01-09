@@ -1,3 +1,19 @@
+## [1.3.2](https://github.com/bimdata/bimdata-components/compare/v1.3.1...v1.3.2) (2024-01-09)
+
+
+### chore
+
+* update readme ([6b7d66c](https://github.com/bimdata/bimdata-components/commit/6b7d66c9c51d5f3afc0e51c75adbfe0551f553f1))
+
+### ci
+
+* fix minor version node ([1eb33fe](https://github.com/bimdata/bimdata-components/commit/1eb33fe784c9019cf8da0a9651a5c9840a5252c0))
+* use common runners ([ba943f5](https://github.com/bimdata/bimdata-components/commit/ba943f5c9b2ef17c170254de883474c7fd115ad7))
+
+### PATCH
+
+* fix(deps): avoid peer deps errors with npm install ([5e05ca2](https://github.com/bimdata/bimdata-components/commit/5e05ca2a360efbb3aef46439e74273fe2fdad39d))
+
 ## [1.3.1](https://github.com/bimdata/bimdata-components/compare/v1.3.0...v1.3.1) (2023-08-24)
 
 
