@@ -12,7 +12,7 @@
     "release": "semantic-release"
   },
   "peerDependencies": {
-    "@bimdata/typescript-fetch-api-client": "^9.11.0",
+    "@bimdata/typescript-fetch-api-client": "*",
     "@bimdata/design-system": "*",
     "vue": "^3.0"
   },
