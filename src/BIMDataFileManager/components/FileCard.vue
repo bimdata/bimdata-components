@@ -299,7 +299,7 @@ export default {
     onClick() {
       if (this.isFolder) {
         this.$emit("open-folder");
-      } else if (!this.success && !this.disabled && this.select) {
+      } else if (!this.success && !this.disabled && !this.loading && this.select) {
         this.$emit("toggle-select", this.file);
       }
     },
