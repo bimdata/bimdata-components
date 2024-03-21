@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/bimdata/bimdata-components/compare/v1.3.2...v1.3.3) (2024-03-21)
+
+
+### PATCH
+
+* fix(file-manager): prevent loading files from being selected (#2) ([743fa9b](https://github.com/bimdata/bimdata-components/commit/743fa9bb089abe4347b74488b0c2f44d26373d83)), closes [#2](https://github.com/bimdata/bimdata-components/issues/2)
+
 ## [1.3.2](https://github.com/bimdata/bimdata-components/compare/v1.3.1...v1.3.2) (2024-01-09)
 
 
