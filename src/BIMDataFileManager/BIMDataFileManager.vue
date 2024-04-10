@@ -78,7 +78,7 @@
         />
       </div>
       <div v-else class="bimdata-file-manager__navigation__content--empty">
-        {{ translate("dmsRoot") }}
+        {{ $t("FileManager.dmsRoot") }}
       </div>
     </div>
     <template v-if="fileStructure">
@@ -119,7 +119,7 @@
       <div v-else class="bimdata-file-manager__container--empty">
         <div>
           <BIMDataIconFolderOpen size="xxxl" fill color="silver" />
-          <span>{{ translate("emptyFolder") }}</span>
+          <span>{{ $t("FileManager.emptyFolder") }}</span>
         </div>
       </div>
     </template>
@@ -174,8 +174,6 @@ import PdfPageSelector from "./components/PdfPageSelector.vue";
 import getFlattenTree from "./utils/flattenTree.js";
 import { downloadFiles } from "./utils/files.js";
 
-import trads from "./i18n.js";
-
 const XS = 398;
 const S = 468;
 const M = 800;
@@ -191,11 +189,6 @@ export default {
     DeleteModal,
     BIMDataPDFViewer,
     PdfPageSelector,
-  },
-  provide() {
-    return {
-      $translate: this.translate,
-    };
   },
   props: {
     locale: {
@@ -400,9 +393,6 @@ export default {
         }
       }
     },
-    translate(key) {
-      return (trads[this.locale] || trads["en"])[key];
-    },
     isFileSucess(id) {
       return (
         this.successFileIds.includes(id) ||
@@ -425,7 +415,7 @@ export default {
 
       this.$emit("success", {
         type: "fileCreated",
-        message: this.translate("newFileSuccess"),
+        message: this.$t("FileManager.newFileSuccess"),
         content: loadedFile,
       });
 
@@ -466,8 +456,8 @@ export default {
       this.$emit("success", {
         type: isFolder ? "folderDeleted" : "fileDeleted",
         message: isFolder
-          ? this.translate("deleteFolderSuccess")
-          : this.translate("deleteFileSuccess"),
+          ? this.$t("FileManager.deleteFolderSuccess")
+          : this.$t("FileManager.deleteFileSuccess"),
         content: this.entityDeletable,
       });
 
@@ -482,8 +472,8 @@ export default {
       this.$emit("success", {
         type: isFolder ? "folderRenamed" : "fileRenamed",
         message: isFolder
-          ? this.translate("renameFolderSuccess")
-          : this.translate("renameFileSuccess"),
+          ? this.$t("FileManager.renameFolderSuccess")
+          : this.$t("FileManager.renameFileSuccess"),
         content: this.entityRenown,
       });
       this.entityRenown = null;
@@ -522,7 +512,7 @@ export default {
       this.currentFolder.children.push(newFolder);
       this.$emit("success", {
         type: "folderCreated",
-        message: this.translate("newFolderSuccess"),
+        message: this.$t("FileManager.newFolderSuccess"),
         content: newFolder,
       });
     },

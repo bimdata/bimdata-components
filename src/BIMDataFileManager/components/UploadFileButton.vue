@@ -11,7 +11,7 @@
   >
     <slot>
       <BIMDataIconAddFile size="xs" margin="0 6px 0 0" />
-      <span>{{ $translate("addFileButtonText") }}</span>
+      <span>{{ $t("FileManager.addFileButtonText") }}</span>
     </slot>
     <input
       hidden
@@ -26,7 +26,6 @@
 
 <script>
 export default {
-  inject: ["$translate"],
   props: {
     width: {
       type: String,

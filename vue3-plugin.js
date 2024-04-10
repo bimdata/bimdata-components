@@ -1,36 +1,32 @@
+import messages from "./src/i18n/index.js";
 import * as Components from "./index.js";
 
 /**
  * Register BIMData components globally.
  *
  * @param {
-*   {
-*     includedComponents?: string[],
-*     excludedComponents?: string[]
-*   } 
-*  } [cfg]
+ *   {
+ *     i18nPlugin: Object
+ *   } 
+ *  } [cfg]
  */
-const pluginFactory = (cfg) => {
+const pluginFactory = ({ i18nPlugin }) => {
   return {
     install(app) {
-      // COMPONENTS
-      Object.entries(Components).forEach(([componentName, component]) => {
-        if (
-          cfg &&
-          cfg.excludedComponents &&
-          cfg.excludedComponents.length > 0 &&
-          cfg.excludedComponents.includes(componentName)
-        ) {
-          return;
-        }
+      if (i18nPlugin) {
+        Object.entries(messages).forEach(([locale, translations]) => {
+          i18nPlugin.global.mergeLocaleMessage(locale, translations);
+        });
+      } else {
+        console.warn(
+          "[BIMData Components Plugin] No i18n instance provided. " +
+            "You should either provide an i18n instance or define " +
+            "your own translations in order have text displayed properly."
+        );
+      }
 
-        if (
-          !cfg ||
-          !cfg.includedComponents ||
-          cfg.includedComponents.includes(componentName)
-        ) {
+      Object.entries(Components).forEach(([componentName, component]) => {
           app.component(componentName, component);
-        }
       });
     },
   };

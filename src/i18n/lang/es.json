@@ -1,0 +1,55 @@
+{
+    "BuildingMaker": {
+        "title": "Building Maker",
+        "back": "Vuelta",
+        "list": {
+            "text": "Cree y edite los pisos después cargue los PDF.",
+            "createButton": "Nuevo proyecto",
+            "updateButton": "Renombrar",
+            "deleteButton": "Suprimir"
+        },
+        "form": {
+            "text": "Cree y edite los pisos después cargue los PDF.",
+            "input": "Nombre del edificio",
+            "error": "Nombre no válido",
+            "createButton": "Crear",
+            "updateButton": "Validar"
+        },
+        "storeys": {
+            "addStoreyButton": "Piso",
+            "addFileButton": "Plano",
+            "closeButton": "Terminar",
+            "submitFilesButton": "Validar"
+        },
+        "storeyForm": {
+            "title": "Nuevo piso",
+            "input": "Nombre",
+            "error": "Nombre no válido",
+            "cancelButton": "Anular",
+            "submitButton": "Validar"
+        }
+    },
+    "FileManager": {
+        "creationFormTitle": "Crear un archivo",
+        "renameFormPlaceholder": "Nombre de archivo / carpeta",
+        "nameInputPlaceholder": "Nombre de la carpeta",
+        "emptyFolder": "Esta carpeta está vacía",
+        "newFolderSuccess": "Nueva carpeta creada",
+        "renameFolderSuccess": "Carpeta renombrada",
+        "deleteFolderSuccess": "Carpeta eliminada",
+        "newFileSuccess": "Archivo agregado",
+        "renameFileSuccess": "Archivo renombrado",
+        "deleteFileSuccess": "Archivo eliminado",
+        "nameInputErrorMessage": "Nombre inválida",
+        "cancel": "Cancelar",
+        "submit": "Validar",
+        "buttonText": "Carpeta nueva",
+        "addFileButtonText": "Cargar un archivo",
+        "rename": "Renombrar",
+        "view": "Ver",
+        "download": "Descargar",
+        "delete": "Borrar",
+        "deleteTitle": "Eliminar archivos",
+        "deleteDetail": "Está a punto de eliminar permanentemente los siguientes archivos / carpetas"
+    }
+}

@@ -1,0 +1,34 @@
+.building-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-unit);
+  padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+  border-radius: 4px;
+
+  background-color: var(--color-silver-light);
+  cursor: pointer;
+
+  &__name {
+    width: calc(100% - 2 * var(--spacing-unit) - 22px - 32px);
+  }
+
+  &__actions {
+    position: relative;
+
+    &__menu {
+      width: 180px;
+      position: absolute;
+      z-index: 1;
+      top: 30px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      padding: calc(var(--spacing-unit) / 2) 0;
+
+      box-shadow: var(--box-shadow);
+      background-color: var(--color-white);
+    }
+  }
+}

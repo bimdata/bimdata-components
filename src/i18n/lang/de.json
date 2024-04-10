@@ -1,0 +1,55 @@
+{
+    "BuildingMaker": {
+        "title": "Building Maker",
+        "back": "Zurück",
+        "list": {
+            "text": "Erstellen und bearbeiten Sie die Etagen und laden Sie anschließend Ihre PDFs herunter.",
+            "createButton": "Neues Projekt",
+            "updateButton": "Umbenennen",
+            "deleteButton": "Löschen"
+        },
+        "form": {
+            "text": "Erstellen und bearbeiten Sie die Etagen und laden Sie anschließend Ihre PDFs herunter.",
+            "input": "Name des Gebäudes",
+            "error": "Ungültiger Name",
+            "createButton": "Erstellen",
+            "updateButton": "Bestätigen"
+        },
+        "storeys": {
+            "addStoreyButton": "Etage",
+            "addFileButton": "Grundriss",
+            "closeButton": "Fertigstellen",
+            "submitFilesButton": "Bestätigen"
+        },
+        "storeyForm": {
+            "title": "Neue Etage",
+            "input": "Name",
+            "error": "Ungültiger Name",
+            "cancelButton": "Abbrechen",
+            "submitButton": "Bestätigen"
+        }
+    },
+    "FileManager": {
+        "creationFormTitle": "Ordner erstellen",
+        "renameFormPlaceholder": "Datei- / Ordnernam",
+        "nameInputPlaceholder": "Ordnername",
+        "emptyFolder": "Dieser Ordner ist leer",
+        "newFolderSuccess": "Neuer Ordner erstellt",
+        "renameFolderSuccess": "Umbenannter Ordner",
+        "deleteFolderSuccess": "Ordner gelöscht",
+        "newFileSuccess": "Datei hinzugefügt",
+        "renameFileSuccess": "Umbenannte Datei",
+        "deleteFileSuccess": "Datei gelöscht",
+        "nameInputErrorMessage": "Ungültiger name",
+        "cancel": "Abbrechen",
+        "submit": "Bestätigen",
+        "buttonText": "Neuer Ordner",
+        "addFileButtonText": "Datei laden",
+        "rename": "Umbenennen",
+        "view": "Sehen",
+        "download": "Herunterladen",
+        "delete": "Löschen",
+        "deleteTitle": "Dateien löschen",
+        "deleteDetail": "Sie sind im Begriff, die folgenden Dateien / Ordner endgültig zu löschen"
+    }
+}

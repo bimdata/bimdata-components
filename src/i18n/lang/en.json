@@ -1,0 +1,73 @@
+{
+    "BuildingMaker": {
+        "title": "Building",
+        "back": "Back",
+        "list": {
+            "text": "Create and edit the layers, then download your PDFs.",
+            "createButton": "New project",
+            "updateButton": "Rename",
+            "deleteButton": "Delete"
+        },
+        "form": {
+            "text": "Create and edit the layers, then download your PDFs.",
+            "input": "Building name",
+            "error": "Invalid",
+            "createButton": "Create",
+            "updateButton": "Confirm"
+        },
+        "storeys": {
+            "addStoreyButton": "Storey",
+            "addFileButton": "Plan",
+            "closeButton": "Finish",
+            "submitFilesButton": "Validate"
+        },
+        "storeyForm": {
+            "title": "New storey",
+            "input": "Name",
+            "error": "Invalid name",
+            "cancelButton": "Cancel",
+            "submitButton": "Validate"
+        }
+    },
+    "FileManager": {
+        "creationFormTitle": "Create folder",
+        "renameFormPlaceholder": "Folder/File name",
+        "nameInputPlaceholder": "Folder name",
+        "emptyFolder": "This folder is empty",
+        "newFolderSuccess": "New folder created",
+        "renameFolderSuccess": "Folder renamed",
+        "deleteFolderSuccess": "Folder deleted",
+        "newFileSuccess": "File added",
+        "renameFileSuccess": "File renamed",
+        "deleteFileSuccess": "File deleted",
+        "nameInputErrorMessage": "Invalid name",
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "buttonText": "New folder",
+        "addFileButtonText": "Upload a file",
+        "rename": "Rename",
+        "view": "View",
+        "download": "Download",
+        "delete": "Delete",
+        "deleteTitle": "Deleting Files",
+        "deleteDetail":"You are about to permanently delete the following files / folders",
+        "dmsRoot": "Root of the project's DMS",
+        "validate": "Validate",
+        "back": "Back",
+        "pdfPageSelectorTitle": "Select a page"
+    },
+    "MetaBuildingStructure": {
+        "title": "Meta-Building Structure",
+        "tab": {
+            "structure": "Structure",
+            "zones": "Zones",
+            "equipments": "Equipments"
+        },
+        "StoreySelector": {
+            "placeholder": "Select a storey"
+        },
+        "StructureView": {
+            "search": "Search"
+        }
+    }
+}

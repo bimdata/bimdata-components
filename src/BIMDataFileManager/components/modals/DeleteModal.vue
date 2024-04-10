@@ -15,10 +15,10 @@
     </BIMDataButton>
     <div class="delete-modal__content">
       <div class="delete-modal__content__title">
-        {{ $translate("deleteTitle") }}
+        {{ $t("FileManager.eleteTitle") }}
       </div>
       <div class="delete-modal__content__detail">
-        {{ $translate("deleteDetail") }} :
+        {{ $t("FileManager.deleteDetail") }} :
       </div>
       <ul>
         <li v-for="element of flattenTree" :key="element.id">
@@ -34,7 +34,7 @@
           @click.stop="close"
           :disabled="loading"
         >
-          {{ $translate("cancel") }}
+          {{ $t("FileManager.cancel") }}
         </BIMDataButton>
         <BIMDataButton
           class="delete-modal__content__btn-submit"
@@ -46,7 +46,7 @@
           :disabled="loading"
         >
           <BIMDataSpinner v-if="loading" />
-          <span v-else>{{ $translate("delete") }}</span>
+          <span v-else>{{ $t("FileManager.delete") }}</span>
         </BIMDataButton>
       </div>
     </div>
@@ -57,7 +57,6 @@
 import getFlattenTree from "../../utils/flattenTree.js";
 
 export default {
-  inject: ["$translate"],
   props: {
     projectId: {
       type: Number,

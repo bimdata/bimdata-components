@@ -1,0 +1,55 @@
+{
+    "BuildingMaker": {
+        "title": "Building Maker",
+        "back": "Reso",
+        "list": {
+            "text": "Crea e modifica i piani e poi scarica i tuoi PDF.",
+            "createButton": "Nuovo progetto",
+            "updateButton": "Rinominare",
+            "deleteButton": "Eliminare"
+        },
+        "form": {
+            "text": "Crea e modifica i piani e poi scarica i tuoi PDF.",
+            "input": "Nome della costruzione",
+            "error": "Nome non corretto",
+            "createButton": "Creare",
+            "updateButton": "Convalidare"
+        },
+        "storeys": {
+            "addStoreyButton": "Piano",
+            "addFileButton": "Progetto",
+            "closeButton": "Finire",
+            "submitFilesButton": "Convalidare"
+        },
+        "storeyForm": {
+            "title": "Nuovo piano",
+            "input": "Nome",
+            "error": "Nome non corretto",
+            "cancelButton": "Annullare",
+            "submitButton": "Convalidare"
+        }
+    },
+    "FileManager": {
+        "creationFormTitle": "Crea una cartella",
+        "renameFormPlaceholder": "Nome file/cartella",
+        "nameInputPlaceholder": "Nome della cartella",
+        "emptyFolder": "Questa cartella è vuota",
+        "newFolderSuccess": "Nuova cartella creata",
+        "renameFolderSuccess": "Cartella rinominata",
+        "deleteFolderSuccess": "Cartella eliminata",
+        "newFileSuccess": "File aggiunto",
+        "renameFileSuccess": "File rinominato",
+        "deleteFileSuccess": "File cancellato",
+        "nameInputErrorMessage": "Nome non valido",
+        "cancel": "Annulla",
+        "submit": "Invia",
+        "buttonText": "Nuova cartella",
+        "addFileButtonText": "Carica un file",
+        "rename": "Rinominare",
+        "view": "Vedere",
+        "download": "Scaricare",
+        "delete": "Cancellare",
+        "deleteTitle": "Eliminazione di file",
+        "deleteDetail": "Stai per eliminare definitivamente i seguenti file/cartelle"
+    }
+}

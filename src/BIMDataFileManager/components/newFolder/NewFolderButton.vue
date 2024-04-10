@@ -10,7 +10,7 @@
       @click="toggle"
     >
       <BIMDataIconAddFolder size="xs" margin="0 6px 0 0" />
-      <span>{{ $translate("buttonText") }}</span>
+      <span>{{ $t("FileManager.buttonText") }}</span>
     </BIMDataButton>
     <transition name="fade">
       <NewFolderForm
@@ -39,7 +39,6 @@ export default {
   components: {
     NewFolderForm,
   },
-  inject: ["$translate"],
   props: {
     projectId: {
       type: Number,
