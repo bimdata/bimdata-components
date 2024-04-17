@@ -78,7 +78,7 @@
           width="100%"
           @click.stop="onViewClick"
         >
-          {{ $translate("view") }}
+          {{ $t("FileManager.view") }}
         </BIMDataButton>
         <BIMDataButton
           color="default"
@@ -87,7 +87,7 @@
           width="100%"
           @click.stop="onRenameClick"
         >
-          {{ $translate("rename") }}
+          {{ $t("FileManager.rename") }}
         </BIMDataButton>
         <BIMDataButton
           color="default"
@@ -96,7 +96,7 @@
           width="100%"
           @click.stop="onDownloadClick"
         >
-          {{ $translate("download") }}
+          {{ $t("FileManager.download") }}
         </BIMDataButton>
         <BIMDataButton
           v-if="writeAccess"
@@ -106,7 +106,7 @@
           width="100%"
           @click.stop="onDeleteClick"
         >
-          {{ $translate("delete") }}
+          {{ $t("FileManager.delete") }}
         </BIMDataButton>
       </div>
       <div class="file-card__content__footer">
@@ -136,7 +136,6 @@ export default {
     PieProgressSpinner,
     MultiLineTextBox,
   },
-  inject: ["$translate"],
   props: {
     disabled: {
       type: Boolean,

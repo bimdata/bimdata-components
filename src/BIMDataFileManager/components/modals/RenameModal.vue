@@ -14,15 +14,15 @@
     </BIMDataButton>
     <div class="rename-modal__content">
       <div class="rename-modal__content__title">
-        {{ $translate("rename") }}
+        {{ $t("FileManager.rename") }}
       </div>
       <BIMDataInput
         ref="nameInput"
         class="rename-modal__content__input"
-        :placeholder="$translate('renameFormPlaceholder')"
+        :placeholder="$t('FileManager.renameFormPlaceholder')"
         v-model="name"
         :error="hasError"
-        :errorMessage="$translate('nameInputErrorMessage')"
+        :errorMessage="$t('FileManager.nameInputErrorMessage')"
         @keyup.esc.stop="close"
         @keyup.enter.stop="submit"
         margin="30px 0px"
@@ -36,7 +36,7 @@
           radius
           @click.stop="close"
         >
-          {{ $translate("cancel") }}
+          {{ $t("FileManager.cancel") }}
         </BIMDataButton>
         <BIMDataButton
           class="rename-modal__content__btn-submit"
@@ -46,7 +46,7 @@
           radius
           @click.stop="submit"
         >
-          {{ $translate("submit") }}
+          {{ $t("FileManager.submit") }}
         </BIMDataButton>
       </div>
     </div>
@@ -55,7 +55,6 @@
 
 <script>
 export default {
-  inject: ["$translate"],
   props: {
     projectId: {
       type: Number,

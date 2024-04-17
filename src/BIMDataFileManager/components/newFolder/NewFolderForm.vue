@@ -2,15 +2,15 @@
   <div class="folder-creation-form">
     <div class="folder-creation-form__title">
       <BIMDataIconAddFolder size="xs" />
-      <span>{{ $translate("creationFormTitle") }}</span>
+      <span>{{ $t("FileManager.creationFormTitle") }}</span>
     </div>
     <BIMDataInput
       ref="nameInput"
       class="folder-creation-form__input"
-      :placeholder="$translate('nameInputPlaceholder')"
+      :placeholder="$t('FileManager.nameInputPlaceholder')"
       v-model="name"
       :error="hasError"
-      :errorMessage="$translate('nameInputErrorMessage')"
+      :errorMessage="$t('FileManager.nameInputErrorMessage')"
       @keyup.esc.stop="close"
       @keyup.enter.stop="submit"
       margin="24px 0px"
@@ -23,7 +23,7 @@
       radius
       @click.stop="close"
     >
-      {{ $translate("cancel") }}
+      {{ $t("FileManager.cancel") }}
     </BIMDataButton>
     <BIMDataButton
       class="folder-creation-form__btn-submit"
@@ -33,14 +33,13 @@
       radius
       @click.stop="submit"
     >
-      {{ $translate("submit") }}
+      {{ $t("FileManager.submit") }}
     </BIMDataButton>
   </div>
 </template>
 
 <script>
 export default {
-  inject: ["$translate"],
   props: {
     projectId: {
       type: Number,

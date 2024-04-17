@@ -1,0 +1,52 @@
+.storey-node {
+  &__storey {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+    margin-left: calc(var(--spacing-unit) / 2);
+    padding: calc(var(--spacing-unit) / 3) calc(var(--spacing-unit) / 2);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(0px - calc(var(--spacing-unit) / 2));
+      width: calc(var(--spacing-unit) / 2);
+      height: 1px;
+      background-color: var(--color-granite-light);
+    }
+
+    &:hover {
+      background-color: var(--color-silver-light);
+    }
+
+    &__name {
+      width: calc(100% - 2 * var(--spacing-unit) - 16px - 23px);
+    }
+
+    &__actions {
+      position: absolute;
+      top: 50%;
+      right: calc(23px + var(--spacing-unit) * 3 / 2);
+      transform: translateY(-50%);
+
+      display: flex;
+      gap: calc(var(--spacing-unit) / 2);
+    }
+  }
+
+  &__plans {
+    position: relative;
+    margin-left: 20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -1px;
+      width: 1px;
+      height: calc(100% - 6px);
+      background-color: var(--color-granite-light);
+    }
+  }
+}

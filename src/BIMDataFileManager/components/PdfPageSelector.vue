@@ -4,7 +4,7 @@
       <BIMDataButton ghost radius @click="$emit('close')">
         <BIMDataIconArrow size="xxs" />
         <span style="margin-left: 6px">
-          {{ $translate("back") }}
+          {{ $t("FileManager.back") }}
         </span>
       </BIMDataButton>
       <span class="title">
@@ -54,7 +54,7 @@
         radius
         @click="$emit('select', selectedPage)"
       >
-        {{ $translate("validate") }}
+        {{ $t("FileManager.validate") }}
       </BIMDataButton>
     </div>
   </div>
@@ -64,7 +64,6 @@
 import { computed, ref, watch } from 'vue';
 
 export default {
-  inject: ["$translate"],
   props: {
     model: {
       type: Object,

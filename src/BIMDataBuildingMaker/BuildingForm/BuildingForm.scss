@@ -1,0 +1,33 @@
+.building-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(2 * var(--spacing-unit));
+
+  &__icon {
+    width: 36px;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__text {
+    text-align: center;
+    color: var(--color-granite);
+  }
+
+  &__controls {
+    width: 100%;
+    padding: 0 20%;
+
+    .bimdata-input {
+      width: 100%;
+    }
+
+    .bimdata-btn {
+      margin-left: auto;
+    }
+  }
+}
