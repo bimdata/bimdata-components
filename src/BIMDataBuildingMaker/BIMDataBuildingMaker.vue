@@ -154,10 +154,13 @@ export default {
       currentView.value = VIEWS.LIST;
     };
 
-    onMounted(() => {
-      loadMetaBuildings();
-      if (props.model) openStoreys(props.model);
-    });
+    watch(
+      () => props.model,
+      model => { if (model) openStoreys(model); },
+      { immediate: true }
+    );
+
+    onMounted(() => loadMetaBuildings());
 
     return {
       // References
