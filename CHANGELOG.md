@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/bimdata/bimdata-components/compare/v1.3.3...v1.4.0) (2024-04-17)
+
+
+### MINOR
+
+* feat: add meta-buiding components (#4) ([4a18d6d](https://github.com/bimdata/bimdata-components/commit/4a18d6d01939a78c6c713095456a9acbb65e83f7)), closes [#4](https://github.com/bimdata/bimdata-components/issues/4)
+
 ## [1.3.3](https://github.com/bimdata/bimdata-components/compare/v1.3.2...v1.3.3) (2024-03-21)
 
 
