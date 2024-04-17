@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/bimdata/bimdata-components/compare/v1.4.0...v1.4.1) (2024-04-17)
+
+
+### PATCH
+
+* fix(building-maker): watch model prop ([d937897](https://github.com/bimdata/bimdata-components/commit/d9378977df58acbbc77a6b57c9ffbc3c4dad9fe1))
+
 # [1.4.0](https://github.com/bimdata/bimdata-components/compare/v1.3.3...v1.4.0) (2024-04-17)
 
 
