@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/bimdata/bimdata-components/compare/v1.4.1...v1.4.2) (2024-04-17)
+
+
+### PATCH
+
+* fix(building-maker): import watch from vue ([8c90242](https://github.com/bimdata/bimdata-components/commit/8c9024263e54f662e7c05cc5afa770061441ca1a))
+
 ## [1.4.1](https://github.com/bimdata/bimdata-components/compare/v1.4.0...v1.4.1) (2024-04-17)
 
 
