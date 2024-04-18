@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/bimdata/bimdata-components/compare/v1.4.2...v1.4.3) (2024-04-18)
+
+
+### PATCH
+
+* feat(meta-building): add selectable prop to meta-building-structure + refactor internal state management ([19b9e0e](https://github.com/bimdata/bimdata-components/commit/19b9e0e999ea01dff21c3be549756fc9de41762e))
+
 ## [1.4.2](https://github.com/bimdata/bimdata-components/compare/v1.4.1...v1.4.2) (2024-04-17)
 
 
