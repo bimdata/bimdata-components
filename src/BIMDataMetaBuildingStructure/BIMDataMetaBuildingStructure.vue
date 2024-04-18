@@ -1,15 +1,11 @@
 <script setup>
-import { computed, markRaw, ref } from "vue";
+import { computed, markRaw, provide, readonly, ref, watch } from "vue";
 import EquipmentsView from "./EquipmentsView/EquipmentsView.vue";
 import StoreySelector from "./StoreySelector/StoreySelector.vue";
 import StructureView from "./StructureView/StructureView.vue";
 import ZonesView from "./ZonesView/ZonesView.vue";
 
 const props = defineProps({
-  apiClient: {
-    type: Object,
-    required: true,
-  },
   space: {
     type: Object,
     required: true,
@@ -26,14 +22,32 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  selectable: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const emit = defineEmits(["selection-changed", "storey-selected"]);
 
 const selectedStorey = ref(null);
+watch(
+  () => props.storey,
+  storey => (selectedStorey.value = storey),
+  { immediate: true }
+);
 
-const storeys = computed(() => props.model?.storeys ?? []);
-const zones = computed(() => props.model?.zones.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid) ?? []);
+const state = {
+  model: computed(() => props.model),
+  storeys: computed(() => props.model?.storeys ?? []),
+  storey: readonly(selectedStorey),
+  zones: computed(() => props.model?.zones.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid) ?? []),
+  selectable: computed(() => props.selectable),
+  onStoreySelected: event => (selectedStorey.value = event, emit("storey-selected", event)),
+  onSelectionChanged: event => emit("selection-changed", event),
+};
+
+provide("BIMDataMetaBuildingStructure.state", state);
 
 const tabs = [
   {
@@ -45,7 +59,7 @@ const tabs = [
     id: 1,
     label: "Zones",
     view: markRaw(ZonesView),
-    count: computed(() => zones.value.length)
+    count: computed(() => state.zones.value.length)
   },
   {
     id: 2,
@@ -64,9 +78,9 @@ const activeTab = ref(tabs[0]);
     </div>
     <div class="head">
       <StoreySelector
-        :storeys="storeys"
-        :storey="storey"
-        @storey-selected="selectedStorey = $event, emit('storey-selected', $event)"
+        :storeys="state.storeys.value"
+        :storey="state.storey.value"
+        @storey-selected="state.onStoreySelected"
       />
       <!-- 
       <BIMDataTabs
@@ -86,12 +100,7 @@ const activeTab = ref(tabs[0]);
     </div>
 
     <div class="body">
-      <component
-        :is="activeTab.view"
-        :model="model"
-        :storey="selectedStorey"
-        @selection-changed="emit('selection-changed', $event)"
-      />
+      <component :is="activeTab.view" />
     </div>
   </div>
 </template>

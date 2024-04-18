@@ -13,12 +13,10 @@ const props = defineProps({
   },
 });
 
-defineEmits(["selection-changed"]);
-
 const plan = computed(() => props.node.plan);
 </script>
 <template>
-  <GenericTreeNode v-bind="$props" @selection-changed="$emit('selection-changed', $event)">
+  <GenericTreeNode v-bind="$props">
     <template #icon>
       <BIMDataFileIcon
         :file-name="plan.plan.document?.file_name ?? plan.plan.name"

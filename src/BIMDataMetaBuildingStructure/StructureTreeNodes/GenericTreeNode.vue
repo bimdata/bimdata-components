@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch } from "vue";
+import { computed, inject, watch } from "vue";
 
 const props = defineProps({
   node: {
@@ -12,11 +12,12 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["selection-changed"]);
+const state = inject("BIMDataMetaBuildingStructure.state");
 
+const isSelectable = computed(() => state.selectable.value);
 const isSelected = computed(() => props.node.selectedRef.value);
 
-watch(isSelected, selected => emit("selection-changed", { node: props.node, selected }));
+watch(isSelected, selected => state.onSelectionChanged({ node: props.node, selected }));
 
 const updateSelection = selected => {
   props.node.selectedRef.value = selected;
@@ -42,6 +43,7 @@ const updateSelection = selected => {
 <template>
   <div class="generic-tree-node">
     <BIMDataCheckbox
+      v-if="isSelectable"
       :model-value="isSelected"
       @update:model-value="updateSelection"
     />

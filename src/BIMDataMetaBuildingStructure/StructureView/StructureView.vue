@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from "vue";
+import { computed, inject, ref, watch } from "vue";
 import { buildStructureTree, flattenTree, setupTree } from "../meta-building-structure.js";
 import PlanNode from "../StructureTreeNodes/PlanNode.vue";
 import SpaceNode from "../StructureTreeNodes/SpaceNode.vue";
@@ -15,36 +15,10 @@ defineOptions({
   }
 });
 
-const props = defineProps({
-  model: {
-    type: Object,
-    default: null,
-  },
-  storey: {
-    type: Object,
-    default: null,
-  },
-});
+const { model, storey } = inject("BIMDataMetaBuildingStructure.state");
 
-const emit = defineEmits(["selection-changed"]);
-
-const tree = computed(() => setupTree(buildStructureTree(props.model, props.storey)));
+const tree = computed(() => setupTree(buildStructureTree(model.value, storey.value)));
 const nodes = computed(() => flattenTree(tree.value));
-
-function getNodeComponent(node, depth) {
-  if (depth === 0) {
-    return "StructureRootNode";
-  }
-  if (node.zone) {
-    return "ZoneNode";
-  }
-  if (node.space) {
-    return "SpaceNode";
-  }
-  if (node.plan) {
-    return "PlanNode";
-  }
-}
 
 const searchText = ref("");
 
@@ -68,10 +42,9 @@ watch(searchText, value => {
     <BIMDataTree :data="tree">
       <template #node="{ node, depth }">
         <component
-          :is="getNodeComponent(node, depth)"
+          :is="node.component"
           :node="node"
           :depth="depth"
-          @selection-changed="emit('selection-changed', $event)"
         />
       </template>
     </BIMDataTree>

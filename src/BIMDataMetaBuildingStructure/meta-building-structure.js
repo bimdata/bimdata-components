@@ -5,11 +5,13 @@ export function buildStructureTree(model, storey) {
     {
       id: 1,
       text: "Zones",
+      component: "StructureRootNode",
       children: buildZonesTree(model, storey),
     },
     {
       id: 2,
       text: "Plans",
+      component: "StructureRootNode",
       children: buildPlansTree(model, storey),
     }
   ];
@@ -59,6 +61,7 @@ export function flattenTree(tree) {
 const zoneNode = zone => ({
   id: zone.id,
   text: zone.name,
+  component: "ZoneNode",
   children: zone.zones.map(zoneNode).concat(zone.spaces.map(spaceNode)),
   zone,
 });
@@ -66,11 +69,13 @@ const zoneNode = zone => ({
 const spaceNode = space => ({
   id: space.id,
   text: space.name,
+  component: "SpaceNode",
   space,
 });
 
 const planNode = plan => ({
   id: plan.plan.id,
   text: plan.plan.name,
+  component: "PlanNode",
   plan,
 });

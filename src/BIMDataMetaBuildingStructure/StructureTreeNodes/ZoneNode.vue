@@ -12,12 +12,10 @@ defineProps({
   },
 });
 
-defineEmits(["selection-changed"]);
-
 const cssColor = color => `#${Number(color).toString(16).padStart(6, 0)}`;
 </script>
 <template>
-  <GenericTreeNode v-bind="$props" @selection-changed="$emit('selection-changed', $event)">
+  <GenericTreeNode v-bind="$props">
     <template #icon>
       <BIMDataIconZone2 size="xxs" />
     </template>

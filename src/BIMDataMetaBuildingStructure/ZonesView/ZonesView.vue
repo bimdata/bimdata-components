@@ -1,5 +1,5 @@
 <script setup>
-import { computed, shallowRef, triggerRef } from "vue";
+import { computed, inject } from "vue";
 import { buildZonesTree } from "../meta-building-structure.js";
 import SpaceNode from "../StructureTreeNodes/SpaceNode.vue";
 import ZoneNode from "../StructureTreeNodes/ZoneNode.vue";
@@ -11,57 +11,19 @@ defineOptions({
   }
 });
 
-const props = defineProps({
-  model: {
-    type: Object,
-    required: true,
-  },
-  storey: {
-    type: Object,
-    default: null,
-  },
-});
+const { model, storey } = inject("BIMDataMetaBuildingStructure.state");
 
-const emit = defineEmits(["selection-changed"]);
-
-const data = computed(() => buildZonesTree(props.model, props.storey));
-
-const selection = shallowRef(new Set());
-
-function isSelected(node) {
-  return selection.value.has(node.id);
-}
-
-function onSelectionChanged(node) {
-  if (selection.value.has(node.id)) {
-    selection.value.delete(node.id);
-  } else {
-    selection.value.add(node.id);
-  }
-  triggerRef(selection);
-  emit("selection-changed", node);
-}
-
-function getNodeComponent(node, depth) {
-  if (node.zone) {
-    return "ZoneNode";
-  }
-  if (node.space) {
-    return "SpaceNode";
-  }
-}
+const tree = computed(() => buildZonesTree(model.value, storey.value));
 </script>
 
 <template>
   <div class="zones-view">
-    <BIMDataTree :data="data">
+    <BIMDataTree :data="tree">
       <template #node="{ node, depth }">
         <component
-          :is="getNodeComponent(node, depth)"
+          :is="node.component"
           :node="node"
           :depth="depth"
-          :selected="isSelected(node)"
-          @selection-changed="onSelectionChanged(node)"
         />
       </template>
     </BIMDataTree>

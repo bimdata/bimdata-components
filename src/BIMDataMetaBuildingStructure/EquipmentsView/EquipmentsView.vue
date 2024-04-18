@@ -1,15 +1,4 @@
 <script setup>
-defineProps({
-  model: {
-    type: Object,
-    required: true,
-  },
-  storey: {
-    type: Object,
-    default: null,
-  },
-});
-
 // TODO
 </script>
 

@@ -11,11 +11,9 @@ defineProps({
     required: true,
   },
 });
-
-defineEmits(["selection-changed"]);
 </script>
 <template>
-  <GenericTreeNode v-bind="$props" @selection-changed="$emit('selection-changed', $event)">
+  <GenericTreeNode v-bind="$props">
     <template #icon>
       <BIMDataIconZone2 v-if="node.id === 1" size="xxs" />
       <BIMDataIconPlan v-if="node.id === 2" size="xxs" />
