@@ -1,34 +1,28 @@
 import { ref } from "vue";
 
-export function buildStructureTree(model, storey) {
+export function buildStructureTree(storey, zones) {
   return [
     {
       id: 1,
       text: "Zones",
       component: "StructureRootNode",
-      children: buildZonesTree(model, storey),
+      children: buildZonesTree(zones),
     },
     {
       id: 2,
       text: "Plans",
       component: "StructureRootNode",
-      children: buildPlansTree(model, storey),
+      children: buildPlansTree(storey),
     }
   ];
 }
 
-export function buildZonesTree(model, storey) {
-  if (!model || !storey) return [];
-
-  const zones = model.zones.filter(zone => zone.storey_uuid === storey.uuid);
-
+export function buildZonesTree(zones) {
   return zones.map(zoneNode);
 }
 
-export function buildPlansTree(model, storey) {
-  if (!model || !storey) return [];
-
-  return storey.plans.map(planNode);
+export function buildPlansTree(storey) {
+  return storey?.plans.map(planNode) ?? [];
 }
 
 export function setupTree(tree, parent) {

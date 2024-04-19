@@ -6,6 +6,10 @@ import StructureView from "./StructureView/StructureView.vue";
 import ZonesView from "./ZonesView/ZonesView.vue";
 
 const props = defineProps({
+  apiClient: {
+    type: Object,
+    required: true,
+  },
   space: {
     type: Object,
     required: true,
@@ -28,9 +32,30 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["selection-changed", "storey-selected"]);
+const emit = defineEmits([
+  "selection-changed",
+  "storey-selected"
+]);
 
+const loading = ref(false);
+const modelZones = ref([]);
 const selectedStorey = ref(null);
+
+watch(
+  () => props.model,
+  async model => {
+    if (model) {
+      try {
+        loading.value = true;
+        modelZones.value = await props.apiClient.modelApi.getZones(props.space.id, model.id, props.project.id);
+      } finally {
+        loading.value = false;
+      }
+    }
+  },
+  { immediate: true }
+);
+
 watch(
   () => props.storey,
   storey => (selectedStorey.value = storey),
@@ -41,7 +66,7 @@ const state = {
   model: computed(() => props.model),
   storeys: computed(() => props.model?.storeys ?? []),
   storey: readonly(selectedStorey),
-  zones: computed(() => props.model?.zones.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid) ?? []),
+  zones: computed(() => modelZones.value.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid) ?? []),
   selectable: computed(() => props.selectable),
   onStoreySelected: event => (selectedStorey.value = event, emit("storey-selected", event)),
   onSelectionChanged: event => emit("selection-changed", event),
@@ -102,11 +127,18 @@ const activeTab = ref(tabs[0]);
     <div class="body">
       <component :is="activeTab.view" />
     </div>
+
+    <transition name="fade">
+      <div class="loading" v-show="loading">
+        <BIMDataSpinner />
+      </div>
+    </transition>
   </div>
 </template>
 
 <style scoped>
 .meta-building-structure {
+  position: relative;
   height: 100%;
 
   .title {
@@ -142,6 +174,24 @@ const activeTab = ref(tabs[0]);
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, 0.75);
+
+    .bimdata-spinner {
+      transform: scale(2);
+    }
   }
 }
 </style>

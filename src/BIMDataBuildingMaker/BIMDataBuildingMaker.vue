@@ -57,10 +57,7 @@
     </div>
 
     <transition name="fade">
-      <div
-        class="bimdata-building-maker__loader"
-        v-show="loading.value"
-      >
+      <div class="bimdata-building-maker__loader" v-show="loading">
         <BIMDataSpinner />
       </div>
     </transition>

@@ -15,9 +15,9 @@ defineOptions({
   }
 });
 
-const { model, storey } = inject("BIMDataMetaBuildingStructure.state");
+const { storey, zones } = inject("BIMDataMetaBuildingStructure.state");
 
-const tree = computed(() => setupTree(buildStructureTree(model.value, storey.value)));
+const tree = computed(() => setupTree(buildStructureTree(storey.value, zones.value)));
 const nodes = computed(() => flattenTree(tree.value));
 
 const searchText = ref("");

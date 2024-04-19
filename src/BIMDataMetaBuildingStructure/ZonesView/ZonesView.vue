@@ -11,9 +11,9 @@ defineOptions({
   }
 });
 
-const { model, storey } = inject("BIMDataMetaBuildingStructure.state");
+const { zones } = inject("BIMDataMetaBuildingStructure.state");
 
-const tree = computed(() => buildZonesTree(model.value, storey.value));
+const tree = computed(() => buildZonesTree(zones.value));
 </script>
 
 <template>
