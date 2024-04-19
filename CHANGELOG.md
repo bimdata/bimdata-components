@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/bimdata/bimdata-components/compare/v1.4.4...v1.4.5) (2024-04-19)
+
+
+### PATCH
+
+* fix(meta-building): fetch model storeys from API ([c3746bf](https://github.com/bimdata/bimdata-components/commit/c3746bf4e0559a8099af4ff61dde57289457f782))
+
 ## [1.4.4](https://github.com/bimdata/bimdata-components/compare/v1.4.3...v1.4.4) (2024-04-19)
 
 
