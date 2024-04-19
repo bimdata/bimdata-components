@@ -38,6 +38,7 @@ const emit = defineEmits([
 ]);
 
 const loading = ref(false);
+const modelStoreys = ref([]);
 const modelZones = ref([]);
 const selectedStorey = ref(null);
 
@@ -47,10 +48,18 @@ watch(
     if (model) {
       try {
         loading.value = true;
+        modelStoreys.value = await props.apiClient.modelApi.getStoreys(props.space.id, model.id, props.project.id);
         modelZones.value = await props.apiClient.modelApi.getZones(props.space.id, model.id, props.project.id);
+        if (!modelStoreys.value.some(({ uuid }) => selectedStorey.value?.uuid === uuid)) {
+          selectedStorey.value = modelStoreys.value[0] ?? null;
+        }
       } finally {
         loading.value = false;
       }
+    } else {
+      modelStoreys.value = [];
+      modelZones.value = [];
+      selectedStorey.value = null;
     }
   },
   { immediate: true }
@@ -64,7 +73,7 @@ watch(
 
 const state = {
   model: computed(() => props.model),
-  storeys: computed(() => props.model?.storeys ?? []),
+  storeys: readonly(modelStoreys),
   storey: readonly(selectedStorey),
   zones: computed(() => modelZones.value.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid) ?? []),
   selectable: computed(() => props.selectable),
