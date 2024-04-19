@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/bimdata/bimdata-components/compare/v1.4.3...v1.4.4) (2024-04-19)
+
+
+### PATCH
+
+* fix(meta-building): use apiClient to fetch model zones ([c8f1208](https://github.com/bimdata/bimdata-components/commit/c8f1208a57f211d9b034971b29aff4c0ac8003ae))
+
 ## [1.4.3](https://github.com/bimdata/bimdata-components/compare/v1.4.2...v1.4.3) (2024-04-18)
 
 
