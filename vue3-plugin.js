@@ -10,7 +10,7 @@ import * as Components from "./index.js";
  *   } 
  *  } [cfg]
  */
-const pluginFactory = ({ i18nPlugin }) => {
+const pluginFactory = ({ i18nPlugin } = {}) => {
   return {
     install(app) {
       if (i18nPlugin) {
