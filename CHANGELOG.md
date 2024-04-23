@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/bimdata/bimdata-components/compare/v1.4.5...v1.4.6) (2024-04-23)
+
+
+### PATCH
+
+* fix(plugin): handle no params properly ([b5b70e9](https://github.com/bimdata/bimdata-components/commit/b5b70e958a82ab970df17a89c583cb401655bd02))
+
 ## [1.4.5](https://github.com/bimdata/bimdata-components/compare/v1.4.4...v1.4.5) (2024-04-19)
 
 
