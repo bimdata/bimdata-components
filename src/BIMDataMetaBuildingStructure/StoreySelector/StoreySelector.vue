@@ -17,24 +17,11 @@ const emit = defineEmits(["storey-selected"]);
 const selectedStorey = ref(null);
 
 watch(
-  () => props.storeys,
-  storeys => {
-    if (
-      selectedStorey.value &&
-      storeys.every(s => s.uuid !== selectedStorey.value.uuid)
-    ) {
-      selectedStorey.value = null;
-    }
-  },
-  { immediate: true }
-);
-
-watch(
-  () => props.storey,
-  storey => {
+  [() => props.storeys, () => props.storey],
+  ([storeys, storey]) => {
     if (
       !storey ||
-      (props.storeys.some(s => s.uuid === storey.uuid) &&
+      (storeys.some(s => s.uuid === storey.uuid) &&
         storey.uuid !== selectedStorey.value?.uuid)
     ) {
       selectedStorey.value = storey;
