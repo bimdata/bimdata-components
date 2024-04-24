@@ -50,6 +50,9 @@ watch(
         loading.value = true;
         modelStoreys.value = await props.apiClient.modelApi.getStoreys(props.space.id, model.id, props.project.id);
         modelZones.value = await props.apiClient.modelApi.getZones(props.space.id, model.id, props.project.id);
+        for (const storey of modelStoreys.value) {
+          storey.zones = modelZones.value.filter(zone => zone.storey_uuid === storey.uuid);
+        }
         if (!modelStoreys.value.some(({ uuid }) => selectedStorey.value?.uuid === uuid)) {
           selectedStorey.value = modelStoreys.value[0] ?? null;
         }
@@ -75,7 +78,7 @@ const state = {
   model: computed(() => props.model),
   storeys: readonly(modelStoreys),
   storey: readonly(selectedStorey),
-  zones: computed(() => modelZones.value.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid) ?? []),
+  zones: computed(() => modelZones.value.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid)),
   selectable: computed(() => props.selectable),
   onStoreySelected: event => (selectedStorey.value = event, emit("storey-selected", event)),
   onSelectionChanged: event => emit("selection-changed", event),
@@ -168,6 +171,7 @@ const activeTab = ref(tabs[0]);
   .body {
     height: calc(100% - 100px);
     padding: var(--spacing-unit);
+    overflow-y: auto;
   }
 
   .tab-count {

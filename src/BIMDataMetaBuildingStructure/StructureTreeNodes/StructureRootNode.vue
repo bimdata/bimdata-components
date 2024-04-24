@@ -1,7 +1,8 @@
 <script setup>
+import { watch } from "vue";
 import GenericTreeNode from "./GenericTreeNode.vue";
 
-defineProps({
+const props = defineProps({
   node: {
     type: Object,
     required: true,
@@ -11,6 +12,17 @@ defineProps({
     required: true,
   },
 });
+
+watch(
+  () => props.node,
+  node => {
+    if (node.children.length === 0) {
+      node.disabledRef.value = true;
+      node.selectedRef.value = false;
+    }
+  },
+  { immediate: true }
+);
 </script>
 <template>
   <GenericTreeNode v-bind="$props">

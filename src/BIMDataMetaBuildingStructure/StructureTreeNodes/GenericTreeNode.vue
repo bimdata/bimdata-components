@@ -14,6 +14,7 @@ const props = defineProps({
 
 const state = inject("BIMDataMetaBuildingStructure.state");
 
+const isDisabled = computed(() => props.node.disabledRef.value);
 const isSelectable = computed(() => state.selectable.value);
 const isSelected = computed(() => props.node.selectedRef.value);
 
@@ -44,6 +45,7 @@ const updateSelection = selected => {
   <div class="generic-tree-node">
     <BIMDataCheckbox
       v-if="isSelectable"
+      :disabled="isDisabled"
       :model-value="isSelected"
       @update:model-value="updateSelection"
     />

@@ -30,6 +30,7 @@ export function setupTree(tree, parent) {
     tree = tree.map(t => setupTree(t, parent));
   } else {
     tree.visibleRef = ref(true);
+    tree.disabledRef = ref(false);
     tree.expandedRef = ref(true);
     tree.selectedRef = ref(true);
     tree.parent = parent;
