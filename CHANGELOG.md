@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/bimdata/bimdata-components/compare/v1.4.7...v1.4.8) (2024-04-24)
+
+
+### PATCH
+
+* fix(meat-building): properly load initial selected storey ([32024d7](https://github.com/bimdata/bimdata-components/commit/32024d7cb1b7da6f09db3551c54eedb7aa21b444))
+
 ## [1.4.7](https://github.com/bimdata/bimdata-components/compare/v1.4.6...v1.4.7) (2024-04-24)
 
 
