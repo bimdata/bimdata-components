@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/bimdata/bimdata-components/compare/v1.4.6...v1.4.7) (2024-04-24)
+
+
+### PATCH
+
+* fix(meta-building): improve storey-selector + disable empty root nodes ([ff8c28b](https://github.com/bimdata/bimdata-components/commit/ff8c28badef7e3f5079873f282f672807ed693b8))
+
 ## [1.4.6](https://github.com/bimdata/bimdata-components/compare/v1.4.5...v1.4.6) (2024-04-23)
 
 
