@@ -4,7 +4,6 @@
   top: 0;
   height: 100%;
   width: 100%;
-
   &::before {
     content: "";
     position: absolute;
@@ -17,23 +16,30 @@
   }
 
   .safe-zone {
+    background-color: var(--color-white);
+    border-radius: 10px;
     z-index: 1;
-
-    &__content {
-      background-color: var(--color-white);
-      font-size: 1.2rem;
-      text-align: center;
-      color: var(--color-high);
-      p {
-        margin-bottom: 0;
-      }
+    &__icon {
+      margin: auto;
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-high-lighter);
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
+    &__title {
+      text-align: center;
+    }
+    &__text {
+      margin: calc(var(--spacing-unit) * 2) 0;
+      color: var(--color-granite);
+      text-align: center;
+    }
     &__actions {
-      height: 75px;
-      justify-content: space-evenly;
-      background-color: var(--color-silver-light);
-      border-top: 1px solid var(--color-silver);
+      gap: var(--spacing-unit);
+      justify-content: center;
     }
   }
 }
