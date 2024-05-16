@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/bimdata/bimdata-components/compare/v1.4.8...v1.4.9) (2024-05-16)
+
+
+### PATCH
+
+* Fix & redesign SafeZoneModal component ([8fb5c3d](https://github.com/bimdata/bimdata-components/commit/8fb5c3d36cc02f27bbd1cc9cca105a29b098d7ae))
+
 ## [1.4.8](https://github.com/bimdata/bimdata-components/compare/v1.4.7...v1.4.8) (2024-04-24)
 
 
