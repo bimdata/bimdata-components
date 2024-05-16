@@ -200,6 +200,7 @@ export default {
   },
   emits: [
     "rename",
+    "delete",
     "download",
     "edit",
     "view",

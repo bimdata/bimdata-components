@@ -15,7 +15,7 @@
     </BIMDataButton>
     <div class="delete-modal__content">
       <div class="delete-modal__content__title">
-        {{ $t("FileManager.eleteTitle") }}
+        {{ $t("FileManager.deleteTitle") }}
       </div>
       <div class="delete-modal__content__detail">
         {{ $t("FileManager.deleteDetail") }} :
