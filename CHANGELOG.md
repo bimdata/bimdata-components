@@ -1,3 +1,10 @@
+## [1.4.10](https://github.com/bimdata/bimdata-components/compare/v1.4.9...v1.4.10) (2024-05-17)
+
+
+### PATCH
+
+* fix(file-manager): use watchEffect to compute files list (#6) ([b04106d](https://github.com/bimdata/bimdata-components/commit/b04106d3dce2c83391d592416c22f343bf260291)), closes [#6](https://github.com/bimdata/bimdata-components/issues/6)
+
 ## [1.4.9](https://github.com/bimdata/bimdata-components/compare/v1.4.8...v1.4.9) (2024-05-16)
 
 
