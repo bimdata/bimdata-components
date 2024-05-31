@@ -28,7 +28,7 @@ const props = defineProps({
   },
   selectable: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 
@@ -36,6 +36,9 @@ const emit = defineEmits([
   "selection-changed",
   "storey-selected"
 ]);
+
+const highlightedId = defineModel("highlightedId", { default: null });
+const selectedId = defineModel("selectedId", { default: null });
 
 const loading = ref(false);
 const modelStoreys = ref([]);
@@ -80,6 +83,8 @@ const state = {
   storey: readonly(selectedStorey),
   zones: computed(() => modelZones.value.filter(zone => zone.storey_uuid === selectedStorey.value?.uuid)),
   selectable: computed(() => props.selectable),
+  highlightedId,
+  selectedId,
   onStoreySelected: event => (selectedStorey.value = event, emit("storey-selected", event)),
   onSelectionChanged: event => emit("selection-changed", event),
 };

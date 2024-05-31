@@ -15,7 +15,8 @@ defineOptions({
   }
 });
 
-const { storey, zones } = inject("BIMDataMetaBuildingStructure.state");
+const state = inject("BIMDataMetaBuildingStructure.state");
+const { storey, zones, highlightedId, selectedId } = state;
 
 const tree = computed(() => setupTree(buildStructureTree(storey.value, zones.value)));
 const nodes = computed(() => flattenTree(tree.value));
@@ -29,6 +30,26 @@ watch(searchText, value => {
     node.visibleRef.value = !text || node.text.toLowerCase().includes(text);
   });
 });
+
+watch(highlightedId, id => {
+  let parent = nodes.value.find(x => x.id === id)?.parent;
+  while (parent) {
+    parent.expandedRef.value = true;
+    parent = parent.parent;
+  } 
+});
+
+const onNodeHover = node => {
+  highlightedId.value = node?.id;
+};
+
+const onNodeClick = node => {
+  if (selectedId.value === node?.id) {
+    selectedId.value = null;
+  } else {
+    selectedId.value = node?.id;
+  }
+};
 </script>
 
 <template>
@@ -39,7 +60,13 @@ watch(searchText, value => {
       :placeholder="$t('MetaBuildingStructure.StructureView.search')"
       v-model="searchText"
     />
-    <BIMDataTree :data="tree">
+    <BIMDataTree
+      :data="tree"
+      :highlighted-id="highlightedId"
+      :selected-id="selectedId"
+      @hover="onNodeHover"
+      @click="onNodeClick"
+    >
       <template #node="{ node, depth }">
         <component
           :is="node.component"
