@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/bimdata/bimdata-components/compare/v1.4.10...v1.5.0) (2024-05-31)
+
+
+### MINOR
+
+* feat: add highlightedId and selectedId models to meta-building structure component ([44aabbd](https://github.com/bimdata/bimdata-components/commit/44aabbdaa14aff01a778c5711b7cde2b49a08028))
+
 ## [1.4.10](https://github.com/bimdata/bimdata-components/compare/v1.4.9...v1.4.10) (2024-05-17)
 
 
