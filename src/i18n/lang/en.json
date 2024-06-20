@@ -69,5 +69,8 @@
         "StructureView": {
             "search": "Search"
         }
+    },
+    "PhotosphereBuilding": {
+        "title": "Photosphere Building"
     }
 }

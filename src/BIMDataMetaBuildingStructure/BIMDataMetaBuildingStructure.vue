@@ -179,7 +179,7 @@ const activeTab = ref(tabs[0]);
     overflow-y: auto;
   }
 
-  .tab-count {
+  /* .tab-count {
     min-width: 20px;
     height: 20px;
     margin-left: calc(var(--spacing-unit) / 2);
@@ -192,7 +192,7 @@ const activeTab = ref(tabs[0]);
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
   .loading {
     position: absolute;

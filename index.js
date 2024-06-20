@@ -4,4 +4,5 @@ export { default as BIMDataGuidedTour } from "./src/BIMDataGuidedTour/BIMDataGui
 export { default as BIMDataMetaBuildingStructure } from "./src/BIMDataMetaBuildingStructure/BIMDataMetaBuildingStructure.vue";
 export { default as BIMDataModelPreview } from "./src/BIMDataModelPreview/BIMDataModelPreview.vue";
 export { default as BIMDataPDFViewer } from "./src/BIMDataPDFViewer/BIMDataPDFViewer.vue";
+export { default as BIMDataPhotosphereBuilding } from "./src/BIMDataPhotosphereBuilding/BIMDataPhotosphereBuilding.vue";
 export { default as BIMDataSafeZoneModal } from "./src/BIMDataSafeZoneModal/BIMDataSafeZoneModal.vue";
