@@ -1,3 +1,14 @@
+# [1.6.0](https://github.com/bimdata/bimdata-components/compare/v1.5.0...v1.6.0) (2024-06-20)
+
+
+### chore
+
+* update dependencies [skip ci] ([ddbe2a7](https://github.com/bimdata/bimdata-components/commit/ddbe2a784c6955afecc85b3b091efa3ac38c1b97))
+
+### MINOR
+
+* feat: add Photosphere Building component ([495224b](https://github.com/bimdata/bimdata-components/commit/495224be1751ab82bf594b72fc59a1a81c89bf54))
+
 # [1.5.0](https://github.com/bimdata/bimdata-components/compare/v1.4.10...v1.5.0) (2024-05-31)
 
 
