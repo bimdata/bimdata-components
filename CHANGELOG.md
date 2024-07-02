@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/bimdata/bimdata-components/compare/v1.6.0...v1.6.1) (2024-07-02)
+
+
+### PATCH
+
+* fix(photosphere): allow to hide radio buttons via 'selectable' prop ([8bdce12](https://github.com/bimdata/bimdata-components/commit/8bdce1272138d07c11705b287f306fe8ad0560f7))
+
 # [1.6.0](https://github.com/bimdata/bimdata-components/compare/v1.5.0...v1.6.0) (2024-06-20)
 
 
