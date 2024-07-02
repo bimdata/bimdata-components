@@ -96,18 +96,16 @@ const onPlanSelected = event => emit("plan-selected", event);
     <div class="body">
       <div class="list-item" v-for="plan of storeyPlans" :key="plan.plan.id">
         <BIMDataRadio
+          v-if="selectable"
           :value="plan.plan.id"
           v-model="selectedPlanId"
           @update:modelValue="onPlanSelected(plan)"
-        >
-          <div class="flex items-center" style="padding: 0 6px; gap: 6px">
-            <BIMDataFileIcon
-              :fileName="plan.plan.document?.file_name ?? plan.plan.name"
-              :size="14"
-            />
-            <span>{{ plan.plan.name }}</span>
-          </div>
-        </BIMDataRadio>
+        />
+        <BIMDataFileIcon
+          :fileName="plan.plan.document?.file_name ?? plan.plan.name"
+          :size="14"
+        />
+        <BIMDataTextbox class="text" :text="plan.plan.name" />
       </div>
     </div>
 
@@ -146,10 +144,18 @@ const onPlanSelected = event => emit("plan-selected", event);
 
     display: flex;
     flex-direction: column;
+    gap: calc(var(--spacing-unit) / 2);
 
     .list-item {
       padding: 0 calc(var(--spacing-unit) / 2);
       display: flex;
+      align-items: center;
+      gap: calc(var(--spacing-unit) / 2);
+
+      .text {
+        width: 0 !important;
+        flex-grow: 1;
+      }
     }
   }
 
