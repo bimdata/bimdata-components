@@ -61,13 +61,13 @@ export default {
 <style scoped lang="scss">
 .bimdata-pie-progress-spinner {
   &__path {
+    stroke-dasharray: 63;
+    stroke-dashoffset: var(--dashoffset, 0);
     &--back {
       position: absolute;
       top: 0px;
       left: 0px;
     }
-    stroke-dasharray: 63;
-    stroke-dashoffset: var(--dashoffset, 0);
   }
 }
 </style>

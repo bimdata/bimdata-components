@@ -21,6 +21,11 @@
     margin-left: calc(var(--spacing-unit) / 2);
 
     .content {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing-unit) / 2);
+
       &::before {
         content: "";
         position: relative;
@@ -30,11 +35,6 @@
         border-left: 1px solid var(--color-granite-light);
         border-bottom: 1px solid var(--color-granite-light);
       }
-
-      height: 32px;
-      display: flex;
-      align-items: center;
-      gap: calc(var(--spacing-unit) / 2);
     }
   }
 }
