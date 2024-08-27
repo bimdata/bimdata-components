@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/bimdata/bimdata-components/compare/v1.6.2...v1.6.3) (2024-08-27)
+
+
+### PATCH
+
+* fix(files-manager): fix pdf page seletion ([ee096f0](https://github.com/bimdata/bimdata-components/commit/ee096f0ef0bfc78bbd2651eda160e0c4c1f633f6))
+
 ## [1.6.2](https://github.com/bimdata/bimdata-components/compare/v1.6.1...v1.6.2) (2024-07-24)
 
 
