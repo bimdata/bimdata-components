@@ -126,6 +126,7 @@ const lLayout = computed(() => {
 const itemWidth = computed(() => {
   return xsLayout.value ? "100%" : sLayout.value ? "180px" : "164px";
 });
+
 const files = ref([]);
 watchEffect(() => {
   let _files = currentFolder.value?.children ?? [];
@@ -184,6 +185,7 @@ const isFileSucess = (id) => {
       props.alreadySelectedIds.includes(id))
   );
 };
+
 const onFileLoaded = (loadingFile, loadedFile) => {
   if (!loadingFile.folder.children) {
     loadingFile.folder.children = [];
@@ -209,6 +211,7 @@ const onFileLoaded = (loadingFile, loadedFile) => {
     );
   }, SUCCESS_TIME);
 };
+
 const onDownload = async (entity) => {
   try {
     await downloadFiles(getFlattenTree(entity), {
@@ -221,6 +224,7 @@ const onDownload = async (entity) => {
     emit("error", error);
   }
 };
+
 const onDelete = (entity) => {
   entityDeletable.value = entity;
 };
@@ -244,6 +248,7 @@ const onDeleteSuccess = () => {
 
   entityDeletable.value = null;
 };
+
 const onRename = (entity) => {
   entityRenown.value = entity;
 };
@@ -260,20 +265,24 @@ const onRenameSuccess = () => {
 
   entityRenown.value = null;
 };
+
 const onView = (file) => {
   pdfToView.value = file;
 };
+
 const onResize = (entries) => {
   entries.forEach(entry => {
     width.value = entry.target.clientWidth;
   });
 };
+
 /**
  * @param { File[] } files
  */
 const uploadFiles = (files = []) => {
   loadingFiles.value.push(...formatFiles(files));
 };
+
 /**
  * @param { File[] } files
  */
@@ -287,6 +296,7 @@ const formatFiles = (files) => {
     folder: currentFolder.value,
   }));
 };
+
 const onNewFolder = (newFolder) => {
   if (!currentFolder.value.children) {
     currentFolder.value.children = [];
@@ -298,11 +308,12 @@ const onNewFolder = (newFolder) => {
     content: newFolder,
   });
 };
+
 const onToggleFileSelect = async (file) => {
   let pdfPage = null;
 
   if (isFileSelected(file)) {
-    const selectedPdfPage = selectedPdfPage(file);
+    const selectedPdfPage = getSelectedPdfPage(file);
     if (props.pdfPageSelect && file.model_type === "PDF" && selectedPdfPage) {
       selectedFiles.value = selectedFiles.value.filter(
         ({ document }) => document !== file
@@ -350,9 +361,12 @@ const onToggleFileSelect = async (file) => {
   }
   emit("selection-change", selectedFiles.value);
 };
+
 const isFileSelected = (file) => {
   return selectedFiles.value.some(({ document }) => file === document);
 };
+
+let selectPdfPage = () => {};
 const openPdfPageSelector = async (model, page) => {
   pdfModel.value = model;
   pdfModelSelectedPage.value = page;
@@ -363,12 +377,15 @@ const openPdfPageSelector = async (model, page) => {
   pdfModel.value = null;
   return pdfPage;
 };
-const selectedPdfPage = (file) => {
+
+const getSelectedPdfPage = (file) => {
   return selectedFiles.value.find(({ document }) => file === document)?.pdfPage;
 };
+
 const openFolder = (file) => {
   currentFolder.value = file;
 };
+
 const back = () => {
   const parent = getParent(fileStructure.value, currentFolder.value);
 
@@ -378,6 +395,7 @@ const back = () => {
     currentFolder.value = fileStructure.value;
   }
 };
+
 const getParent = (parent, fileStructure) => {
   if (!Array.isArray(parent.children)) return;
   if (parent.children.includes(fileStructure)) {
@@ -391,6 +409,7 @@ const getParent = (parent, fileStructure) => {
     }
   }
 };
+
 const getFolder = (id, parent = fileStructure.value) => {
   if (parent.id === id) {
     return parent;
@@ -541,7 +560,7 @@ onBeforeUnmount(() => {
             :writeAccess="currentFolder.user_permission >= 100"
             :viewPdf="viewPdf"
             :pdfModelLoading="pdfModelLoading === file.id"
-            :pdfPage="selectedPdfPage(file)"
+            :pdfPage="getSelectedPdfPage(file)"
           />
         </BIMDataResponsiveGrid>
       </div>
