@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/bimdata/bimdata-components/compare/v1.6.3...v1.6.4) (2024-09-06)
+
+
+### PATCH
+
+* refactor: rewrite BIMDataSafeZoneModal with <script setup> ([978cb8a](https://github.com/bimdata/bimdata-components/commit/978cb8a91c7c72dbd0581a3becdb3768809dadb9))
+
 ## [1.6.3](https://github.com/bimdata/bimdata-components/compare/v1.6.2...v1.6.3) (2024-08-27)
 
 
