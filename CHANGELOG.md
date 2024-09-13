@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/bimdata/bimdata-components/compare/v1.6.4...v1.6.5) (2024-09-13)
+
+
+### PATCH
+
+* feat: migrate BIMDataBuildingMaker to <script setup> style ([a8baaa9](https://github.com/bimdata/bimdata-components/commit/a8baaa9b20b84989536ae97b3fa63dbe342efd16))
+
 ## [1.6.4](https://github.com/bimdata/bimdata-components/compare/v1.6.3...v1.6.4) (2024-09-06)
 
 
