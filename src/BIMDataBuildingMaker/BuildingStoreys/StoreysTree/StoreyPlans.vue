@@ -1,3 +1,20 @@
+<script setup>
+import { computed, ref } from "vue";
+
+const props = defineProps({
+  storey: {
+    type: Object,
+  },
+});
+
+defineEmits([
+  "delete-plan"
+]);
+
+const hover = ref(false);
+const plans = computed(() => props.storey?.plans ?? []);
+</script>
+
 <template>
   <div class="storey-plans">
     <div
@@ -25,7 +42,7 @@
         />
       </div>
       <BIMDataButton
-        class="storey-plans__item__close-btn"
+        class="storey-plans__item__delete"
         v-show="hover"
         width="19px"
         height="19px"
@@ -40,31 +57,33 @@
   </div>
 </template>
 
-<script>
-import { computed, ref } from "vue";
+<style scoped>
+.storey-plans {
+  .storey-plans__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+    margin-left: calc(var(--spacing-unit) / 2);
+    padding: 0 calc(var(--spacing-unit) / 2);
 
-export default {
-  props: {
-    storey: {
-      type: Object,
-    },
-  },
-  emits: [
-    "delete-plan"
-  ],
-  setup(props) {
-    const hover = ref(false);
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(0px - calc(var(--spacing-unit) / 2));
+      width: calc(var(--spacing-unit) / 2);
+      height: 1px;
+      background-color: var(--color-granite-light);
+    }
 
-    const plans = computed(
-      () => props.storey?.plans ?? []
-    );
+    .storey-plans__item__name {
+      width: 70%;
+    }
 
-    return {
-      hover,
-      plans,
-    };
-  },
-};
-</script>
-
-<style scoped lang="scss" src="./StoreyPlans.scss"></style>
+    .storey-plans__item__delete {
+      margin-left: auto;
+      margin-right: 2px;
+    }
+  }
+}
+</style>

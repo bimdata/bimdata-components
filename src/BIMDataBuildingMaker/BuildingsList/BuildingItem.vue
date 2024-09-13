@@ -1,5 +1,24 @@
+<script setup>
+import { ref } from "vue";
+
+defineProps({
+  metaBuilding: {
+    type: Object,
+    required: true,
+  },
+});
+
+defineEmits([
+  "open-metaBuilding",
+  "update-metaBuilding",
+  "delete-metaBuilding"
+]);
+
+const isOpenAction = ref(false);
+</script>
+
 <template>
-  <div class="building-item" @click="$emit('manage-storeys', metaBuilding)">
+  <div class="building-item" @click="$emit('open-metaBuilding', metaBuilding)">
     <BIMDataIconBuilding size="m" fill color="primary" />
     <div class="building-item__name">
       <BIMDataTextbox :text="metaBuilding.name" />
@@ -37,29 +56,39 @@
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
+<style scoped>
+.building-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-unit);
+  padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+  border-radius: 4px;
 
-export default {
-  props: {
-    metaBuilding: {
-      type: Object,
-      required: true,
-    },
-  },
-  emits: [
-    "manage-storeys",
-    "update-metaBuilding",
-    "delete-metaBuilding"
-  ],
-  setup() {
-    const isOpenAction = ref(false);
-    
-    return {
-      isOpenAction,
-    };
-  },
-};
-</script>
+  background-color: var(--color-silver-light);
+  cursor: pointer;
 
-<style scoped lang="scss" src="./BuildingItem.scss"></style>
+  .building-item__name {
+    width: calc(100% - 2 * var(--spacing-unit) - 22px - 32px);
+  }
+
+  .building-item__actions {
+    position: relative;
+
+    .building-item__actions__menu {
+      width: 180px;
+      position: absolute;
+      z-index: 1;
+      top: 30px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      padding: calc(var(--spacing-unit) / 2) 0;
+
+      box-shadow: var(--box-shadow);
+      background-color: var(--color-white);
+    }
+  }
+}
+</style>

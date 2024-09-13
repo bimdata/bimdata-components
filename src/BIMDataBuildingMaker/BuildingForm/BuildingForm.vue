@@ -1,3 +1,53 @@
+<script setup>
+import { inject, onMounted, ref, watch } from "vue";
+import icon from "../icon.svg";
+
+const props = defineProps({
+    metaBuilding: {
+    type: Object,
+  },
+});
+
+const emit = defineEmits([
+  "metaBuilding-created", 
+  "metaBuilding-updated"
+]);
+
+const service = inject("service");
+
+const nameInput = ref(null);
+const hasError = ref(false);
+const metaBuildingName = ref("");
+
+// Reset error state when meta building name changes
+watch(metaBuildingName, () => hasError.value = false);
+
+onMounted(() => {
+  nameInput.value.focus();
+  metaBuildingName.value = props.metaBuilding?.name ?? "";
+});
+
+const submit = async () => {
+  if (!metaBuildingName.value) {
+    hasError.value = true;
+    return;
+  }
+  if (metaBuildingName.value === props.metaBuilding?.name) {
+    return;
+  }
+
+  let newBuilding = { name: metaBuildingName.value };
+  if (props.metaBuilding) {
+    newBuilding.id = props.metaBuilding.id;
+    newBuilding = await service.updateMetaBuilding(newBuilding);
+    emit("metaBuilding-updated", newBuilding);
+  } else {
+    newBuilding = await service.createMetaBuilding(newBuilding);
+    emit("metaBuilding-created", newBuilding);
+  }
+};
+</script>
+
 <template>
   <div class="building-form">
     <img class="building-form__icon" :src="icon" />
@@ -23,66 +73,38 @@
   </div>
 </template>
 
-<script>
-import { inject, onMounted, ref, watch } from "vue";
-import icon from "../icon.svg";
+<style scoped>
+.building-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(2 * var(--spacing-unit));
 
-export default {
-  props: {
-    metaBuilding: {
-      type: Object,
-    },
-  },
-  emits: [
-    "metaBuilding-created", 
-    "metaBuilding-updated"
-  ],
-  setup(props, { emit }) {
-    const service = inject("service");
+  .building-form__icon {
+    width: 36px;
+  }
 
-    const nameInput = ref(null);
-    const hasError = ref(false);
-    const metaBuildingName = ref("");
+  .building-form__title {
+    margin: 0;
+  }
 
-    // Reset error state when meta building name changes
-    watch(metaBuildingName, () => hasError.value = false);
+  .building-form__text {
+    text-align: center;
+    color: var(--color-granite);
+  }
 
-    onMounted(() => {
-      nameInput.value.focus();
-      metaBuildingName.value = props.metaBuilding?.name ?? "";
-    });
+  .building-form__controls {
+    width: 100%;
+    padding: 0 20%;
 
-    const submit = async () => {
-      if (!metaBuildingName.value) {
-        hasError.value = true;
-        return;
-      }
-      if (metaBuildingName.value === props.metaBuilding?.name) {
-        return;
-      }
+    .bimdata-input {
+      width: 100%;
+    }
 
-      let newBuilding = { name: metaBuildingName.value };
-      if (props.metaBuilding) {
-        newBuilding.id = props.metaBuilding.id;
-        newBuilding = await service.updateMetaBuilding(newBuilding);
-        emit("metaBuilding-updated", newBuilding);
-      } else {
-        newBuilding = await service.createMetaBuilding(newBuilding);
-        emit("metaBuilding-created", newBuilding);
-      }
-    };
-
-    return {
-      // References
-      hasError,
-      icon,
-      metaBuildingName,
-      nameInput,
-      // Methods
-      submit,
-    };
-  },
-};
-</script>
-
-<style scoped lang="scss" src="./BuildingForm.scss"></style>
+    .bimdata-btn {
+      margin-left: auto;
+    }
+  }
+}
+</style>

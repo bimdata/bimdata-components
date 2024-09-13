@@ -1,3 +1,56 @@
+<script setup>
+import { nextTick, onMounted, ref, watch } from "vue";
+
+const props = defineProps({
+  storey: {
+    type: Object,
+  },
+});
+
+const emit = defineEmits([
+  "close",
+  "create-storey",
+  "update-storey",
+]);
+
+const nameInput = ref(null);
+const hasError = ref(false);
+const storeyName = ref("");
+
+// Reset error state when storey name changes
+watch(storeyName, () => hasError.value = false);
+
+onMounted(() => {
+  nameInput.value.focus();
+  storeyName.value = props.storey?.name ?? "";
+});
+
+const submit = async () => {
+  if (!storeyName.value) {
+    hasError.value = true;
+    return;
+  }
+  if (storeyName.value === props.storey?.name) {
+    emit("close");
+  }
+
+  if (props.storey) {
+    emit("update-storey", { ...props.storey, name: storeyName.value });
+  } else {
+    emit("create-storey", { name: storeyName.value });
+  }
+
+  await nextTick();
+  emit("close");
+};
+
+const cancel = () => {
+  hasError.value = false;
+  storeyName.value = "";
+  emit("close");
+};
+</script>
+
 <template>
   <div class="storey-form">
     <div class="storey-form__title">
@@ -26,70 +79,30 @@
   </div>
 </template>
 
-<script>
-import { nextTick, onMounted, ref, watch } from "vue";
+<style scoped>
+.storey-form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 2);
+  padding: var(--spacing-unit);
 
-export default {
-  props: {
-    storey: {
-      type: Object,
-    },
-  },
-  emits: [
-    "close",
-    "create-storey",
-    "update-storey",
-  ],
-  setup(props, { emit }) {
-    const nameInput = ref(null);
-    const hasError = ref(false);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
 
-    const storeyName = ref("");
+  .storey-form__title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+  }
 
-    // Reset error state when storey name changes
-    watch(storeyName, () => hasError.value = false);
+  .storey-form__input {
+    width: 100%;
+  }
 
-    onMounted(() => {
-      nameInput.value.focus();
-      storeyName.value = props.storey?.name ?? "";
-    });
-
-    const submit = async () => {
-      if (!storeyName.value) {
-        hasError.value = true;
-        return;
-      }
-      if (storeyName.value === props.storey?.name) {
-        emit("close");
-      }
-
-      if (props.storey) {
-        emit("update-storey", { ...props.storey, name: storeyName.value });
-      } else {
-        emit("create-storey", { name: storeyName.value });
-      }
-
-      await nextTick();
-      emit("close");
-    };
-
-    const cancel = () => {
-      hasError.value = false;
-      storeyName.value = "";
-      emit("close");
-    };
-
-    return {
-      // References
-      hasError,
-      nameInput,
-      storeyName,
-      // Methods
-      cancel,
-      submit,
-    };
-  },
-};
-</script>
-
-<style scoped lang="scss" src="./StoreyForm.scss"></style>
+  .storey-form__actions {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--spacing-unit);
+  }
+}
+</style>

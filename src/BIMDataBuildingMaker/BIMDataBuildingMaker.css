@@ -3,7 +3,7 @@
   height: 100%;
   background-color: var(--color-white);
 
-  &__header {
+  .bimdata-building-maker__header {
     height: 44px;
     padding: calc(var(--spacing-unit) / 2) 0;
 
@@ -14,18 +14,18 @@
 
     box-shadow: var(--box-shadow);
 
-    &__btn-back {
+    .bimdata-building-maker__header__btn-back {
       position: absolute;
       left: var(--spacing-unit);
     }
   }
 
-  &__body {
+  .bimdata-building-maker__body {
     height: calc(100% - 44px);
     padding: calc(2 * var(--spacing-unit));
   }
 
-  &__loader {
+  .bimdata-building-maker__loader {
     position: absolute;
     top: 0;
     left: 0;

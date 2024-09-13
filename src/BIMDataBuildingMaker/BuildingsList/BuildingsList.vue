@@ -1,3 +1,23 @@
+<script setup>
+import icon from "../icon.svg";
+// Components
+import BuildingItem from "./BuildingItem.vue";
+
+defineProps({
+  metaBuildings: {
+    type: Array,
+    default: () => [],
+  },
+});
+
+defineEmits([
+  "open-metaBuilding",
+  "create-metaBuilding",
+  "update-metaBuilding",
+  "delete-metaBuilding",
+]);
+</script>
+
 <template>
   <div class="buildings-list">
     <img class="buildings-list__icon" :src="icon" />
@@ -24,7 +44,7 @@
         v-for="model of metaBuildings"
         :key="model.id"
         :metaBuilding="model"
-        @manage-storeys="$emit('manage-storeys', model)"
+        @open-metaBuilding="$emit('open-metaBuilding', model)"
         @update-metaBuilding="$emit('update-metaBuilding', model)"
         @delete-metaBuilding="$emit('delete-metaBuilding', model)"
       />
@@ -32,33 +52,36 @@
   </div>
 </template>
 
-<script>
-import icon from "../icon.svg";
-// Components
-import BuildingItem from "./BuildingItem/BuildingItem.vue";
+<style scoped>
+.buildings-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(2 * var(--spacing-unit));
 
-export default {
-  components: {
-    BuildingItem,
-  },
-  props: {
-    metaBuildings: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  emits: [
-    "create-metaBuilding",
-    "update-metaBuilding",
-    "delete-metaBuilding",
-    "manage-storeys",
-  ],
-  setup() {
-    return {
-      icon,
-    };
-  },
-};
-</script>
+  .buildings-list__icon {
+    width: 36px;
+  }
 
-<style scoped lang="scss" src="./BuildingsList.scss"></style>
+  .buildings-list__title {
+    margin: 0;
+  }
+
+  .buildings-list__text {
+    text-align: center;
+    color: var(--color-granite);
+  }
+
+  .buildings-list__list {
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    padding: calc(var(--spacing-unit) / 2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit);
+    overflow: auto;
+  }
+}
+</style>

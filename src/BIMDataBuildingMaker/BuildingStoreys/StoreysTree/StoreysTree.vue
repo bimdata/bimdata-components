@@ -1,3 +1,30 @@
+<script setup>
+import { ref } from "vue";
+// Components
+import StoreyNode from "./StoreyNode.vue";
+
+defineProps({
+  metaBuilding: {
+    type: Object,
+    required: true,
+  },
+  storeys: {
+    type: Array,
+    required: true,
+  },
+});
+
+defineEmits([
+  "create",
+  "update",
+  "delete",
+  "add-plans",
+  "delete-plan"
+]);
+
+const isOpenAction = ref(false);
+</script>
+
 <template>
   <div class="storeys-tree">
     <div class="storeys-tree__root">
@@ -52,42 +79,45 @@
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
-// Components
-import StoreyNode from "./StoreyNode/StoreyNode.vue";
-import StoreyPlans from "./StoreyPlans/StoreyPlans.vue";
+<style scoped>
+.storeys-tree {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-export default {
-  components: {
-    StoreyNode,
-    StoreyPlans,
-  },
-  props: {
-    metaBuilding: {
-      type: Object,
-      required: true,
-    },
-    storeys: {
-      type: Array,
-      required: true,
-    },
-  },
-  emits: [
-    "create",
-    "update",
-    "delete",
-    "add-plans",
-    "delete-plan"
-  ],
-  setup() {
-    const isOpenAction = ref(false);
-
-    return {
-      isOpenAction,
-    };
+  .storeys-tree__root {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) / 2);
   }
-};
-</script>
 
-<style scoped lang="scss" src="./StoreysTree.scss"></style>
+  .storeys-tree__leafs {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(var(--spacing-unit) / 2);
+    border-left: 1px solid var(--color-granite-light);
+  }
+
+  .storeys-tree__tail {
+    margin-left: calc(var(--spacing-unit) / 2);
+
+    .content {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing-unit) / 2);
+
+      &::before {
+        content: "";
+        position: relative;
+        top: -25%;
+        width: calc(var(--spacing-unit) / 2);
+        height: 17px;
+        border-left: 1px solid var(--color-granite-light);
+        border-bottom: 1px solid var(--color-granite-light);
+      }
+    }
+  }
+}
+</style>
