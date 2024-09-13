@@ -15,7 +15,7 @@
             "createButton": "Erstellen",
             "updateButton": "Bestätigen"
         },
-        "storeys": {
+        "view": {
             "addStoreyButton": "Etage",
             "addFileButton": "Grundriss",
             "closeButton": "Fertigstellen",

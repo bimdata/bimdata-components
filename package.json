@@ -15,7 +15,7 @@
     "@bimdata/typescript-fetch-api-client": "*",
     "@bimdata/design-system": "*",
     "vue": "^3.0",
-    "vue-i18n": "^9.0"
+    "vue-i18n": "*"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

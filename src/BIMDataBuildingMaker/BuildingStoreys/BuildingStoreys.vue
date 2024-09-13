@@ -140,7 +140,7 @@ onMounted(() => {
           radius
           @click="closeFileManager"
         >
-          {{ $t("BuildingMaker.storeys.submitFilesButton") }}
+          {{ $t("BuildingMaker.view.submitFilesButton") }}
         </BIMDataButton>
       </div>
 
@@ -163,7 +163,7 @@ onMounted(() => {
           radius
           @click="$emit('close')"
         >
-          {{ $t("BuildingMaker.storeys.closeButton") }}
+          {{ $t("BuildingMaker.view.closeButton") }}
         </BIMDataButton>
 
         <transition name="fade">

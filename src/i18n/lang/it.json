@@ -15,7 +15,7 @@
             "createButton": "Creare",
             "updateButton": "Convalidare"
         },
-        "storeys": {
+        "view": {
             "addStoreyButton": "Piano",
             "addFileButton": "Progetto",
             "closeButton": "Finire",

@@ -15,7 +15,7 @@
             "createButton": "Create",
             "updateButton": "Confirm"
         },
-        "storeys": {
+        "view": {
             "addStoreyButton": "Storey",
             "addFileButton": "Plan",
             "closeButton": "Finish",

@@ -15,7 +15,7 @@
             "createButton": "Créer",
             "updateButton": "Valider"
         },
-        "storeys": {
+        "view": {
             "addStoreyButton": "Étage",
             "addFileButton": "Plan",
             "closeButton": "Terminer",

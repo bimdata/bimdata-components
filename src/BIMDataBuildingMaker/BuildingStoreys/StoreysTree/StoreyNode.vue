@@ -56,7 +56,7 @@ const isOpenAction = ref(false);
             radius
             @click="$emit('add-plans', storey)"
           >
-            {{ $t("BuildingMaker.storeys.addFileButton") }}
+            {{ $t("BuildingMaker.view.addFileButton") }}
           </BIMDataButton>
         </div>
       </Transition>

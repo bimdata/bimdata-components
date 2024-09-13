@@ -71,7 +71,7 @@ const isOpenAction = ref(false);
           </BIMDataButton>
 
           <BIMDataButton width="100px" fill radius @click="$emit('create')">
-            + {{ $t("BuildingMaker.storeys.addStoreyButton") }}
+            + {{ $t("BuildingMaker.view.addStoreyButton") }}
           </BIMDataButton>
         </div>
       </Transition>
