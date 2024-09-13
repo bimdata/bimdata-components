@@ -1,3 +1,10 @@
+## [1.6.6](https://github.com/bimdata/bimdata-components/compare/v1.6.5...v1.6.6) (2024-09-13)
+
+
+### PATCH
+
+* chore: update peer dependencies ([6c6db5c](https://github.com/bimdata/bimdata-components/commit/6c6db5ca6781203af6f7f1c01439764242807e1e))
+
 ## [1.6.5](https://github.com/bimdata/bimdata-components/compare/v1.6.4...v1.6.5) (2024-09-13)
 
 
