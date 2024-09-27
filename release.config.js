@@ -34,7 +34,7 @@ const config = {
     {
       name: "develop",
       channel: "next",
-      prerelease: "rc",
+      prerelease: "beta",
     },
     {
       name: "release/[0-9]+(.[0-9]+)?.(x|X)",
