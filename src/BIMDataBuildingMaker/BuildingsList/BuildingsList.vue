@@ -36,7 +36,7 @@ defineEmits([
       radius
       @click="$emit('create-metaBuilding')"
     >
-      {{ $t("BuildingMaker.list.createButton") }}
+      {{ $t("BuildingMaker.list.new") }}
     </BIMDataButton>
 
     <div class="buildings-list__list">

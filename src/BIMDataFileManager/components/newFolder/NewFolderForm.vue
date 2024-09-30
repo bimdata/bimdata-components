@@ -23,7 +23,7 @@
       radius
       @click.stop="close"
     >
-      {{ $t("FileManager.cancel") }}
+      {{ $t("BIMDataComponents.t.cancel") }}
     </BIMDataButton>
     <BIMDataButton
       class="folder-creation-form__btn-submit"
@@ -33,7 +33,7 @@
       radius
       @click.stop="submit"
     >
-      {{ $t("FileManager.submit") }}
+      {{ $t("BIMDataComponents.t.validate") }}
     </BIMDataButton>
   </div>
 </template>

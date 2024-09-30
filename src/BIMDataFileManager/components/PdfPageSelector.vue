@@ -4,7 +4,7 @@
       <BIMDataButton ghost radius @click="$emit('close')">
         <BIMDataIconArrow size="xxs" />
         <span style="margin-left: 6px">
-          {{ $t("FileManager.back") }}
+          {{ $t("BIMDataComponents.t.back") }}
         </span>
       </BIMDataButton>
       <span class="title">
@@ -54,7 +54,7 @@
         radius
         @click="$emit('select', selectedPage)"
       >
-        {{ $t("FileManager.validate") }}
+        {{ $t("BIMDataComponents.t.validate") }}
       </BIMDataButton>
     </div>
   </div>

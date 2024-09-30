@@ -1,5 +1,11 @@
+const BUILDING_TYPES = {
+  METABUILDING: "METABUILDING",
+  PHOTOSPHERE_BUILDING: "PHOTOSPHERE_BUILDING",
+};
+
 const PLAN_FILE_EXTENSIONS = Object.freeze(["jpeg", "jpg", "pdf", "png"]);
 
 export {
+  BUILDING_TYPES,
   PLAN_FILE_EXTENSIONS,
 };

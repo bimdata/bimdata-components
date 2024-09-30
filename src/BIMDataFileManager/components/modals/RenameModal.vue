@@ -14,7 +14,7 @@
     </BIMDataButton>
     <div class="rename-modal__content">
       <div class="rename-modal__content__title">
-        {{ $t("FileManager.rename") }}
+        {{ $t("BIMDataComponents.t.rename") }}
       </div>
       <BIMDataInput
         ref="nameInput"
@@ -36,7 +36,7 @@
           radius
           @click.stop="close"
         >
-          {{ $t("FileManager.cancel") }}
+          {{ $t("BIMDataComponents.t.cancel") }}
         </BIMDataButton>
         <BIMDataButton
           class="rename-modal__content__btn-submit"
@@ -46,7 +46,7 @@
           radius
           @click.stop="submit"
         >
-          {{ $t("FileManager.submit") }}
+          {{ $t("BIMDataComponents.t.validate") }}
         </BIMDataButton>
       </div>
     </div>

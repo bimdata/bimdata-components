@@ -17,7 +17,7 @@
         },
         "view": {
             "addStoreyButton": "Piano",
-            "addFileButton": "Progetto",
+            "addPlanButton": "Mappa",
             "closeButton": "Finire",
             "submitFilesButton": "Convalidare"
         },

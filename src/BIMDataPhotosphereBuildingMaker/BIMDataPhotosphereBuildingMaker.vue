@@ -1,11 +1,12 @@
 <script setup>
 import { onMounted, provide, ref, watch } from "vue";
-import icon from "./icon.svg";
-import { createService } from "./service.js";
+import { BUILDING_TYPES } from "../BIMDataBuildingMaker/config.js";
+import icon from "../BIMDataBuildingMaker/icon.svg";
+import { createService } from "../BIMDataBuildingMaker/service.js";
 // Components
-import BuildingForm from "./BuildingForm/BuildingForm.vue";
-import BuildingsList from "./BuildingsList/BuildingsList.vue";
-import BuildingView from "./BuildingView/BuildingView.vue";
+import BuildingForm from "../BIMDataBuildingMaker/BuildingForm/BuildingForm.vue";
+import BuildingsList from "../BIMDataBuildingMaker/BuildingsList/BuildingsList.vue";
+import PhotosphereBuildingView from "./PhotosphereBuildingView/PhotosphereBuildingView.vue";
 
 const props = defineProps({
   apiClient: {
@@ -50,7 +51,7 @@ const currentMetaBuilding = ref(null);
 
 const loadMetaBuildings = async () => {
   loading.value = true;
-  metaBuildings.value = await service.fetchMetaBuildings();
+  metaBuildings.value = await service.fetchPhotosphereBuildings();
   loading.value = false;
 };
 const deleteMetaBuilding = async (metaBuilding) => {
@@ -106,13 +107,14 @@ onMounted(() => loadMetaBuildings());
         <span>{{ $t("BIMDataComponents.t.back") }}</span>
       </BIMDataButton>
       <img :src="icon" />
-      <span>{{ $t("BuildingMaker.title") }}</span>
+      <span>{{ $t("PhotosphereBuilding.title") }}</span>
     </div>
 
     <div class="bimdata-building-maker__body">
       <transition name="fade" mode="out-in">
         <template v-if="currentView === VIEWS.FORM">
           <BuildingForm
+            :type="BUILDING_TYPES.PHOTOSPHERE_BUILDING"
             :metaBuilding="currentMetaBuilding"
             @metaBuilding-created="onMetaBuildingCreated"
             @metaBuilding-updated="onMetaBuildingUpdated"
@@ -120,11 +122,11 @@ onMounted(() => loadMetaBuildings());
         </template>
 
         <template v-else-if="currentView === VIEWS.VIEW && currentMetaBuilding">
-          <BuildingView
+          <PhotosphereBuildingView
             :apiClient="apiClient"
             :space="space"
             :project="project"
-            :metaBuilding="currentMetaBuilding"
+            :model="currentMetaBuilding"
             @close="back"
           />
         </template>
@@ -149,4 +151,4 @@ onMounted(() => loadMetaBuildings());
   </div>
 </template>
 
-<style scoped src="./BIMDataBuildingMaker.css"></style>
+<style scoped src="../BIMDataBuildingMaker/BIMDataBuildingMaker.css"></style>

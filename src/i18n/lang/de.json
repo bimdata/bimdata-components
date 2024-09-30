@@ -17,7 +17,7 @@
         },
         "view": {
             "addStoreyButton": "Etage",
-            "addFileButton": "Grundriss",
+            "addPlanButton": "Grundriss",
             "closeButton": "Fertigstellen",
             "submitFilesButton": "Bestätigen"
         },

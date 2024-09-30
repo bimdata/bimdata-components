@@ -1,9 +1,14 @@
 <script setup>
 import { inject, onMounted, ref, watch } from "vue";
+import { BUILDING_TYPES } from "../config.js";
 import icon from "../icon.svg";
 
 const props = defineProps({
-    metaBuilding: {
+  type: {
+    type: String,
+    default: BUILDING_TYPES.METABUILDING
+  },
+  metaBuilding: {
     type: Object,
   },
 });
@@ -42,7 +47,11 @@ const submit = async () => {
     newBuilding = await service.updateMetaBuilding(newBuilding);
     emit("metaBuilding-updated", newBuilding);
   } else {
-    newBuilding = await service.createMetaBuilding(newBuilding);
+    if (props.type === BUILDING_TYPES.PHOTOSPHERE_BUILDING) {
+      newBuilding = await service.createPhotosphereBuilding(newBuilding);
+    } else {
+      newBuilding = await service.createMetaBuilding(newBuilding);
+    }
     emit("metaBuilding-created", newBuilding);
   }
 };
@@ -55,7 +64,7 @@ const submit = async () => {
       {{ $t("BuildingMaker.title") }}
     </h2>
     <div class="building-form__text">
-      {{ $t("BuildingMaker.form.text") }}
+      {{ $t("BuildingMaker.list.text") }}
     </div>
     <div class="building-form__controls">
       <BIMDataInput
@@ -67,7 +76,7 @@ const submit = async () => {
         @keyup.enter.stop="submit"
       />
       <BIMDataButton width="120px" color="primary" fill radius @click="submit">
-        {{ $t(`BuildingMaker.form.${metaBuilding ? 'updateButton' : 'createButton'}`) }}
+        {{ $t(`BIMDataComponents.t.${metaBuilding ? 'validate' : 'create'}`) }}
       </BIMDataButton>
     </div>
   </div>

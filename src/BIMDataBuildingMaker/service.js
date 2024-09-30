@@ -3,6 +3,8 @@ function createService(apiClient, space, project) {
   const projectId = project.id;
   const modelApi = apiClient.modelApi;
 
+  // ---
+
   function fetchMetaBuildings() {
     return modelApi.getModels(
       spaceId,
@@ -27,8 +29,28 @@ function createService(apiClient, space, project) {
 
   // ---
 
-  async function fetchStoreys(model) {
+  function fetchPhotosphereBuildings() {
+    return modelApi.getModels(
+      spaceId,
+      projectId,
+      undefined, // source
+      undefined, // status
+      "PHOTOSPHERE_BUILDING" // type
+    );
+  }
+
+  function createPhotosphereBuilding(model) {
+    return modelApi.createPhotosphereBuilding(spaceId, projectId, model);
+  }
+
+  // ---
+
+  function fetchStoreys(model) {
     return modelApi.getStoreys(spaceId, model.id, projectId);
+  }
+
+  function fetchZones(model) {
+    return modelApi.getZones(spaceId, model.id, projectId);
   }
 
   function createStorey(model, storey) {
@@ -108,7 +130,10 @@ function createService(apiClient, space, project) {
     createMetaBuilding,
     updateMetaBuilding,
     deleteMetaBuilding,
+    fetchPhotosphereBuildings,
+    createPhotosphereBuilding,
     fetchStoreys,
+    fetchZones,
     createStorey,
     updateStorey,
     deleteStorey,

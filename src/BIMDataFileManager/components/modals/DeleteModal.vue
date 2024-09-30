@@ -34,7 +34,7 @@
           @click.stop="close"
           :disabled="loading"
         >
-          {{ $t("FileManager.cancel") }}
+          {{ $t("BIMDataComponents.t.cancel") }}
         </BIMDataButton>
         <BIMDataButton
           class="delete-modal__content__btn-submit"
@@ -46,7 +46,7 @@
           :disabled="loading"
         >
           <BIMDataSpinner v-if="loading" />
-          <span v-else>{{ $t("FileManager.delete") }}</span>
+          <span v-else>{{ $t("BIMDataComponents.t.delete") }}</span>
         </BIMDataButton>
       </div>
     </div>
