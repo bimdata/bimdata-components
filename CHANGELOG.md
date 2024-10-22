@@ -1,3 +1,14 @@
+## [1.6.7](https://github.com/bimdata/bimdata-components/compare/v1.6.6...v1.6.7) (2024-10-22)
+
+
+### chore
+
+* update release.config.js ([734094f](https://github.com/bimdata/bimdata-components/commit/734094f520981d501a9ae3525ec2e24823be14c9))
+
+### PATCH
+
+* chore: update dependencies ([a9eb21d](https://github.com/bimdata/bimdata-components/commit/a9eb21d00b8e1b7fe260d8037279b67c897e6b1c))
+
 ## [1.6.6](https://github.com/bimdata/bimdata-components/compare/v1.6.5...v1.6.6) (2024-09-13)
 
 
