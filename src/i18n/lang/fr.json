@@ -1,32 +1,38 @@
 {
+    "BIMDataComponents": {
+        "t": {
+            "back": "Retour",
+            "cancel": "Annuler",
+            "create": "Créer",
+            "delete": "Supprimer",
+            "download": "Télécharger",
+            "finish": "Terminer",
+            "rename": "Renommer",
+            "search": "Rechercher",
+            "see": "Voir",
+            "storey": "Étage",
+            "validate": "Valider"
+        }
+    },
     "BuildingMaker": {
         "title": "Building Maker",
-        "back": "Retour",
         "list": {
             "text": "Créez et éditez les étages puis téléchagez vos PDF.",
-            "createButton": "Nouveau projet",
-            "updateButton": "Renommer",
-            "deleteButton": "Supprimer"
+            "new": "Nouveau projet"
         },
         "form": {
-            "text": "Créez et éditez les étages puis téléchagez vos PDF.",
             "input": "Nom du bâtiment",
-            "error": "Nom invalide",
-            "createButton": "Créer",
-            "updateButton": "Valider"
+            "error": "Nom invalide"
         },
         "view": {
-            "addStoreyButton": "Étage",
-            "addFileButton": "Plan",
-            "closeButton": "Terminer",
-            "submitFilesButton": "Valider"
+            "addStorey": "Ajouter un Étage",
+            "addFile": "Ajouter un fichier",
+            "addPlan": "Ajouter un plan"
         },
         "storeyForm": {
             "title": "Nouvel étage",
             "input": "Nom",
-            "error": "Nom invalide",
-            "cancelButton": "Annuler",
-            "submitButton": "Valider"
+            "error": "Nom invalide"
         }
     },
     "FileManager": {
@@ -41,20 +47,12 @@
         "renameFileSuccess": "Fichier renommé",
         "deleteFileSuccess": "Fichier supprimé",
         "nameInputErrorMessage": "Nom invalide",
-        "cancel": "Annuler",
-        "submit": "Valider",
         "buttonText": "Nouveau dossier",
         "addFileButtonText": "Charger un fichier",
-        "rename": "Renommer",
-        "view": "Voir",
-        "download": "Télécharger",
-        "delete": "Supprimer",
         "deleteTitle": "Supression de fichiers",
         "deleteDetail":
             "Vous êtes sur le point de supprimer définitivement les fichiers/dossiers suivants",
         "dmsRoot": "Racine de la GED du projet",
-        "validate": "Valider",
-        "back": "Retour",
         "pdfPageSelectorTitle": "Sélectionner une page"
     },
     "MetaBuildingStructure": {
@@ -62,13 +60,10 @@
         "tab": {
             "structure": "Structure",
             "zones": "Zones",
-            "equipments": "Equipements"
+            "equipments": "Équipements"
         },
         "StoreySelector": {
             "placeholder": "Sélectionner un étage"
-        },
-        "StructureView": {
-            "search": "Rechercher"
         }
     },
     "PhotosphereBuilding": {

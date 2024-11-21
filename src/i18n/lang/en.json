@@ -1,32 +1,38 @@
 {
+    "BIMDataComponents": {
+        "t": {
+            "back": "Back",
+            "cancel": "Cancel",
+            "create": "Create",
+            "delete": "Delete",
+            "download": "Download",
+            "finish": "Finish",
+            "rename": "Rename",
+            "search": "Search",
+            "see": "View",
+            "storey": "Storey",
+            "validate": "Validate"
+        }
+    },
     "BuildingMaker": {
-        "title": "Building",
-        "back": "Back",
+        "title": "Building Maker",
         "list": {
-            "text": "Create and edit the layers, then download your PDFs.",
-            "createButton": "New project",
-            "updateButton": "Rename",
-            "deleteButton": "Delete"
+            "text": "Create and edit storeys, then download your PDFs.",
+            "new": "New project"
         },
         "form": {
-            "text": "Create and edit the layers, then download your PDFs.",
             "input": "Building name",
-            "error": "Invalid",
-            "createButton": "Create",
-            "updateButton": "Confirm"
+            "error": "Invalid"
         },
         "view": {
-            "addStoreyButton": "Storey",
-            "addFileButton": "Plan",
-            "closeButton": "Finish",
-            "submitFilesButton": "Validate"
+            "addStorey": "Add Storey",
+            "addFile": "Add File",
+            "addPlan": "Add Plan"
         },
         "storeyForm": {
             "title": "New storey",
             "input": "Name",
-            "error": "Invalid name",
-            "cancelButton": "Cancel",
-            "submitButton": "Validate"
+            "error": "Invalid name"
         }
     },
     "FileManager": {
@@ -41,19 +47,11 @@
         "renameFileSuccess": "File renamed",
         "deleteFileSuccess": "File deleted",
         "nameInputErrorMessage": "Invalid name",
-        "cancel": "Cancel",
-        "submit": "Submit",
         "buttonText": "New folder",
         "addFileButtonText": "Upload a file",
-        "rename": "Rename",
-        "view": "View",
-        "download": "Download",
-        "delete": "Delete",
         "deleteTitle": "Deleting Files",
         "deleteDetail":"You are about to permanently delete the following files / folders",
         "dmsRoot": "Root of the project's DMS",
-        "validate": "Validate",
-        "back": "Back",
         "pdfPageSelectorTitle": "Select a page"
     },
     "MetaBuildingStructure": {
@@ -65,9 +63,6 @@
         },
         "StoreySelector": {
             "placeholder": "Select a storey"
-        },
-        "StructureView": {
-            "search": "Search"
         }
     },
     "PhotosphereBuilding": {

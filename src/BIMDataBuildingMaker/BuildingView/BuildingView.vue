@@ -82,7 +82,7 @@ const openFileManager = storey => {
 };
 
 const closeFileManager = async () => {
-  let docs = [], pdfs = [];
+  const docs = [], pdfs = [];
   for (const { document, pdfPage } of selectedFiles.value) {
     if (pdfPage) {
       pdfs.push(pdfPage);
@@ -115,11 +115,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="building-storeys">
+  <div class="building-view">
     <transition name="fade" mode="out-in">
       <div class="content" v-if="isOpenDMS && apiUrl && accessToken && currentStorey">
         <BIMDataFileManager
-          class="building-storeys__dms"
+          class="building-view__dms"
           :spaceId="space.id"
           :projectId="project.id"
           :apiUrl="apiUrl"
@@ -140,12 +140,12 @@ onMounted(() => {
           radius
           @click="closeFileManager"
         >
-          {{ $t("BuildingMaker.view.submitFilesButton") }}
+          {{ $t("BIMDataComponents.t.validate") }}
         </BIMDataButton>
       </div>
 
       <div class="content" v-else>
-        <div class="building-storeys__tree">
+        <div class="building-view__tree">
           <StoreysTree
             :metaBuilding="metaBuilding"
             :storeys="storeys"
@@ -163,13 +163,13 @@ onMounted(() => {
           radius
           @click="$emit('close')"
         >
-          {{ $t("BuildingMaker.view.closeButton") }}
+          {{ $t("BIMDataComponents.t.finish") }}
         </BIMDataButton>
 
         <transition name="fade">
           <StoreyForm
             v-if="isOpenForm"
-            class="building-storeys__form"
+            class="building-view__form"
             :storey="currentStorey"
             @create-storey="createStorey"
             @update-storey="updateStorey"
@@ -182,7 +182,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.building-storeys {
+.building-view {
   height: 100%;
 
   .content {
@@ -192,13 +192,13 @@ onMounted(() => {
     flex-direction: column;
   }
 
-  .building-storeys__tree,
-  .building-storeys__dms {
+  .building-view__tree,
+  .building-view__dms {
     flex-grow: 1;
     overflow-y: auto;
   }
 
-  .building-storeys__form {
+  .building-view__form {
     position: absolute;
     top: calc(var(--spacing-unit) * 2);
     left: 0;

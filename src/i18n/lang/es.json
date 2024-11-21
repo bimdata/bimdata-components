@@ -17,7 +17,7 @@
         },
         "view": {
             "addStoreyButton": "Piso",
-            "addFileButton": "Plano",
+            "addPlanButton": "Plano",
             "closeButton": "Terminar",
             "submitFilesButton": "Validar"
         },

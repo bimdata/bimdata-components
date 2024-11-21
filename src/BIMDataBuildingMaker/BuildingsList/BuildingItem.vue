@@ -40,7 +40,7 @@ const isOpenAction = ref(false);
             square
             @click="$emit('update-metaBuilding', metaBuilding)"
           >
-            {{ $t("BuildingMaker.list.updateButton") }}
+            {{ $t("BIMDataComponents.t.rename") }}
           </BIMDataButton>
           <BIMDataButton
             color="high"
@@ -48,7 +48,7 @@ const isOpenAction = ref(false);
             square
             @click="$emit('delete-metaBuilding', metaBuilding)"
           >
-            {{ $t("BuildingMaker.list.deleteButton") }}
+            {{ $t("BIMDataComponents.t.delete") }}
           </BIMDataButton>
         </div>
       </transition>

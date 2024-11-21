@@ -78,7 +78,7 @@
           width="100%"
           @click.stop="onViewClick"
         >
-          {{ $t("FileManager.view") }}
+          {{ $t("BIMDataComponents.t.view") }}
         </BIMDataButton>
         <BIMDataButton
           color="default"
@@ -87,7 +87,7 @@
           width="100%"
           @click.stop="onRenameClick"
         >
-          {{ $t("FileManager.rename") }}
+          {{ $t("BIMDataComponents.t.rename") }}
         </BIMDataButton>
         <BIMDataButton
           color="default"
@@ -96,7 +96,7 @@
           width="100%"
           @click.stop="onDownloadClick"
         >
-          {{ $t("FileManager.download") }}
+          {{ $t("BIMDataComponents.t.download") }}
         </BIMDataButton>
         <BIMDataButton
           v-if="writeAccess"
@@ -106,7 +106,7 @@
           width="100%"
           @click.stop="onDeleteClick"
         >
-          {{ $t("FileManager.delete") }}
+          {{ $t("BIMDataComponents.t.delete") }}
         </BIMDataButton>
       </div>
       <div class="file-card__content__footer">

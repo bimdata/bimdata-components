@@ -57,7 +57,7 @@ const onNodeClick = node => {
     <BIMDataSearch
       width="100%"
       color="primary"
-      :placeholder="$t('MetaBuildingStructure.StructureView.search')"
+      :placeholder="$t('BIMDataComponents.t.search')"
       v-model="searchText"
     />
     <BIMDataTree

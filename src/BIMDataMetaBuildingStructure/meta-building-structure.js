@@ -1,30 +1,5 @@
 import { ref } from "vue";
 
-export function buildStructureTree(storey, zones) {
-  return [
-    {
-      id: 1,
-      text: "Zones",
-      component: "StructureRootNode",
-      children: buildZonesTree(zones),
-    },
-    {
-      id: 2,
-      text: "Plans",
-      component: "StructureRootNode",
-      children: buildPlansTree(storey),
-    }
-  ];
-}
-
-export function buildZonesTree(zones) {
-  return zones.map(zoneNode);
-}
-
-export function buildPlansTree(storey) {
-  return storey?.plans.map(planNode) ?? [];
-}
-
 export function setupTree(tree, parent) {
   if (Array.isArray(tree)) {
     tree = tree.map(t => setupTree(t, parent));
@@ -51,6 +26,31 @@ export function flattenTree(tree) {
   } else {
     return [tree].concat(tree.descendants());
   }
+}
+
+export function buildStructureTree(storey, zones) {
+  return [
+    {
+      id: 1,
+      text: "Zones",
+      component: "StructureRootNode",
+      children: buildZonesTree(zones),
+    },
+    {
+      id: 2,
+      text: "Plans",
+      component: "StructureRootNode",
+      children: buildPlansTree(storey),
+    }
+  ];
+}
+
+export function buildZonesTree(zones) {
+  return zones.map(zoneNode);
+}
+
+export function buildPlansTree(storey) {
+  return storey?.plans.map(planNode) ?? [];
 }
 
 const zoneNode = zone => ({

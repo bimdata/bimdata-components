@@ -70,10 +70,10 @@ const cancel = () => {
     </div>
     <div class="storey-form__actions">
       <BIMDataButton width="100px" color="primary" fill radius @click="submit">
-        {{ $t("BuildingMaker.storeyForm.submitButton") }}
+        {{ $t("BIMDataComponents.t.validate") }}
       </BIMDataButton>
       <BIMDataButton width="100px" fill radius @click="cancel">
-        {{ $t("BuildingMaker.storeyForm.cancelButton") }}
+        {{ $t("BIMDataComponents.t.cancel") }}
       </BIMDataButton>
     </div>
   </div>
