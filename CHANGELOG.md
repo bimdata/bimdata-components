@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/bimdata/bimdata-components/compare/v1.6.7...v1.7.0) (2024-11-21)
+
+
+### MINOR
+
+* feat: photosphere building maker (#10) ([1b02b84](https://github.com/bimdata/bimdata-components/commit/1b02b8496bce73d3e3cd8f84407b13b114bace75)), closes [#10](https://github.com/bimdata/bimdata-components/issues/10)
+
 ## [1.6.7](https://github.com/bimdata/bimdata-components/compare/v1.6.6...v1.6.7) (2024-10-22)
 
 
