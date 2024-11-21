@@ -18,13 +18,9 @@ export function buildStructureTree(model, storeys, zones) {
       id: 1,
       text: model.name,
       component: "StructureRootNode",
-      children: buildStoreysTree(storeys, zones),
+      children: storeys.map(storey => storeyNode(storey, zones)),
     }
   ];
-}
-
-function buildStoreysTree(storeys, zones) {
-  return storeys.map(storey => storeyNode(storey, zones));
 }
 
 const storeyNode = (storey, zones) => ({

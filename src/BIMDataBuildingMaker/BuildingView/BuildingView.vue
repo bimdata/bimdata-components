@@ -82,7 +82,7 @@ const openFileManager = storey => {
 };
 
 const closeFileManager = async () => {
-  let docs = [], pdfs = [];
+  const docs = [], pdfs = [];
   for (const { document, pdfPage } of selectedFiles.value) {
     if (pdfPage) {
       pdfs.push(pdfPage);

@@ -27,14 +27,14 @@ const menuItems = [
     action: () => (isOpenMenu.value = false, emit("add-plans", props.node.storey)),
   },
   {
-    key: 1,
+    key: 2,
     text: "BIMDataComponents.t.rename",
     icon: "edit",
     action: () => (isOpenMenu.value = false, emit("update-storey", props.node.storey)),
     divider: true,
   },
   {
-    key: 1,
+    key: 3,
     text: "BIMDataComponents.t.delete",
     icon: "delete",
     color: "var(--color-high)",
