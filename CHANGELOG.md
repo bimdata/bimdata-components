@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/bimdata/bimdata-components/compare/v1.7.0...v1.7.1) (2024-11-21)
+
+
+### PATCH
+
+* fix: emit 'plan-sleected' when changing storey in photosphere building ([275a8df](https://github.com/bimdata/bimdata-components/commit/275a8dfb8afc9f7c90efae311d3e02af06a8929e))
+
 # [1.7.0](https://github.com/bimdata/bimdata-components/compare/v1.6.7...v1.7.0) (2024-11-21)
 
 
