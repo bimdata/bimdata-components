@@ -71,7 +71,11 @@ watch(
 
 watch(
   selectedStorey,
-  storey => (selectedPlanId.value = storey?.plans?.[0]?.plan.id ?? null),
+  storey => {
+    const plan = storey?.plans?.[0];
+    selectedPlanId.value = plan?.plan.id ?? null;
+    if (plan) emit("plan-selected", plan);
+  },
   { immediate: true }
 );
 
