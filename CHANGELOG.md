@@ -1,3 +1,14 @@
+## [1.7.2](https://github.com/bimdata/bimdata-components/compare/v1.7.1...v1.7.2) (2024-12-05)
+
+
+### chore
+
+* update dependencies ([242c67b](https://github.com/bimdata/bimdata-components/commit/242c67b67d7bdda91fc08a9ebbca9827e37c0bd6))
+
+### PATCH
+
+* fix(photosphere): add 'plan' prop to BIMDataPhotosphereBuilding ([47d6322](https://github.com/bimdata/bimdata-components/commit/47d632262c7490b25c594d396cc4f903d7643a55))
+
 ## [1.7.1](https://github.com/bimdata/bimdata-components/compare/v1.7.0...v1.7.1) (2024-11-21)
 
 
