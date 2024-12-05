@@ -23,6 +23,10 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  plan: {
+    type: Object,
+    default: null,
+  },
   selectable: {
     type: Boolean,
     default: false,
@@ -70,11 +74,9 @@ watch(
 );
 
 watch(
-  selectedStorey,
-  storey => {
-    const plan = storey?.plans?.[0];
-    selectedPlanId.value = plan?.plan.id ?? null;
-    if (plan) emit("plan-selected", plan);
+  () => props.plan,
+  plan => {
+    selectedPlanId.value = plan?.plan?.id;
   },
   { immediate: true }
 );
