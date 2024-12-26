@@ -1,3 +1,31 @@
+<template>
+  <div class="storey-form">
+    <div class="storey-form__title">
+      <BIMDataIconStorey size="s" />
+      <span>{{ $t("BuildingMaker.storeyForm.title") }}</span>
+    </div>
+    <div class="storey-form__input">
+      <BIMDataInput
+        ref="nameInput"
+        :placeholder="$t('BuildingMaker.storeyForm.input')"
+        v-model="storeyName"
+        :error="hasError"
+        :errorMessage="$t('BuildingMaker.storeyForm.error')"
+        @keyup.enter.stop="submit"
+        @keyup.esc.stop="cancel"
+      />
+    </div>
+    <div class="storey-form__actions">
+      <BIMDataButton width="100px" color="primary" fill radius @click="submit">
+        {{ $t("BIMDataComponents.t.validate") }}
+      </BIMDataButton>
+      <BIMDataButton width="100px" fill radius @click="cancel">
+        {{ $t("BIMDataComponents.t.cancel") }}
+      </BIMDataButton>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { nextTick, onMounted, ref, watch } from "vue";
 
@@ -50,34 +78,6 @@ const cancel = () => {
   emit("close");
 };
 </script>
-
-<template>
-  <div class="storey-form">
-    <div class="storey-form__title">
-      <BIMDataIconStorey size="s" />
-      <span>{{ $t("BuildingMaker.storeyForm.title") }}</span>
-    </div>
-    <div class="storey-form__input">
-      <BIMDataInput
-        ref="nameInput"
-        :placeholder="$t('BuildingMaker.storeyForm.input')"
-        v-model="storeyName"
-        :error="hasError"
-        :errorMessage="$t('BuildingMaker.storeyForm.error')"
-        @keyup.enter.stop="submit"
-        @keyup.esc.stop="cancel"
-      />
-    </div>
-    <div class="storey-form__actions">
-      <BIMDataButton width="100px" color="primary" fill radius @click="submit">
-        {{ $t("BIMDataComponents.t.validate") }}
-      </BIMDataButton>
-      <BIMDataButton width="100px" fill radius @click="cancel">
-        {{ $t("BIMDataComponents.t.cancel") }}
-      </BIMDataButton>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .storey-form {

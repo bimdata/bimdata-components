@@ -1,3 +1,63 @@
+<template>
+  <div class="bimdata-building-maker">
+    <div
+      class="bimdata-building-maker__header"
+      :style="{ visibility: currentView === VIEWS.LIST ? 'hidden' : 'visible' }"
+    >
+      <BIMDataButton
+        class="bimdata-building-maker__header__btn-back"
+        ghost
+        radius
+        :disabled="loading.value"
+        @click="back"
+      >
+        <BIMDataIconArrow size="xxs" margin="0 6px 0 0" />
+        <span>{{ $t("BIMDataComponents.t.back") }}</span>
+      </BIMDataButton>
+      <img :src="icon" />
+      <span>{{ $t("BuildingMaker.title") }}</span>
+    </div>
+
+    <div class="bimdata-building-maker__body">
+      <transition name="fade" mode="out-in">
+        <template v-if="currentView === VIEWS.FORM">
+          <BuildingForm
+            :metaBuilding="currentMetaBuilding"
+            @metaBuilding-created="onMetaBuildingCreated"
+            @metaBuilding-updated="onMetaBuildingUpdated"
+          />
+        </template>
+
+        <template v-else-if="currentView === VIEWS.VIEW && currentMetaBuilding">
+          <BuildingView
+            :apiClient="apiClient"
+            :space="space"
+            :project="project"
+            :metaBuilding="currentMetaBuilding"
+            @close="back"
+          />
+        </template>
+
+        <template v-else>
+          <BuildingsList
+            :metaBuildings="metaBuildings"
+            @open-metaBuilding="openMetaBuilding"
+            @create-metaBuilding="openForm"
+            @update-metaBuilding="openForm"
+            @delete-metaBuilding="deleteMetaBuilding"
+          />
+        </template>
+      </transition>
+    </div>
+
+    <transition name="fade">
+      <div class="bimdata-building-maker__loader" v-show="loading">
+        <BIMDataSpinner />
+      </div>
+    </transition>
+  </div>
+</template>
+
 <script setup>
 import { onMounted, provide, ref, watch } from "vue";
 import icon from "./icon.svg";
@@ -88,65 +148,5 @@ watch(
 
 onMounted(() => loadMetaBuildings());
 </script>
-
-<template>
-  <div class="bimdata-building-maker">
-    <div
-      class="bimdata-building-maker__header"
-      :style="{ visibility: currentView === VIEWS.LIST ? 'hidden' : 'visible' }"
-    >
-      <BIMDataButton
-        class="bimdata-building-maker__header__btn-back"
-        ghost
-        radius
-        :disabled="loading.value"
-        @click="back"
-      >
-        <BIMDataIconArrow size="xxs" margin="0 6px 0 0" />
-        <span>{{ $t("BIMDataComponents.t.back") }}</span>
-      </BIMDataButton>
-      <img :src="icon" />
-      <span>{{ $t("BuildingMaker.title") }}</span>
-    </div>
-
-    <div class="bimdata-building-maker__body">
-      <transition name="fade" mode="out-in">
-        <template v-if="currentView === VIEWS.FORM">
-          <BuildingForm
-            :metaBuilding="currentMetaBuilding"
-            @metaBuilding-created="onMetaBuildingCreated"
-            @metaBuilding-updated="onMetaBuildingUpdated"
-          />
-        </template>
-
-        <template v-else-if="currentView === VIEWS.VIEW && currentMetaBuilding">
-          <BuildingView
-            :apiClient="apiClient"
-            :space="space"
-            :project="project"
-            :metaBuilding="currentMetaBuilding"
-            @close="back"
-          />
-        </template>
-
-        <template v-else>
-          <BuildingsList
-            :metaBuildings="metaBuildings"
-            @open-metaBuilding="openMetaBuilding"
-            @create-metaBuilding="openForm"
-            @update-metaBuilding="openForm"
-            @delete-metaBuilding="deleteMetaBuilding"
-          />
-        </template>
-      </transition>
-    </div>
-
-    <transition name="fade">
-      <div class="bimdata-building-maker__loader" v-show="loading">
-        <BIMDataSpinner />
-      </div>
-    </transition>
-  </div>
-</template>
 
 <style scoped src="./BIMDataBuildingMaker.css"></style>

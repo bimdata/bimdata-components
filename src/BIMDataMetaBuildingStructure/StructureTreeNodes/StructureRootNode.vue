@@ -1,3 +1,18 @@
+<template>
+  <GenericTreeNode v-bind="$props">
+    <template #icon>
+      <BIMDataIconZone2 v-if="node.id === 1" size="xxs" />
+      <BIMDataIconPlan v-if="node.id === 2" size="xxs" />
+    </template>
+
+    <template #end>
+      <div v-if="node.children?.length > 0" class="count">
+        {{ node.children.length }}
+      </div>
+    </template>
+  </GenericTreeNode>
+</template>
+
 <script setup>
 import { watch } from "vue";
 import GenericTreeNode from "./GenericTreeNode.vue";
@@ -24,20 +39,6 @@ watch(
   { immediate: true }
 );
 </script>
-<template>
-  <GenericTreeNode v-bind="$props">
-    <template #icon>
-      <BIMDataIconZone2 v-if="node.id === 1" size="xxs" />
-      <BIMDataIconPlan v-if="node.id === 2" size="xxs" />
-    </template>
-
-    <template #end>
-      <div v-if="node.children?.length > 0" class="count">
-        {{ node.children.length }}
-      </div>
-    </template>
-  </GenericTreeNode>
-</template>
 
 <style scoped>
 .count {

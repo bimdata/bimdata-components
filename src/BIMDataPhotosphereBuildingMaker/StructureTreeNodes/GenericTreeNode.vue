@@ -1,3 +1,15 @@
+<template>
+  <div class="generic-tree-node">
+    <slot name="icon"></slot>
+
+    <BIMDataTextbox class="text" :text="node.text" />
+
+    <div class="end">
+      <slot name="end"></slot>
+    </div>
+  </div>
+</template>
+
 <script setup>
 const props = defineProps({
   node: {
@@ -10,18 +22,6 @@ const props = defineProps({
   },
 });
 </script>
-
-<template>
-  <div class="generic-tree-node">
-    <slot name="icon"></slot>
-
-    <BIMDataTextbox class="text" :text="node.text" />
-
-    <div class="end">
-      <slot name="end"></slot>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .generic-tree-node {

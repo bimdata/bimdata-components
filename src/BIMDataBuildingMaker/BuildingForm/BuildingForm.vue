@@ -1,3 +1,28 @@
+<template>
+  <div class="building-form">
+    <img class="building-form__icon" :src="icon" />
+    <h2 class="building-form__title">
+      {{ $t("BuildingMaker.title") }}
+    </h2>
+    <div class="building-form__text">
+      {{ $t("BuildingMaker.list.text") }}
+    </div>
+    <div class="building-form__controls">
+      <BIMDataInput
+        ref="nameInput"
+        :placeholder="$t('BuildingMaker.form.input')"
+        v-model="metaBuildingName"
+        :error="hasError"
+        :errorMessage="$t('BuildingMaker.form.error')"
+        @keyup.enter.stop="submit"
+      />
+      <BIMDataButton width="120px" color="primary" fill radius @click="submit">
+        {{ $t(`BIMDataComponents.t.${metaBuilding ? 'validate' : 'create'}`) }}
+      </BIMDataButton>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { inject, onMounted, ref, watch } from "vue";
 import { BUILDING_TYPES } from "../config.js";
@@ -56,31 +81,6 @@ const submit = async () => {
   }
 };
 </script>
-
-<template>
-  <div class="building-form">
-    <img class="building-form__icon" :src="icon" />
-    <h2 class="building-form__title">
-      {{ $t("BuildingMaker.title") }}
-    </h2>
-    <div class="building-form__text">
-      {{ $t("BuildingMaker.list.text") }}
-    </div>
-    <div class="building-form__controls">
-      <BIMDataInput
-        ref="nameInput"
-        :placeholder="$t('BuildingMaker.form.input')"
-        v-model="metaBuildingName"
-        :error="hasError"
-        :errorMessage="$t('BuildingMaker.form.error')"
-        @keyup.enter.stop="submit"
-      />
-      <BIMDataButton width="120px" color="primary" fill radius @click="submit">
-        {{ $t(`BIMDataComponents.t.${metaBuilding ? 'validate' : 'create'}`) }}
-      </BIMDataButton>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .building-form {

@@ -1,3 +1,37 @@
+<template>
+  <GenericTreeNode class="storey-node" v-bind="$props">
+    <template #icon>
+      <BIMDataIconStorey size="xxs" />
+    </template>
+
+    <template #end>
+      <BIMDataButton
+        width="24px"
+        height="24px"
+        color="granite"
+        ghost rounded icon
+        @click="isOpenMenu = !isOpenMenu"
+      >
+        <BIMDataIconEllipsis customSize="24" />
+      </BIMDataButton>
+
+      <transition name="fade">
+        <BIMDataMenu
+          v-show="isOpenMenu"
+          class="storey-node__menu"
+          :menuItems="menuItems"
+          width="180px"
+        >
+          <template #item="{ item }">
+            <BIMDataIcon :name="item.icon" size="xs" margin="0 12px 0 0" />
+            <span>{{ $t(item.text) }}</span>
+          </template>
+        </BIMDataMenu>
+      </transition>
+    </template>
+  </GenericTreeNode>
+</template>
+
 <script setup>
 import { ref } from "vue";
 import GenericTreeNode from "./GenericTreeNode.vue";
@@ -44,40 +78,6 @@ const menuItems = [
 
 const isOpenMenu = ref(false);
 </script>
-
-<template>
-  <GenericTreeNode class="storey-node" v-bind="$props">
-    <template #icon>
-      <BIMDataIconStorey size="xxs" />
-    </template>
-
-    <template #end>
-      <BIMDataButton
-        width="24px"
-        height="24px"
-        color="granite"
-        ghost rounded icon
-        @click="isOpenMenu = !isOpenMenu"
-      >
-        <BIMDataIconEllipsis customSize="24" />
-      </BIMDataButton>
-
-      <transition name="fade">
-        <BIMDataMenu
-          v-show="isOpenMenu"
-          class="storey-node__menu"
-          :menuItems="menuItems"
-          width="180px"
-        >
-          <template #item="{ item }">
-            <BIMDataIcon :name="item.icon" size="xs" margin="0 12px 0 0" />
-            <span>{{ $t(item.text) }}</span>
-          </template>
-        </BIMDataMenu>
-      </transition>
-    </template>
-  </GenericTreeNode>
-</template>
 
 <style scoped>
 .storey-node {

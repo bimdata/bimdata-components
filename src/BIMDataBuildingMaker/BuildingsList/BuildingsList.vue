@@ -1,23 +1,3 @@
-<script setup>
-import icon from "../icon.svg";
-// Components
-import BuildingItem from "./BuildingItem.vue";
-
-defineProps({
-  metaBuildings: {
-    type: Array,
-    default: () => [],
-  },
-});
-
-defineEmits([
-  "open-metaBuilding",
-  "create-metaBuilding",
-  "update-metaBuilding",
-  "delete-metaBuilding",
-]);
-</script>
-
 <template>
   <div class="buildings-list">
     <img class="buildings-list__icon" :src="icon" />
@@ -51,6 +31,26 @@ defineEmits([
     </div>
   </div>
 </template>
+
+<script setup>
+import icon from "../icon.svg";
+// Components
+import BuildingItem from "./BuildingItem.vue";
+
+defineProps({
+  metaBuildings: {
+    type: Array,
+    default: () => [],
+  },
+});
+
+defineEmits([
+  "open-metaBuilding",
+  "create-metaBuilding",
+  "update-metaBuilding",
+  "delete-metaBuilding",
+]);
+</script>
 
 <style scoped>
 .buildings-list {

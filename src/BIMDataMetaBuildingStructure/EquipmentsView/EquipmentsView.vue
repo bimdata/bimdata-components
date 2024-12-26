@@ -1,13 +1,13 @@
-<script setup>
-// TODO
-</script>
-
 <template>
   <div class="equipments-view">
     Equipments View
     <!-- TODO -->
   </div>
 </template>
+
+<script setup>
+// TODO
+</script>
 
 <style scoped>
 .equipments-view {

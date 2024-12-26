@@ -1,30 +1,3 @@
-<script setup>
-import { ref } from "vue";
-// Components
-import StoreyNode from "./StoreyNode.vue";
-
-defineProps({
-  metaBuilding: {
-    type: Object,
-    required: true,
-  },
-  storeys: {
-    type: Array,
-    required: true,
-  },
-});
-
-defineEmits([
-  "create",
-  "update",
-  "delete",
-  "add-plans",
-  "delete-plan"
-]);
-
-const isOpenAction = ref(false);
-</script>
-
 <template>
   <div class="storeys-tree">
     <div class="storeys-tree__root">
@@ -78,6 +51,33 @@ const isOpenAction = ref(false);
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+// Components
+import StoreyNode from "./StoreyNode.vue";
+
+defineProps({
+  metaBuilding: {
+    type: Object,
+    required: true,
+  },
+  storeys: {
+    type: Array,
+    required: true,
+  },
+});
+
+defineEmits([
+  "create",
+  "update",
+  "delete",
+  "add-plans",
+  "delete-plan"
+]);
+
+const isOpenAction = ref(false);
+</script>
 
 <style scoped>
 .storeys-tree {

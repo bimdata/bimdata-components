@@ -1,20 +1,3 @@
-<script setup>
-import { computed, ref } from "vue";
-
-const props = defineProps({
-  storey: {
-    type: Object,
-  },
-});
-
-defineEmits([
-  "delete-plan"
-]);
-
-const hover = ref(false);
-const plans = computed(() => props.storey?.plans ?? []);
-</script>
-
 <template>
   <div class="storey-plans">
     <div
@@ -56,6 +39,23 @@ const plans = computed(() => props.storey?.plans ?? []);
     </div>
   </div>
 </template>
+
+<script setup>
+import { computed, ref } from "vue";
+
+const props = defineProps({
+  storey: {
+    type: Object,
+  },
+});
+
+defineEmits([
+  "delete-plan"
+]);
+
+const hover = ref(false);
+const plans = computed(() => props.storey?.plans ?? []);
+</script>
 
 <style scoped>
 .storey-plans {

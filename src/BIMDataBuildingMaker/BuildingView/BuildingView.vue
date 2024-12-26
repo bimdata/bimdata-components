@@ -1,3 +1,70 @@
+<template>
+  <div class="building-view">
+    <transition name="fade" mode="out-in">
+      <div class="content" v-if="isOpenDMS && apiUrl && accessToken && currentStorey">
+        <BIMDataFileManager
+          class="building-view__dms"
+          :spaceId="space.id"
+          :projectId="project.id"
+          :apiUrl="apiUrl"
+          :archiveUrl="''"
+          :accessToken="accessToken"
+          :locale="$i18n.locale"
+          :select="true"
+          :pdfPageSelect="true"
+          :multi="true"
+          :headerButtons="false"
+          :selectableFileTypes="PLAN_FILE_EXTENSIONS"
+          @selection-change="selectedFiles = $event"
+        />
+        <BIMDataButton
+          width="100%"
+          color="primary"
+          fill
+          radius
+          @click="closeFileManager"
+        >
+          {{ $t("BIMDataComponents.t.validate") }}
+        </BIMDataButton>
+      </div>
+
+      <div class="content" v-else>
+        <div class="building-view__tree">
+          <StoreysTree
+            :metaBuilding="metaBuilding"
+            :storeys="storeys"
+            @create="openForm"
+            @update="openForm"
+            @delete="deleteStorey"
+            @add-plans="openFileManager"
+            @delete-plan="deleteStoreyPlan"
+          />
+        </div>
+        <BIMDataButton
+          width="100%"
+          color="primary"
+          fill
+          radius
+          @click="$emit('close')"
+        >
+          {{ $t("BIMDataComponents.t.finish") }}
+        </BIMDataButton>
+
+        <transition name="fade">
+          <StoreyForm
+            v-if="isOpenForm"
+            class="building-view__form"
+            :storey="currentStorey"
+            @create-storey="createStorey"
+            @update-storey="updateStorey"
+            @close="closeForm"
+          />
+        </transition>
+      </div>
+    </transition>
+  </div>
+</template>
+
 <script setup>
 import { inject, onMounted, ref } from "vue";
 import { PLAN_FILE_EXTENSIONS } from "../config.js";
@@ -113,73 +180,6 @@ onMounted(() => {
   loadStoreys();
 });
 </script>
-
-<template>
-  <div class="building-view">
-    <transition name="fade" mode="out-in">
-      <div class="content" v-if="isOpenDMS && apiUrl && accessToken && currentStorey">
-        <BIMDataFileManager
-          class="building-view__dms"
-          :spaceId="space.id"
-          :projectId="project.id"
-          :apiUrl="apiUrl"
-          :archiveUrl="''"
-          :accessToken="accessToken"
-          :locale="$i18n.locale"
-          :select="true"
-          :pdfPageSelect="true"
-          :multi="true"
-          :headerButtons="false"
-          :selectableFileTypes="PLAN_FILE_EXTENSIONS"
-          @selection-change="selectedFiles = $event"
-        />
-        <BIMDataButton
-          width="100%"
-          color="primary"
-          fill
-          radius
-          @click="closeFileManager"
-        >
-          {{ $t("BIMDataComponents.t.validate") }}
-        </BIMDataButton>
-      </div>
-
-      <div class="content" v-else>
-        <div class="building-view__tree">
-          <StoreysTree
-            :metaBuilding="metaBuilding"
-            :storeys="storeys"
-            @create="openForm"
-            @update="openForm"
-            @delete="deleteStorey"
-            @add-plans="openFileManager"
-            @delete-plan="deleteStoreyPlan"
-          />
-        </div>
-        <BIMDataButton
-          width="100%"
-          color="primary"
-          fill
-          radius
-          @click="$emit('close')"
-        >
-          {{ $t("BIMDataComponents.t.finish") }}
-        </BIMDataButton>
-
-        <transition name="fade">
-          <StoreyForm
-            v-if="isOpenForm"
-            class="building-view__form"
-            :storey="currentStorey"
-            @create-storey="createStorey"
-            @update-storey="updateStorey"
-            @close="closeForm"
-          />
-        </transition>
-      </div>
-    </transition>
-  </div>
-</template>
 
 <style scoped>
 .building-view {

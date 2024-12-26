@@ -1,3 +1,31 @@
+<template>
+  <BIMDataDropdownList
+    class="storey-selector"
+    width="100%"
+    :list="storeys"
+    elementKey="uuid"
+    :closeOnElementClick="true"
+    @element-click="selectedStorey = $event"
+  >
+    <template #header>
+      <BIMDataIconStorey size="xs" />
+      <span class="placeholder">
+        {{ selectedStorey?.name ?? $t("MetaBuildingStructure.StoreySelector.placeholder") }}
+      </span>
+    </template>
+    <template #element="{ element }">
+      <div class="list-item">
+        <BIMDataTextbox class="text" :text="element.name" />
+        <BIMDataIconZone2 size="xs" />
+        <span class="count">{{ element.zones?.length ?? 0 }}</span>
+        <span>|</span>
+        <BIMDataIconPlan size="xs" />
+        <span class="count">{{ element.plans.length }}</span>
+      </div>
+    </template>
+  </BIMDataDropdownList>
+</template>
+
 <script setup>
 import { ref, watch } from "vue";
 
@@ -35,34 +63,6 @@ watch(
   storey => emit("storey-selected", storey)
 );
 </script>
-
-<template>
-  <BIMDataDropdownList
-    class="storey-selector"
-    width="100%"
-    :list="storeys"
-    elementKey="uuid"
-    :closeOnElementClick="true"
-    @element-click="selectedStorey = $event"
-  >
-    <template #header>
-      <BIMDataIconStorey size="xs" />
-      <span class="placeholder">
-        {{ selectedStorey?.name ?? $t("MetaBuildingStructure.StoreySelector.placeholder") }}
-      </span>
-    </template>
-    <template #element="{ element }">
-      <div class="list-item">
-        <BIMDataTextbox class="text" :text="element.name" />
-        <BIMDataIconZone2 size="xs" />
-        <span class="count">{{ element.zones?.length ?? 0 }}</span>
-        <span>|</span>
-        <BIMDataIconPlan size="xs" />
-        <span class="count">{{ element.plans.length }}</span>
-      </div>
-    </template>
-  </BIMDataDropdownList>
-</template>
 
 <style scoped>
 .storey-selector {

@@ -1,3 +1,165 @@
+<template>
+  <div class="bimdata-file-manager" ref="root">
+    <BIMDataPDFViewer
+      class="bimdata-file-manager__pdf-viewer"
+      v-if="pdfToView"
+      :pdf="pdfToView"
+      header
+    >
+      <template #header-left>
+        <BIMDataButton
+          class="m-l-12"
+          width="32px"
+          height="32px"
+          color="primary"
+          ghost
+          radius
+          icon
+          @click="pdfToView = null"
+        >
+          <BIMDataIconArrow size="xxs" />
+        </BIMDataButton>
+      </template>
+    </BIMDataPDFViewer>
+    <div
+      class="bimdata-file-manager__header"
+      :class="{
+        'bimdata-file-manager__header--xs': xsLayout,
+        'bimdata-file-manager__header--s': sLayout,
+        'bimdata-file-manager__header--m': mLayout,
+        'bimdata-file-manager__header--l': lLayout,
+      }"
+      v-if="headerButtons || headerSearch"
+    >
+      <template v-if="headerButtons">
+        <NewFolderButton
+          :disabled="!currentFolder || currentFolder.user_permission < 100"
+          :projectId="projectId"
+          :spaceId="spaceId"
+          :apiClient="apiClient"
+          :folder="currentFolder"
+          @success="onNewFolder"
+          @error="$emit('error', $event)"
+        />
+        <UploadFileButton
+          class="bimdata-file-manager__header__upload"
+          width="25%"
+          :disabled="!currentFolder || currentFolder.user_permission < 100"
+          multiple
+          @upload="uploadFiles"
+        />
+      </template>
+      <BIMDataSearch
+        v-if="headerSearch"
+        :color="searchColor"
+        class="bimdata-file-manager__search"
+        width="100%"
+        placeholder="Search"
+        v-model="searchText"
+        ref="search"
+        clear
+        radius
+      />
+    </div>
+    <div class="bimdata-file-manager__navigation">
+      <div
+        v-if="navigationShown"
+        class="bimdata-file-manager__navigation__content"
+      >
+        <BIMDataButton ghost radius icon @click="back">
+          <BIMDataIconArrow size="xxs" />
+        </BIMDataButton>
+        <BIMDataTextbox
+          :text="currentFolder.name"
+          cutPosition="middle"
+          tooltipPosition="bottom"
+          tooltipColor="primary"
+          width="calc(100% - 45px)"
+        />
+      </div>
+      <div v-else class="bimdata-file-manager__navigation__content--empty">
+        {{ $t("FileManager.dmsRoot") }}
+      </div>
+    </div>
+    <template v-if="fileStructure">
+      <div class="bimdata-file-manager__container" v-if="files.length > 0">
+        <BIMDataResponsiveGrid
+          :itemWidth="itemWidth"
+          rowGap="4px"
+          columnGap="6px"
+        >
+          <FileCard
+            :width="itemWidth"
+            v-for="file of files"
+            :key="file.id"
+            :file="file"
+            :projectId="projectId"
+            :spaceId="spaceId"
+            :apiUrl="apiUrl"
+            :accessToken="accessToken"
+            @open-folder="openFolder(file)"
+            :select="select"
+            :disabled="isDisabled(file)"
+            :multi="multi"
+            :selected="isFileSelected(file)"
+            :success="isFileSucess(file.id)"
+            @toggle-select="onToggleFileSelect(file)"
+            @rename="onRename(file)"
+            @delete="onDelete(file)"
+            @view="onView(file)"
+            @download="onDownload(file)"
+            @loaded="onFileLoaded(file, $event)"
+            :writeAccess="currentFolder.user_permission >= 100"
+            :viewPdf="viewPdf"
+            :pdfModelLoading="pdfModelLoading === file.id"
+            :pdfPage="getSelectedPdfPage(file)"
+          />
+        </BIMDataResponsiveGrid>
+      </div>
+      <div v-else class="bimdata-file-manager__container--empty">
+        <div>
+          <BIMDataIconFolderOpen size="xxxl" fill color="silver" />
+          <span>{{ $t("FileManager.emptyFolder") }}</span>
+        </div>
+      </div>
+    </template>
+    <BIMDataLoading v-else />
+    <div
+      v-if="pdfPageSelectorDisplayed"
+      class="bimdata-file-manager__pdf-page-selector"
+    >
+      <PdfPageSelector
+        :model="pdfModel"
+        :modelSelectedPage="pdfModelSelectedPage"
+        @select="selectPdfPage"
+        @close="selectPdfPage"
+      />
+    </div>
+    <div class="bimdata-file-manager__modal" v-if="modalDisplayed">
+      <RenameModal
+        v-if="entityRenown"
+        :projectId="projectId"
+        :spaceId="spaceId"
+        :apiClient="apiClient"
+        :entity="entityRenown"
+        @close="entityRenown = null"
+        @success="onRenameSuccess"
+        @error="$emit('error', $event)"
+      />
+      <DeleteModal
+        v-else-if="entityDeletable"
+        :projectId="projectId"
+        :spaceId="spaceId"
+        :apiClient="apiClient"
+        :entity="entityDeletable"
+        @close="entityDeletable = null"
+        @success="onDeleteSuccess"
+        @error="$emit('error', $event)"
+      />
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { makeBIMDataApiClient } from "@bimdata/typescript-fetch-api-client";
 import { computed, onBeforeUnmount, onMounted, ref, watch, watchEffect } from "vue";
@@ -445,167 +607,5 @@ onBeforeUnmount(() => {
   clearTimeout(timeoutId);
 });
 </script>
-
-<template>
-  <div class="bimdata-file-manager" ref="root">
-    <BIMDataPDFViewer
-      class="bimdata-file-manager__pdf-viewer"
-      v-if="pdfToView"
-      :pdf="pdfToView"
-      header
-    >
-      <template #header-left>
-        <BIMDataButton
-          class="m-l-12"
-          width="32px"
-          height="32px"
-          color="primary"
-          ghost
-          radius
-          icon
-          @click="pdfToView = null"
-        >
-          <BIMDataIconArrow size="xxs" />
-        </BIMDataButton>
-      </template>
-    </BIMDataPDFViewer>
-    <div
-      class="bimdata-file-manager__header"
-      :class="{
-        'bimdata-file-manager__header--xs': xsLayout,
-        'bimdata-file-manager__header--s': sLayout,
-        'bimdata-file-manager__header--m': mLayout,
-        'bimdata-file-manager__header--l': lLayout,
-      }"
-      v-if="headerButtons || headerSearch"
-    >
-      <template v-if="headerButtons">
-        <NewFolderButton
-          :disabled="!currentFolder || currentFolder.user_permission < 100"
-          :projectId="projectId"
-          :spaceId="spaceId"
-          :apiClient="apiClient"
-          :folder="currentFolder"
-          @success="onNewFolder"
-          @error="$emit('error', $event)"
-        />
-        <UploadFileButton
-          class="bimdata-file-manager__header__upload"
-          width="25%"
-          :disabled="!currentFolder || currentFolder.user_permission < 100"
-          multiple
-          @upload="uploadFiles"
-        />
-      </template>
-      <BIMDataSearch
-        v-if="headerSearch"
-        :color="searchColor"
-        class="bimdata-file-manager__search"
-        width="100%"
-        placeholder="Search"
-        v-model="searchText"
-        ref="search"
-        clear
-        radius
-      />
-    </div>
-    <div class="bimdata-file-manager__navigation">
-      <div
-        v-if="navigationShown"
-        class="bimdata-file-manager__navigation__content"
-      >
-        <BIMDataButton ghost radius icon @click="back">
-          <BIMDataIconArrow size="xxs" />
-        </BIMDataButton>
-        <BIMDataTextbox
-          :text="currentFolder.name"
-          cutPosition="middle"
-          tooltipPosition="bottom"
-          tooltipColor="primary"
-          width="calc(100% - 45px)"
-        />
-      </div>
-      <div v-else class="bimdata-file-manager__navigation__content--empty">
-        {{ $t("FileManager.dmsRoot") }}
-      </div>
-    </div>
-    <template v-if="fileStructure">
-      <div class="bimdata-file-manager__container" v-if="files.length > 0">
-        <BIMDataResponsiveGrid
-          :itemWidth="itemWidth"
-          rowGap="4px"
-          columnGap="6px"
-        >
-          <FileCard
-            :width="itemWidth"
-            v-for="file of files"
-            :key="file.id"
-            :file="file"
-            :projectId="projectId"
-            :spaceId="spaceId"
-            :apiUrl="apiUrl"
-            :accessToken="accessToken"
-            @open-folder="openFolder(file)"
-            :select="select"
-            :disabled="isDisabled(file)"
-            :multi="multi"
-            :selected="isFileSelected(file)"
-            :success="isFileSucess(file.id)"
-            @toggle-select="onToggleFileSelect(file)"
-            @rename="onRename(file)"
-            @delete="onDelete(file)"
-            @view="onView(file)"
-            @download="onDownload(file)"
-            @loaded="onFileLoaded(file, $event)"
-            :writeAccess="currentFolder.user_permission >= 100"
-            :viewPdf="viewPdf"
-            :pdfModelLoading="pdfModelLoading === file.id"
-            :pdfPage="getSelectedPdfPage(file)"
-          />
-        </BIMDataResponsiveGrid>
-      </div>
-      <div v-else class="bimdata-file-manager__container--empty">
-        <div>
-          <BIMDataIconFolderOpen size="xxxl" fill color="silver" />
-          <span>{{ $t("FileManager.emptyFolder") }}</span>
-        </div>
-      </div>
-    </template>
-    <BIMDataLoading v-else />
-    <div
-      v-if="pdfPageSelectorDisplayed"
-      class="bimdata-file-manager__pdf-page-selector"
-    >
-      <PdfPageSelector
-        :model="pdfModel"
-        :modelSelectedPage="pdfModelSelectedPage"
-        @select="selectPdfPage"
-        @close="selectPdfPage"
-      />
-    </div>
-    <div class="bimdata-file-manager__modal" v-if="modalDisplayed">
-      <RenameModal
-        v-if="entityRenown"
-        :projectId="projectId"
-        :spaceId="spaceId"
-        :apiClient="apiClient"
-        :entity="entityRenown"
-        @close="entityRenown = null"
-        @success="onRenameSuccess"
-        @error="$emit('error', $event)"
-      />
-      <DeleteModal
-        v-else-if="entityDeletable"
-        :projectId="projectId"
-        :spaceId="spaceId"
-        :apiClient="apiClient"
-        :entity="entityDeletable"
-        @close="entityDeletable = null"
-        @success="onDeleteSuccess"
-        @error="$emit('error', $event)"
-      />
-    </div>
-  </div>
-</template>
 
 <style scoped lang="scss" src="./BIMDataFileManager.scss"></style>

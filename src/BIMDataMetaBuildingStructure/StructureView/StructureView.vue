@@ -1,3 +1,29 @@
+<template>
+  <div class="structure-view">
+    <BIMDataSearch
+      width="100%"
+      color="primary"
+      :placeholder="$t('BIMDataComponents.t.search')"
+      v-model="searchText"
+    />
+    <BIMDataTree
+      :data="tree"
+      :highlighted-id="highlightedId"
+      :selected-id="selectedId"
+      @hover="onNodeHover"
+      @click="onNodeClick"
+    >
+      <template #node="{ node, depth }">
+        <component
+          :is="node.component"
+          :node="node"
+          :depth="depth"
+        />
+      </template>
+    </BIMDataTree>
+  </div>
+</template>
+
 <script setup>
 import { computed, inject, ref, watch } from "vue";
 import { buildStructureTree, flattenTree, setupTree } from "../meta-building-structure.js";
@@ -51,32 +77,6 @@ const onNodeClick = node => {
   }
 };
 </script>
-
-<template>
-  <div class="structure-view">
-    <BIMDataSearch
-      width="100%"
-      color="primary"
-      :placeholder="$t('BIMDataComponents.t.search')"
-      v-model="searchText"
-    />
-    <BIMDataTree
-      :data="tree"
-      :highlighted-id="highlightedId"
-      :selected-id="selectedId"
-      @hover="onNodeHover"
-      @click="onNodeClick"
-    >
-      <template #node="{ node, depth }">
-        <component
-          :is="node.component"
-          :node="node"
-          :depth="depth"
-        />
-      </template>
-    </BIMDataTree>
-  </div>
-</template>
 
 <style scoped>
 .structure-view {

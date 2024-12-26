@@ -1,23 +1,3 @@
-<script setup>
-import { computed } from "vue";
-import GenericTreeNode from "./GenericTreeNode.vue";
-
-const props = defineProps({
-  node: {
-    type: Object,
-    required: true,
-  },
-  depth: {
-    type: Number,
-    required: true,
-  },
-});
-
-defineEmits(["delete-plan"]);
-
-const storey = computed(() => props.node.storey);
-const plan = computed(() => props.node.plan);
-</script>
 <template>
   <GenericTreeNode v-bind="$props">
     <template #icon>
@@ -40,3 +20,24 @@ const plan = computed(() => props.node.plan);
     </template>
   </GenericTreeNode>
 </template>
+
+<script setup>
+import { computed } from "vue";
+import GenericTreeNode from "./GenericTreeNode.vue";
+
+const props = defineProps({
+  node: {
+    type: Object,
+    required: true,
+  },
+  depth: {
+    type: Number,
+    required: true,
+  },
+});
+
+defineEmits(["delete-plan"]);
+
+const storey = computed(() => props.node.storey);
+const plan = computed(() => props.node.plan);
+</script>

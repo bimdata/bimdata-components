@@ -1,16 +1,3 @@
-<script setup>
-defineProps({
-  width: {
-    type: String,
-    default: "350px",
-  },
-  iconName: {
-    type: String,
-    default: "warning",
-  },
-});
-</script>
-
 <template>
   <div class="overlay">
     <div class="safe-zone" :style="{ width }">
@@ -29,6 +16,19 @@ defineProps({
     </div>
   </div>
 </template>
+
+<script setup>
+defineProps({
+  width: {
+    type: String,
+    default: "350px",
+  },
+  iconName: {
+    type: String,
+    default: "warning",
+  },
+});
+</script>
 
 <style scoped lang="scss">
 .overlay {

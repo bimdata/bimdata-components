@@ -1,22 +1,3 @@
-<script setup>
-import { ref } from "vue";
-
-defineProps({
-  metaBuilding: {
-    type: Object,
-    required: true,
-  },
-});
-
-defineEmits([
-  "open-metaBuilding",
-  "update-metaBuilding",
-  "delete-metaBuilding"
-]);
-
-const isOpenAction = ref(false);
-</script>
-
 <template>
   <div class="building-item" @click="$emit('open-metaBuilding', metaBuilding)">
     <BIMDataIconBuilding size="m" fill color="primary" />
@@ -55,6 +36,25 @@ const isOpenAction = ref(false);
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+defineProps({
+  metaBuilding: {
+    type: Object,
+    required: true,
+  },
+});
+
+defineEmits([
+  "open-metaBuilding",
+  "update-metaBuilding",
+  "delete-metaBuilding"
+]);
+
+const isOpenAction = ref(false);
+</script>
 
 <style scoped>
 .building-item {

@@ -1,3 +1,22 @@
+<template>
+  <div class="generic-tree-node">
+    <BIMDataCheckbox
+      v-if="isSelectable"
+      :disabled="isDisabled"
+      :model-value="isSelected"
+      @update:model-value="updateSelection"
+    />
+
+    <slot name="icon"></slot>
+
+    <BIMDataTextbox class="text" :text="node.text" />
+
+    <div class="end">
+      <slot name="end"></slot>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { computed, inject, watch } from "vue";
 
@@ -40,25 +59,6 @@ const updateSelection = selected => {
   }
 };
 </script>
-
-<template>
-  <div class="generic-tree-node">
-    <BIMDataCheckbox
-      v-if="isSelectable"
-      :disabled="isDisabled"
-      :model-value="isSelected"
-      @update:model-value="updateSelection"
-    />
-
-    <slot name="icon"></slot>
-
-    <BIMDataTextbox class="text" :text="node.text" />
-
-    <div class="end">
-      <slot name="end"></slot>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .generic-tree-node {

@@ -1,25 +1,3 @@
-<script setup>
-import { ref } from "vue";
-// Components
-import StoreyPlans from "./StoreyPlans.vue";
-
-defineProps({
-  storey: {
-    type: Object,
-    required: true,
-  },
-});
-
-defineEmits([
-  "update",
-  "delete",
-  "add-plans",
-  "delete-plan"
-]);
-
-const isOpenAction = ref(false);
-</script>
-
 <template>
   <div class="storey-node">
     <div
@@ -70,6 +48,28 @@ const isOpenAction = ref(false);
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+// Components
+import StoreyPlans from "./StoreyPlans.vue";
+
+defineProps({
+  storey: {
+    type: Object,
+    required: true,
+  },
+});
+
+defineEmits([
+  "update",
+  "delete",
+  "add-plans",
+  "delete-plan"
+]);
+
+const isOpenAction = ref(false);
+</script>
 
 <style scoped>
 .storey-node {

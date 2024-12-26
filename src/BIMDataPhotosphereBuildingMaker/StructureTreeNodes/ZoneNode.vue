@@ -1,3 +1,11 @@
+<template>
+  <GenericTreeNode v-bind="$props">
+    <template #icon>
+      <BIMDataIconZone2 size="xxs" />
+    </template>
+  </GenericTreeNode>
+</template>
+
 <script setup>
 import GenericTreeNode from "./GenericTreeNode.vue";
 
@@ -12,10 +20,3 @@ defineProps({
   },
 });
 </script>
-<template>
-  <GenericTreeNode v-bind="$props">
-    <template #icon>
-      <BIMDataIconZone2 size="xxs" />
-    </template>
-  </GenericTreeNode>
-</template>

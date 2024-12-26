@@ -1,3 +1,17 @@
+<template>
+  <div class="zones-view">
+    <BIMDataTree :data="tree">
+      <template #node="{ node, depth }">
+        <component
+          :is="node.component"
+          :node="node"
+          :depth="depth"
+        />
+      </template>
+    </BIMDataTree>
+  </div>
+</template>
+
 <script setup>
 import { computed, inject } from "vue";
 import { buildZonesTree } from "../meta-building-structure.js";
@@ -15,20 +29,6 @@ const { zones } = inject("BIMDataMetaBuildingStructure.state");
 
 const tree = computed(() => buildZonesTree(zones.value));
 </script>
-
-<template>
-  <div class="zones-view">
-    <BIMDataTree :data="tree">
-      <template #node="{ node, depth }">
-        <component
-          :is="node.component"
-          :node="node"
-          :depth="depth"
-        />
-      </template>
-    </BIMDataTree>
-  </div>
-</template>
 
 <style scoped>
 .zones-view {

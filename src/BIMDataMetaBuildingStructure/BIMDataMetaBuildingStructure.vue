@@ -1,3 +1,44 @@
+<template>
+  <div class="meta-building-structure">
+    <div class="title">
+      <BIMDataIconBuilding size="s" />
+      <span>{{ $t("MetaBuildingStructure.title") }}</span>
+    </div>
+    <div class="head">
+      <StoreySelector
+        :storeys="state.storeys.value"
+        :storey="state.storey.value"
+        @storey-selected="state.onStoreySelected"
+      />
+      <!-- 
+      <BIMDataTabs
+        :tabs="tabs"
+        width="100%"
+        height="36px"
+        :tab-size="`calc(${100 / tabs.length}%)`"
+        :selected="activeTab.id"
+        @tab-selected="activeTab = $event"
+      >
+        <template #tab="{ tab }">
+          <span>{{ tab.label }}</span>
+          <span v-if="tab.count?.value" class="tab-count">{{ tab.count }}</span>
+        </template>
+      </BIMDataTabs>
+      -->
+    </div>
+
+    <div class="body">
+      <component :is="activeTab.view" />
+    </div>
+
+    <transition name="fade">
+      <div class="loading" v-show="loading">
+        <BIMDataSpinner />
+      </div>
+    </transition>
+  </div>
+</template>
+
 <script setup>
 import { computed, markRaw, provide, readonly, ref, watch } from "vue";
 import EquipmentsView from "./EquipmentsView/EquipmentsView.vue";
@@ -111,47 +152,6 @@ const tabs = [
 ];
 const activeTab = ref(tabs[0]);
 </script>
-
-<template>
-  <div class="meta-building-structure">
-    <div class="title">
-      <BIMDataIconBuilding size="s" />
-      <span>{{ $t("MetaBuildingStructure.title") }}</span>
-    </div>
-    <div class="head">
-      <StoreySelector
-        :storeys="state.storeys.value"
-        :storey="state.storey.value"
-        @storey-selected="state.onStoreySelected"
-      />
-      <!-- 
-      <BIMDataTabs
-        :tabs="tabs"
-        width="100%"
-        height="36px"
-        :tab-size="`calc(${100 / tabs.length}%)`"
-        :selected="activeTab.id"
-        @tab-selected="activeTab = $event"
-      >
-        <template #tab="{ tab }">
-          <span>{{ tab.label }}</span>
-          <span v-if="tab.count?.value" class="tab-count">{{ tab.count }}</span>
-        </template>
-      </BIMDataTabs>
-      -->
-    </div>
-
-    <div class="body">
-      <component :is="activeTab.view" />
-    </div>
-
-    <transition name="fade">
-      <div class="loading" v-show="loading">
-        <BIMDataSpinner />
-      </div>
-    </transition>
-  </div>
-</template>
 
 <style scoped>
 .meta-building-structure {

@@ -1,3 +1,41 @@
+<template>
+  <div class="photosphere-building">
+    <div class="title">
+      <BIMDataIconBuilding size="s" />
+      <span>{{ $t("PhotosphereBuilding.title") }}</span>
+    </div>
+    <div class="head">
+      <StoreySelector
+        :storeys="modelStoreys"
+        :storey="selectedStorey"
+        @storey-selected="onStoreySelected"
+      />
+    </div>
+
+    <div class="body">
+      <div class="list-item" v-for="plan of storeyPlans" :key="plan.plan.id">
+        <BIMDataRadio
+          v-if="selectable"
+          :value="plan.plan.id"
+          v-model="selectedPlanId"
+          @update:modelValue="onPlanSelected(plan)"
+        />
+        <BIMDataFileIcon
+          :fileName="plan.plan.document?.file_name ?? plan.plan.name"
+          :size="14"
+        />
+        <BIMDataTextbox class="text" :text="plan.plan.name" />
+      </div>
+    </div>
+
+    <transition name="fade">
+      <div class="loading" v-show="loading">
+        <BIMDataSpinner />
+      </div>
+    </transition>
+  </div>
+</template>
+
 <script setup>
 import { computed, ref, watch } from "vue";
 import StoreySelector from "./StoreySelector/StoreySelector.vue";
@@ -84,44 +122,6 @@ watch(
 const onStoreySelected = event => (selectedStorey.value = event, emit("storey-selected", event));
 const onPlanSelected = event => emit("plan-selected", event);
 </script>
-
-<template>
-  <div class="photosphere-building">
-    <div class="title">
-      <BIMDataIconBuilding size="s" />
-      <span>{{ $t("PhotosphereBuilding.title") }}</span>
-    </div>
-    <div class="head">
-      <StoreySelector
-        :storeys="modelStoreys"
-        :storey="selectedStorey"
-        @storey-selected="onStoreySelected"
-      />
-    </div>
-
-    <div class="body">
-      <div class="list-item" v-for="plan of storeyPlans" :key="plan.plan.id">
-        <BIMDataRadio
-          v-if="selectable"
-          :value="plan.plan.id"
-          v-model="selectedPlanId"
-          @update:modelValue="onPlanSelected(plan)"
-        />
-        <BIMDataFileIcon
-          :fileName="plan.plan.document?.file_name ?? plan.plan.name"
-          :size="14"
-        />
-        <BIMDataTextbox class="text" :text="plan.plan.name" />
-      </div>
-    </div>
-
-    <transition name="fade">
-      <div class="loading" v-show="loading">
-        <BIMDataSpinner />
-      </div>
-    </transition>
-  </div>
-</template>
 
 <style scoped>
 .photosphere-building {
