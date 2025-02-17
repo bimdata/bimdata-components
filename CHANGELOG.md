@@ -1,3 +1,14 @@
+## [1.7.3](https://github.com/bimdata/bimdata-components/compare/v1.7.2...v1.7.3) (2025-02-17)
+
+
+### chore
+
+* rearrange <script setup> in vue files ([25a1690](https://github.com/bimdata/bimdata-components/commit/25a169051ca4b33bd1c3b579a61ffb67bfbbf027))
+
+### PATCH
+
+* chore: update dependencies ([4880472](https://github.com/bimdata/bimdata-components/commit/48804720ba85ca77f8b40f064a08bd84cd4ebf9b))
+
 ## [1.7.2](https://github.com/bimdata/bimdata-components/compare/v1.7.1...v1.7.2) (2024-12-05)
 
 

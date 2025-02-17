@@ -1,6 +1,6 @@
 {
   "name": "@bimdata/components",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "files": [
     "src",
     "index.js",
