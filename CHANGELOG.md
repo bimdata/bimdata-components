@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/bimdata/bimdata-components/compare/v1.7.3...v1.7.4) (2025-03-12)
+
+
+### PATCH
+
+* chore(deps): bump vue-i18n from 11.1.1 to 11.1.2 (#13) ([b732e18](https://github.com/bimdata/bimdata-components/commit/b732e18f1c1096618942b0905eff590465300f38)), closes [#13](https://github.com/bimdata/bimdata-components/issues/13)
+
 ## [1.7.3](https://github.com/bimdata/bimdata-components/compare/v1.7.2...v1.7.3) (2025-02-17)
 
 
