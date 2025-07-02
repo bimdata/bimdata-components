@@ -1,3 +1,15 @@
+## [1.7.5](https://github.com/bimdata/bimdata-components/compare/v1.7.4...v1.7.5) (2025-07-02)
+
+
+### chore
+
+* add dependabot version update config ([c17b68c](https://github.com/bimdata/bimdata-components/commit/c17b68c37453b72e22333b6ae514a4cfcc3619ea))
+* update dependencies ([f5f408d](https://github.com/bimdata/bimdata-components/commit/f5f408d86c7c976092aca74c776440af2d6e02d6))
+
+### PATCH
+
+* Merge pull request #16 from bimdata/fix/preventCheckToSelect ([22b819c](https://github.com/bimdata/bimdata-components/commit/22b819c26a616f524ff8b721d0afad9f213395ec)), closes [#16](https://github.com/bimdata/bimdata-components/issues/16)
+
 ## [1.7.4](https://github.com/bimdata/bimdata-components/compare/v1.7.3...v1.7.4) (2025-03-12)
 
 
