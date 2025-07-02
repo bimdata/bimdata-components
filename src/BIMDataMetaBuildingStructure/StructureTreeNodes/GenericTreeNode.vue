@@ -5,6 +5,7 @@
       :disabled="isDisabled"
       :model-value="isSelected"
       @update:model-value="updateSelection"
+      @mousedown.stop
     />
 
     <slot name="icon"></slot>
