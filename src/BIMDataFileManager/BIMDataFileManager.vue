@@ -328,16 +328,16 @@ watch(() => props.select, () => {
 });
 
 const isDisabled = (file) => {
+  if (!props.select) return false;
+  if (props.selectableFileTypes.length === 0) return false;
   if (file.nature === "Folder") return false;
 
   const extensionMatch = file.file_name?.match(/\.(\w+$)/);
-  const fileExtension = extensionMatch && extensionMatch[1];
+  const fileExtension = extensionMatch?.[1]?.toLowerCase();
 
-  return (
-    props.select &&
-    props.selectableFileTypes.length > 0 &&
-    !(fileExtension && props.selectableFileTypes.includes(fileExtension))
-  );
+  if (!fileExtension) return true;
+
+  return props.selectableFileTypes.every(ext => ext.toLowerCase() !== fileExtension);
 };
 const isFileSucess = (id) => {
   return (
