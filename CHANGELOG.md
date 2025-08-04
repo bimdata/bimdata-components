@@ -1,3 +1,10 @@
+## [1.7.6](https://github.com/bimdata/bimdata-components/compare/v1.7.5...v1.7.6) (2025-08-04)
+
+
+### PATCH
+
+* fix(file-manager): make selectableFileTypes case insensitive ([575dff0](https://github.com/bimdata/bimdata-components/commit/575dff0b4897627ab96a5b26b681009b855bed37))
+
 ## [1.7.5](https://github.com/bimdata/bimdata-components/compare/v1.7.4...v1.7.5) (2025-07-02)
 
 
