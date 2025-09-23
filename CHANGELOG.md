@@ -1,3 +1,10 @@
+## [1.7.7](https://github.com/bimdata/bimdata-components/compare/v1.7.6...v1.7.7) (2025-09-23)
+
+
+### PATCH
+
+* fix building structure storey selector styles ([d0e084e](https://github.com/bimdata/bimdata-components/commit/d0e084e7a8190870aacbcecf4d31328bb76ddb0d))
+
 ## [1.7.6](https://github.com/bimdata/bimdata-components/compare/v1.7.5...v1.7.6) (2025-08-04)
 
 
