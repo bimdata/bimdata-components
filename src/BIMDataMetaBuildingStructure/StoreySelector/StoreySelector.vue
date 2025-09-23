@@ -71,6 +71,7 @@ watch(
   }
 
   .list-item {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: calc(var(--spacing-unit) / 2);
