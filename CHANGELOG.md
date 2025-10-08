@@ -1,3 +1,10 @@
+## [1.7.8](https://github.com/bimdata/bimdata-components/compare/v1.7.7...v1.7.8) (2025-10-08)
+
+
+### PATCH
+
+* feat(file-manager): add initSelection props ([b842062](https://github.com/bimdata/bimdata-components/commit/b8420625b06ea3691362b8e514c0a909fc4a78a5))
+
 ## [1.7.7](https://github.com/bimdata/bimdata-components/compare/v1.7.6...v1.7.7) (2025-09-23)
 
 
