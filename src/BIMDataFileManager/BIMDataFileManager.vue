@@ -225,6 +225,10 @@ const props = defineProps({
     type: Array,
     defaut: () => [],
   },
+  initSelection: {
+    type: Array,
+    default: () => [],
+  },
   selectableFileTypes: {
     type: Array,
     default: () => [],
@@ -478,7 +482,7 @@ const onToggleFileSelect = async (file) => {
     const selectedPdfPage = getSelectedPdfPage(file);
     if (props.pdfPageSelect && file.model_type === "PDF" && selectedPdfPage) {
       selectedFiles.value = selectedFiles.value.filter(
-        ({ document }) => document !== file
+        ({ document }) => document.id !== file.id
       );
       pdfModelLoading.value = file.id;
       const model = await apiClient.modelApi.getModel(
@@ -494,7 +498,7 @@ const onToggleFileSelect = async (file) => {
       selectedFiles.value.push({ document: file, pdfPage });
     } else {
       selectedFiles.value = selectedFiles.value.filter(
-        ({ document }) => document !== file
+        ({ document }) => document.id !== file.id
       );
     }
   } else {
@@ -525,7 +529,7 @@ const onToggleFileSelect = async (file) => {
 };
 
 const isFileSelected = (file) => {
-  return selectedFiles.value.some(({ document }) => file === document);
+  return selectedFiles.value.some(({ document }) => document.id === file.id);
 };
 
 let selectPdfPage = () => {};
@@ -541,7 +545,7 @@ const openPdfPageSelector = async (model, page) => {
 };
 
 const getSelectedPdfPage = (file) => {
-  return selectedFiles.value.find(({ document }) => file === document)?.pdfPage;
+  return selectedFiles.value.find(({ document }) => document.id === file.id)?.pdfPage;
 };
 
 const openFolder = (file) => {
@@ -600,6 +604,8 @@ apiClient.collaborationApi.getProjectDMSTree(props.spaceId, props.projectId)
 onMounted(() => {
   resizeObserver = new ResizeObserver(onResize);
   resizeObserver.observe(root.value);
+
+  selectedFiles.value = props.initSelection;
 });
 
 onBeforeUnmount(() => {
