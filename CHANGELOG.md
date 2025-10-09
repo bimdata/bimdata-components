@@ -1,3 +1,10 @@
+## [1.7.9](https://github.com/bimdata/bimdata-components/compare/v1.7.8...v1.7.9) (2025-10-09)
+
+
+### PATCH
+
+* fix(file-manager): fix init selection ([a187ce9](https://github.com/bimdata/bimdata-components/commit/a187ce9b69c7dcbeaaf711ea8e912c7b97af9e7a))
+
 ## [1.7.8](https://github.com/bimdata/bimdata-components/compare/v1.7.7...v1.7.8) (2025-10-08)
 
 
