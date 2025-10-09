@@ -605,7 +605,7 @@ onMounted(() => {
   resizeObserver = new ResizeObserver(onResize);
   resizeObserver.observe(root.value);
 
-  selectedFiles.value = props.initSelection;
+  selectedFiles.value = props.initSelection ?? [];
 });
 
 onBeforeUnmount(() => {
