@@ -1,3 +1,10 @@
+## [1.7.10](https://github.com/bimdata/bimdata-components/compare/v1.7.9...v1.7.10) (2025-10-14)
+
+
+### PATCH
+
+* metaBuildingStructure - Highlight selected storey in StoreySelector (#26) ([029ae8b](https://github.com/bimdata/bimdata-components/commit/029ae8b4281abf817ebf6ec296731b2ff7b4aaca)), closes [#26](https://github.com/bimdata/bimdata-components/issues/26)
+
 ## [1.7.9](https://github.com/bimdata/bimdata-components/compare/v1.7.8...v1.7.9) (2025-10-09)
 
 
