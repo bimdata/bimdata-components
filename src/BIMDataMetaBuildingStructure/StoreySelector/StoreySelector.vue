@@ -14,7 +14,7 @@
       </span>
     </template>
     <template #element="{ element }">
-      <div class="list-item">
+      <div class="list-item" :class="{ 'selected': selectedStorey?.uuid === element.uuid }">
         <BIMDataTextbox class="text" :text="element.name" />
         <BIMDataIconZone2 size="xs" />
         <span class="count">{{ element.zones?.length ?? 0 }}</span>
@@ -92,6 +92,11 @@ watch(
       font-size: 0.75rem;
       background-color: var(--color-silver);
       color: var(--color-primary);
+    }
+
+    &.selected {
+      background-color: var(--color-secondary);
+      outline: solid 2px var(--color-secondary);
     }
   }
 }
