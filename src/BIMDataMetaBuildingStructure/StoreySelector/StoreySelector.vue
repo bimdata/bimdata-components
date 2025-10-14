@@ -95,8 +95,8 @@ watch(
     }
 
     &.selected {
-      background-color: var(--color-secondary);
-      outline: solid 2px var(--color-secondary);
+      background-color: light-dark(var(--color-secondary, transparent), var(--color-tertiary, transparent));
+      outline: solid 2px light-dark(var(--color-secondary, transparent), var(--color-tertiary, transparent));
     }
   }
 }
