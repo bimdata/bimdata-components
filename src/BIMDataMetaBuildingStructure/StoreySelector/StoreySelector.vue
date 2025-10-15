@@ -5,7 +5,7 @@
     :list="storeys"
     elementKey="uuid"
     :closeOnElementClick="true"
-    @element-click="selectedStorey = $event"
+    @element-click="$emit('storey-selected', $event)"
   >
     <template #header>
       <BIMDataIconStorey size="xs" />
@@ -56,11 +56,6 @@ watch(
     }
   },
   { immediate: true }
-);
-
-watch(
-  selectedStorey,
-  storey => emit("storey-selected", storey)
 );
 </script>
 
