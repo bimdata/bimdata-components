@@ -1,3 +1,10 @@
+## [1.7.11](https://github.com/bimdata/bimdata-components/compare/v1.7.10...v1.7.11) (2025-10-15)
+
+
+### PATCH
+
+* StoreySelector emits "storey-selected" event only from UI click (#27) ([c1172cf](https://github.com/bimdata/bimdata-components/commit/c1172cfb37a3fabdb7154b8a76e9c8dff5a63afa)), closes [#27](https://github.com/bimdata/bimdata-components/issues/27) [#28](https://github.com/bimdata/bimdata-components/issues/28)
+
 ## [1.7.10](https://github.com/bimdata/bimdata-components/compare/v1.7.9...v1.7.10) (2025-10-14)
 
 
