@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/bimdata/bimdata-components/compare/v1.7.12...v1.8.0) (2025-10-29)
+
+
+### MINOR
+
+* new FileManager alreadySelectedModelIds props (#29) ([cf51379](https://github.com/bimdata/bimdata-components/commit/cf51379facabfc81d5e0d3bdd2874d6f23129257)), closes [#29](https://github.com/bimdata/bimdata-components/issues/29)
+
 ## [1.7.12](https://github.com/bimdata/bimdata-components/compare/v1.7.11...v1.7.12) (2025-10-29)
 
 
