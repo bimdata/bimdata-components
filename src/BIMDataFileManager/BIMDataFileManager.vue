@@ -223,7 +223,7 @@ const props = defineProps({
   },
   alreadySelectedIds: {
     type: Array,
-    defaut: () => [],
+    default: () => [],
   },
   initSelection: {
     type: Array,
