@@ -102,7 +102,7 @@
             :disabled="isDisabled(file)"
             :multi="multi"
             :selected="isFileSelected(file)"
-            :success="isFileSucess(file.id)"
+            :success="isFileSucess(file)"
             @toggle-select="onToggleFileSelect(file)"
             @rename="onRename(file)"
             @delete="onDelete(file)"
@@ -225,6 +225,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  alreadySelectedModelIds: {
+    type: Array,
+    default: () => [],
+  },
   initSelection: {
     type: Array,
     default: () => [],
@@ -343,12 +347,15 @@ const isDisabled = (file) => {
 
   return props.selectableFileTypes.every(ext => ext.toLowerCase() !== fileExtension);
 };
-const isFileSucess = (id) => {
+const isFileSucess = (file) => {
   return (
-    successFileIds.value.includes(id) ||
+    successFileIds.value.includes(file.id) ||
     (props.select &&
-      props.alreadySelectedIds &&
-      props.alreadySelectedIds.includes(id))
+      (
+        props.alreadySelectedIds?.includes(file.id) ||
+        props.alreadySelectedModelIds?.includes(file.model_id)
+      )
+    )
   );
 };
 
