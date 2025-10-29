@@ -1,3 +1,15 @@
+## [1.7.12](https://github.com/bimdata/bimdata-components/compare/v1.7.11...v1.7.12) (2025-10-29)
+
+
+### chore
+
+* update dependencies ([a995de5](https://github.com/bimdata/bimdata-components/commit/a995de5571e621cd9ba6552056abd471014ddc65))
+* update package-lock.json ([c725257](https://github.com/bimdata/bimdata-components/commit/c725257c4573305bb2c0895ecc75be3fec63e451))
+
+### PATCH
+
+* fix(fileManager): typo in default of alreadySelectedIds property ([4d456c0](https://github.com/bimdata/bimdata-components/commit/4d456c04d9f1bb1aea6660102af123d3931face5))
+
 ## [1.7.11](https://github.com/bimdata/bimdata-components/compare/v1.7.10...v1.7.11) (2025-10-15)
 
 
