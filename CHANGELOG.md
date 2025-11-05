@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/bimdata/bimdata-components/compare/v1.8.0...v1.9.0) (2025-11-05)
+
+
+### MINOR
+
+* new File Manager "filter" props (#31) ([a324aa1](https://github.com/bimdata/bimdata-components/commit/a324aa159904ab07538872408cbafe5e3b0586e2)), closes [#31](https://github.com/bimdata/bimdata-components/issues/31)
+
 # [1.8.0](https://github.com/bimdata/bimdata-components/compare/v1.7.12...v1.8.0) (2025-10-29)
 
 
