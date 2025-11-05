@@ -245,6 +245,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  filter: {
+    type: Function,
+    default: null,
+  },
 });
 
 const emit = defineEmits(["error", "selection-change", "success"]);
@@ -300,7 +304,10 @@ const itemWidth = computed(() => {
 const files = ref([]);
 watchEffect(() => {
   let _files = currentFolder.value?.children ?? [];
-  let text = searchText.value.trim().toLowerCase();
+  if (props.filter) {
+    _files = _files.filter(props.filter);
+  }
+  const text = searchText.value.trim().toLowerCase();
   if (text) {
     _files = _files.filter(file => file.name.toLowerCase().includes(text));
   }
