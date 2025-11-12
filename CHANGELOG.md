@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/bimdata/bimdata-components/compare/v1.9.0...v1.9.1) (2025-11-12)
+
+
+### PATCH
+
+* fileManager -> prevent css selector leaks to descendants (#33) ([ed66f53](https://github.com/bimdata/bimdata-components/commit/ed66f533b876ebe5186ec3282989b28b4d72b2ce)), closes [#33](https://github.com/bimdata/bimdata-components/issues/33)
+
 # [1.9.0](https://github.com/bimdata/bimdata-components/compare/v1.8.0...v1.9.0) (2025-11-05)
 
 
