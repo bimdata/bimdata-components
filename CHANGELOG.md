@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/bimdata/bimdata-components/compare/v1.9.1...v1.9.2) (2025-11-18)
+
+
+### PATCH
+
+* chore(ci): setup trusted publisher ([5c7ea67](https://github.com/bimdata/bimdata-components/commit/5c7ea676ac5907327cb1dfe2e8456c1b8eec6146))
+
 ## [1.9.1](https://github.com/bimdata/bimdata-components/compare/v1.9.0...v1.9.1) (2025-11-12)
 
 
