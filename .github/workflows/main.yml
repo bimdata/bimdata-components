@@ -2,13 +2,19 @@ name: main
 
 on: push
 
-env:
-  GITHUB_TOKEN: ${{ secrets.REPOS_TOKEN }}
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+permissions:
+  contents: read
 
 jobs:
   publish:
-    runs-on: [self-hosted, common]
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+    # Use github runner instead of self-hosted as trusted publishing is only supported on github runners for now
+    # https://docs.npmjs.com/trusted-publishers#limitations-and-future-improvements
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
@@ -20,3 +26,5 @@ jobs:
 
       - name: Release
         run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -8,6 +8,9 @@
   ],
   "main": "./index.js",
   "module": "./index.js",
+  "repository": {
+    "url": "https://github.com/bimdata/bimdata-components"
+  },
   "scripts": {
     "release": "semantic-release"
   },
