@@ -22,7 +22,7 @@
         width="100%"
         height="100%"
         type="application/pdf"
-        :data="pdfUrl"
+        :data="`${pdfUrl}${page > 1 ? '#page=' + page : ''}`"
       ></object>
     </template>
   </div>
@@ -39,6 +39,10 @@ export default {
     },
     pdf: {
       type: [Object, File],
+    },
+    page: {
+      type: Number,
+      default: 1,
     },
   },
   setup(props) {
