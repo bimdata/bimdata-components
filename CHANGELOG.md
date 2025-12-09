@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/bimdata/bimdata-components/compare/v1.9.2...v1.10.0) (2025-12-09)
+
+
+### MINOR
+
+* feat: add page prop to BIMDataPDFViewer ([6264c5a](https://github.com/bimdata/bimdata-components/commit/6264c5ac2af6d1addcbcc3d863a44847b0990380))
+
 ## [1.9.2](https://github.com/bimdata/bimdata-components/compare/v1.9.1...v1.9.2) (2025-11-18)
 
 
