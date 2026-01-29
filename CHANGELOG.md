@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/bimdata/bimdata-components/compare/v1.10.0...v1.10.1) (2026-01-29)
+
+
+### PATCH
+
+* chore(deps): update package-lock.json ([bd24453](https://github.com/bimdata/bimdata-components/commit/bd244533eaa829ac2e53831ab06547ceca51041f))
+
 # [1.10.0](https://github.com/bimdata/bimdata-components/compare/v1.9.2...v1.10.0) (2025-12-09)
 
 
