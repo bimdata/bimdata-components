@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: "24"
           check-latest: true
-      - run: npm install -g npm@11.10
+      - run: npm install -g npm@11.12
       - run: npm ci
 
       - name: Release
