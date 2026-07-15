@@ -2,7 +2,7 @@
   <div class="overlay">
     <div class="safe-zone" :style="{ width }">
       <div class="safe-zone__icon">
-        <BIMDataIcon :name="iconName" size="s" fill color="high" />
+        <slot name="icon"><BIMDataIcon :name="iconName" size="s" fill color="high" /></slot>
       </div>
       <h2 class="safe-zone__title">
         <slot name="title"></slot>
