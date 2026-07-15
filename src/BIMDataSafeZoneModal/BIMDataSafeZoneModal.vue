@@ -2,7 +2,11 @@
   <div class="overlay">
     <div class="safe-zone" :style="{ width }">
       <div class="safe-zone__icon">
-        <slot name="icon"><BIMDataIcon :name="iconName" size="s" fill color="high" /></slot>
+        <slot name="icon">
+          <div class="icon">
+            <BIMDataIcon :name="iconName" size="s" fill color="high" />
+          </div>
+        </slot>
       </div>
       <h2 class="safe-zone__title">
         <slot name="title"></slot>
@@ -60,14 +64,16 @@ defineProps({
     background-color: var(--color-white);
 
     &__icon {
-      width: 40px;
-      height: 40px;
-      margin: auto;
-      border-radius: 50px;
-      background-color: var(--color-high-lighter);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .icon {
+        width: 40px;
+        height: 40px;
+        margin: auto;
+        border-radius: 50px;
+        background-color: var(--color-high-lighter);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     &__title {
