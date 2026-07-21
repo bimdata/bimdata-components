@@ -1,3 +1,14 @@
+## [1.10.2](https://github.com/bimdata/bimdata-components/compare/v1.10.1...v1.10.2) (2026-07-21)
+
+
+### chore
+
+* update dependencies ([27fd6e1](https://github.com/bimdata/bimdata-components/commit/27fd6e1c9fc0b928d873e770f7c41f4fbb01c770))
+
+### PATCH
+
+* add default slot for custom icon in BIMDataSafeZoneModal (#62) ([bfdafcf](https://github.com/bimdata/bimdata-components/commit/bfdafcfedab5a034a59775acea2867015cd5e4f7)), closes [#62](https://github.com/bimdata/bimdata-components/issues/62)
+
 ## [1.10.1](https://github.com/bimdata/bimdata-components/compare/v1.10.0...v1.10.1) (2026-01-29)
 
 
