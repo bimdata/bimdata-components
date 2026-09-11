@@ -1,32 +1,38 @@
 {
+    "BIMDataComponents": {
+        "t": {
+            "back": "Zurück",
+            "cancel": "Abbrechen",
+            "create": "Erstellen",
+            "delete": "Löschen",
+            "download": "Herunterladen",
+            "finish": "Fertigstellen",
+            "rename": "Umbenennen",
+            "search": "Suche",
+            "see": "Ansehen",
+            "storey": "Etagen",
+            "validate": "Bestätigen"
+        }
+    },
     "BuildingMaker": {
         "title": "Building Maker",
-        "back": "Zurück",
         "list": {
-            "text": "Erstellen und bearbeiten Sie die Etagen und laden Sie anschließend Ihre PDFs herunter.",
-            "createButton": "Neues Projekt",
-            "updateButton": "Umbenennen",
-            "deleteButton": "Löschen"
+            "text": "Erstellen und bearbeiten Sie Etagen und laden Sie anschließend Ihre PDFs herunter.",
+            "new": "Neues Projekt"
         },
         "form": {
-            "text": "Erstellen und bearbeiten Sie die Etagen und laden Sie anschließend Ihre PDFs herunter.",
             "input": "Name des Gebäudes",
-            "error": "Ungültiger Name",
-            "createButton": "Erstellen",
-            "updateButton": "Bestätigen"
+            "error": "Ungültiger Name"
         },
         "view": {
-            "addStoreyButton": "Etage",
-            "addPlanButton": "Grundriss",
-            "closeButton": "Fertigstellen",
-            "submitFilesButton": "Bestätigen"
+            "addStorey": "Etage",
+            "addFile": "Datei hinufügen",
+            "addPlan": "Plan hinzufügen"
         },
         "storeyForm": {
             "title": "Neue Etage",
             "input": "Name",
-            "error": "Ungültiger Name",
-            "cancelButton": "Abbrechen",
-            "submitButton": "Bestätigen"
+            "error": "Ungültiger Name"
         }
     },
     "FileManager": {
@@ -41,15 +47,25 @@
         "renameFileSuccess": "Umbenannte Datei",
         "deleteFileSuccess": "Datei gelöscht",
         "nameInputErrorMessage": "Ungültiger name",
-        "cancel": "Abbrechen",
-        "submit": "Bestätigen",
         "buttonText": "Neuer Ordner",
-        "addFileButtonText": "Datei laden",
-        "rename": "Umbenennen",
-        "view": "Sehen",
-        "download": "Herunterladen",
-        "delete": "Löschen",
-        "deleteTitle": "Dateien löschen",
-        "deleteDetail": "Sie sind im Begriff, die folgenden Dateien / Ordner endgültig zu löschen"
+        "addFileButtonText": "Datei hochladen",
+        "deleteTitle": "Lösche Dateien",
+        "deleteDetail":"Sie sind im Begriff, die folgenden Dateien / Ordner endgültig zu löschen",
+        "dmsRoot": "Projektordner",
+        "pdfPageSelectorTitle": "Seite auswählen"
+    },
+    "MetaBuildingStructure": {
+        "title": "Meta-Building Structure",
+        "tab": {
+            "structure": "Struktur",
+            "zones": "Zonen",
+            "equipments": "Werkzeuge"
+        },
+        "StoreySelector": {
+            "placeholder": "Etage auswählen"
+        }
+    },
+    "PhotosphereBuilding": {
+        "title": "Photosphere Gebäude"
     }
 }
