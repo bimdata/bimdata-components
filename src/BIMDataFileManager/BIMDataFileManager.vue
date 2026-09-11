@@ -54,7 +54,7 @@
         :color="searchColor"
         class="bimdata-file-manager__search"
         width="100%"
-        placeholder="Search"
+        :placeholder="$t('BIMDataComponents.t.search')"
         v-model="searchText"
         ref="search"
         clear
