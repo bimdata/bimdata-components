@@ -1,3 +1,14 @@
+## [1.10.3](https://github.com/bimdata/bimdata-components/compare/v1.10.2...v1.10.3) (2026-09-11)
+
+
+### chore
+
+* update dependencies ([9acc6a2](https://github.com/bimdata/bimdata-components/commit/9acc6a2c11a425a5442f286434b3daa9f835029a))
+
+### PATCH
+
+* de i18n (#71) ([393a02c](https://github.com/bimdata/bimdata-components/commit/393a02cec6f31d541fb4b67cc0ff8c1efd701b92)), closes [#71](https://github.com/bimdata/bimdata-components/issues/71)
+
 ## [1.10.2](https://github.com/bimdata/bimdata-components/compare/v1.10.1...v1.10.2) (2026-07-21)
 
 
